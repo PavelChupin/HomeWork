@@ -53,11 +53,29 @@
       <file leaf-file-name="TestDistance.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/TestDistance.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="62" lean-forward="false" selection-start-line="17" selection-start-column="62" selection-end-line="17" selection-end-column="62" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="425">
+              <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Point.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/homework/src/main/java/ru/stqa/pft/homework/Point.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Build.gradle" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/homework/Build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -275,7 +293,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$/homework" value="1487326835083" />
+        <entry key="$PROJECT_DIR$/homework" value="1488030374762" />
         <entry key="$PROJECT_DIR$/../java_pft/DZ1_2" value="1487314734295" />
         <entry key="$PROJECT_DIR$/../java_pft/homework" value="1487326835083" />
         <entry key="$PROJECT_DIR$/../java_pft/sandbox" value="1487314696842" />
@@ -387,12 +405,13 @@
       <list>
         <option value="$PROJECT_DIR$/homework/src/main/java/ru/stqa/pft/homework/MainHomeWork.java" />
         <option value="$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/TestDistance.java" />
+        <option value="$PROJECT_DIR$/homework/Build.gradle" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="324" />
-    <option name="y" value="31" />
+    <option name="x" value="-7" />
+    <option name="y" value="8" />
     <option name="width" value="1400" />
     <option name="height" value="1000" />
   </component>
@@ -414,10 +433,21 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="homework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+          </PATH>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="homework" />
@@ -482,7 +512,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -774,21 +803,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TestDistance - 2017.02.17 at 17h 45m 41s.xml">
-      <configuration name="TestDistance" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="TestDistance - 2017.02.17 at 18h 12m 47s.xml">
-      <configuration name="TestDistance" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="TestDistance - 2017.02.17 at 18h 12m 55s.xml">
-      <configuration name="TestDistance" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="TestDistance - 2017.02.17 at 18h 13m 50s.xml">
-      <configuration name="TestDistance" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="TestDistance - 2017.02.17 at 18h 14m 05s.xml">
-      <configuration name="TestDistance" configurationId="TestNG" />
-    </history-entry>
     <history-entry file="TestDistance - 2017.02.17 at 18h 26m 17s.xml">
       <configuration name="TestDistance" configurationId="TestNG" />
     </history-entry>
@@ -798,10 +812,31 @@
     <history-entry file="TestDistance - 2017.02.17 at 18h 26m 42s.xml">
       <configuration name="TestDistance" configurationId="TestNG" />
     </history-entry>
+    <history-entry file="TestDistance - 2017.02.17 at 18h 54m 13s.xml">
+      <configuration name="TestDistance" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="TestDistance - 2017.02.17 at 18h 59m 30s.xml">
+      <configuration name="TestDistance" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="TestDistance - 2017.02.17 at 19h 00m 22s.xml">
+      <configuration name="TestDistance" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="TestDistance - 2017.02.25 at 20h 04m 50s.xml">
+      <configuration name="TestDistance" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="TestDistance - 2017.02.25 at 20h 05m 26s.xml">
+      <configuration name="TestDistance" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="TestDistance - 2017.02.25 at 20h 08m 45s.xml">
+      <configuration name="TestDistance" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="TestDistance - 2017.02.25 at 20h 09m 53s.xml">
+      <configuration name="TestDistance" configurationId="TestNG" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="324" y="31" width="1400" height="1000" extended-state="0" />
-    <editor active="true" />
+    <frame x="-7" y="8" width="1400" height="1000" extended-state="1" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -856,11 +891,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/TestDistance.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/src/main/java/ru/stqa/pft/homework/Point.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -874,11 +915,89 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/TestDistance.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="62" lean-forward="false" selection-start-line="17" selection-start-column="62" selection-end-line="17" selection-end-column="62" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="357">
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/src/main/java/ru/stqa/pft/homework/Point.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/src/main/java/ru/stqa/pft/homework/MainHomeWork.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/TestDistance.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/src/main/java/ru/stqa/pft/homework/Point.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/src/main/java/ru/stqa/pft/homework/MainHomeWork.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/TestDistance.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/src/main/java/ru/stqa/pft/homework/MainHomeWork.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/src/main/java/ru/stqa/pft/homework/Point.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/Build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/TestDistance.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

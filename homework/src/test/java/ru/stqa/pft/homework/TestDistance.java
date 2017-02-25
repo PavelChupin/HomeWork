@@ -12,10 +12,16 @@ public class TestDistance {
 
     @Test
     public void testDistance() {
-        Point p1 = new Point(8, 8);
-        Point p2 = new Point(6, 6);
+        //for (int i = 0;i < 4;i++) {
 
-        Assert.assertEquals(p1.distance(p2),2.8284271247461903);
+
+            Point p1 = new Point(2,4);
+            Point p2 = new Point(4, 4);
+            Point p3 = new Point(6,7);
+
+            Assert.assertEquals(p1.distance(p2), p2.distance(p3));
+
+        //}
     }
 
 
