@@ -4,7 +4,7 @@ public class LoginData {
     private final String password;
     private final String username;
 
-    public LoginData(String password, String username) {
+    public LoginData(String username, String password) {
         this.password = password;
         this.username = username;
     }
