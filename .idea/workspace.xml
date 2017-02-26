@@ -79,8 +79,8 @@
       <file leaf-file-name="PersonDelete.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/PersonDelete.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="16" column="27" lean-forward="true" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+            <state relative-caret-position="119">
+              <caret line="28" column="48" lean-forward="true" selection-start-line="28" selection-start-column="48" selection-end-line="28" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -121,8 +121,8 @@
       <file leaf-file-name="GroupDeletionHome.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/GroupDeletionHome.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="19" column="17" lean-forward="true" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+            <state relative-caret-position="424">
+              <caret line="37" column="8" lean-forward="true" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -972,29 +972,29 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="GroupDeletionHome - 2017.02.26 at 22h 58m 36s.xml">
-      <configuration name="GroupDeletionHome" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="PersonDelete_(1) - 2017.02.26 at 23h 10m 58s.xml">
-      <configuration name="PersonDelete (1)" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="PersonDelete_(1) - 2017.02.26 at 23h 11m 53s.xml">
-      <configuration name="PersonDelete (1)" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="PersonDelete_(1) - 2017.02.26 at 23h 13m 58s.xml">
-      <configuration name="PersonDelete (1)" configurationId="TestNG" />
-    </history-entry>
     <history-entry file="PersonDelete_(1) - 2017.02.26 at 23h 17m 05s.xml">
       <configuration name="PersonDelete (1)" configurationId="TestNG" />
     </history-entry>
     <history-entry file="PersonDelete_(1) - 2017.02.26 at 23h 18m 01s.xml">
       <configuration name="PersonDelete (1)" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="PersonInsert - 2017.02.26 at 23h 05m 54s.xml">
-      <configuration name="PersonInsert" configurationId="TestNG" />
+    <history-entry file="PersonDelete_(1) - 2017.02.26 at 23h 26m 02s.xml">
+      <configuration name="PersonDelete (1)" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="PersonInsert - 2017.02.26 at 23h 06m 12s.xml">
-      <configuration name="PersonInsert" configurationId="TestNG" />
+    <history-entry file="PersonDelete_(1) - 2017.02.26 at 23h 26m 59s.xml">
+      <configuration name="PersonDelete (1)" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="PersonDelete_(1) - 2017.02.26 at 23h 28m 49s.xml">
+      <configuration name="PersonDelete (1)" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="PersonDelete_(1) - 2017.02.26 at 23h 34m 22s.xml">
+      <configuration name="PersonDelete (1)" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="PersonDelete_(1) - 2017.02.26 at 23h 36m 59s.xml">
+      <configuration name="PersonDelete (1)" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="PersonDelete_(1) - 2017.02.26 at 23h 38m 09s.xml">
+      <configuration name="PersonDelete (1)" configurationId="TestNG" />
     </history-entry>
     <history-entry file="PersonInsert - 2017.02.26 at 23h 17m 24s.xml">
       <configuration name="PersonInsert" configurationId="TestNG" />
@@ -1016,7 +1016,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32921347" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32921347" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1194,20 +1194,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/PersonInsert.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#987#988#0" expanded="true" />
-            <element signature="e#1074#1075#0" expanded="true" />
-            <element signature="e#5893#5894#0" expanded="true" />
-            <element signature="e#5955#5956#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/GroupCreationHome.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -1228,16 +1214,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/GroupDeletionHome.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="19" column="17" lean-forward="true" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+        <state relative-caret-position="424">
+          <caret line="37" column="8" lean-forward="true" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="50" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/PersonInsert.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#987#988#0" expanded="true" />
+            <element signature="e#1074#1075#0" expanded="true" />
+            <element signature="e#5893#5894#0" expanded="true" />
+            <element signature="e#5955#5956#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/PersonDelete.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="16" column="27" lean-forward="true" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+        <state relative-caret-position="119">
+          <caret line="28" column="48" lean-forward="true" selection-start-line="28" selection-start-column="48" selection-end-line="28" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
