@@ -1,4 +1,4 @@
-package ru.stqa.pft.homework;
+package ru.stqa.pft.homework.model;
 
 public class GroupData {
     private final String name;
