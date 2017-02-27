@@ -129,9 +129,9 @@ public class PersonHelper extends HelperBase{
         wd.findElement(By.name("ayear")).click();
         wd.findElement(By.name("ayear")).sendKeys(personData.getAyear());
         */
-        if (!wd.findElement(By.xpath("//div[@id='content']/form/select[5]//option[1]")).isSelected()) {
+       /* if (!wd.findElement(By.xpath("//div[@id='content']/form/select[5]//option[1]")).isSelected()) {
             wd.findElement(By.xpath("//div[@id='content']/form/select[5]//option[1]")).click();
-        }
+        }*/
         type(By.name("address2"),personData.getAddress2());
         /*
         wd.findElement(By.name("address2")).click();
@@ -156,5 +156,14 @@ public class PersonHelper extends HelperBase{
 
     public void alertWindowOk() {
         wd.switchTo().alert().accept();
+    }
+
+    public void initPersonModification() {
+        click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
+    }
+
+    public void submitPersonModification() {
+        click(By.xpath("//div[@id='content']/form[1]/input[22]"));
+        //click(By.xpath("//div/div[4]/form[1]/input[22]"));
     }
 }
