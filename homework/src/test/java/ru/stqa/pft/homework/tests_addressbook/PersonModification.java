@@ -18,7 +18,7 @@ public class PersonModification extends TestBase {
         app.getNavigationHelper().gotoHomePage();
         app.getPersonHelper().selectPerson();
         app.getPersonHelper().initPersonModification();
-        app.getPersonHelper().fillPersonForm(new PersonData("Pavel", "", "Chupin", "PavelChupin", "", "", "630089, Novosibirsk, B.Bogatkova 185", "", "+79137382899", "pavel.chupin@gmail.com", "", "", "", "1984", "", "", ""));
+        app.getPersonHelper().fillPersonForm(new PersonData("Pavel", "", "Chupin", "PavelChupin", "", "", "630089, Novosibirsk, B.Bogatkova 185", "", "+79137382899", "pavel.chupin@gmail.com", "", "", "", "1984", "", "", "", null),false);
         app.getPersonHelper().submitPersonModification();
         //app.getPersonHelper().alertWindowOk();
         app.getNavigationHelper().gotoHomePage();

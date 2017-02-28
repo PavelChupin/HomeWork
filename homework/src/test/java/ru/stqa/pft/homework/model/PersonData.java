@@ -18,8 +18,9 @@ public class PersonData {
     private final String ayear;
     private final String address2;
     private final String phone2;
+    private String group;
 
-    public PersonData(String firstname, String middlename, String lastname, String nickname, String title, String company, String address, String home, String mobilephone, String email, String email2, String email3, String homepage, String byear, String ayear, String address2, String phone2) {
+    public PersonData(String firstname, String middlename, String lastname, String nickname, String title, String company, String address, String home, String mobilephone, String email, String email2, String email3, String homepage, String byear, String ayear, String address2, String phone2, String group) {
         this.firstname = firstname;
         this.middlename = middlename;
         this.lastname = lastname;
@@ -37,6 +38,7 @@ public class PersonData {
         this.ayear = ayear;
         this.address2 = address2;
         this.phone2 = phone2;
+        this.group = group;
     }
 
     public String getFirstname() {
@@ -105,5 +107,9 @@ public class PersonData {
 
     public String getPhone2() {
         return phone2;
+    }
+
+    public String getGroup() {
+        return group;
     }
 }

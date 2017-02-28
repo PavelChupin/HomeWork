@@ -36,7 +36,7 @@ public class ApplicationManager {
         }
 
         //wd = new FirefoxDriver();
-        wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+        wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         wd.get("http://localhost/addressbook/");
         groupHelper = new GroupHelper(wd);
         personHelper = new PersonHelper(wd);

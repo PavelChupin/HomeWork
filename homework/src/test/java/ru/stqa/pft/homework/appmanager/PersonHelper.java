@@ -1,8 +1,11 @@
 package ru.stqa.pft.homework.appmanager;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import ru.stqa.pft.homework.model.PersonData;
 
 /**
@@ -20,7 +23,7 @@ public class PersonHelper extends HelperBase{
         click(By.xpath("//div[@id='content']/form/input[21]"));
     }
 
-    public void fillPersonForm(PersonData personData) {
+    public void fillPersonForm(PersonData personData, boolean insert) {
         type(By.name("firstname"),personData.getFirstname());
         /*wd.findElement(By.name("firstname")).click();
         wd.findElement(By.name("firstname")).clear();
@@ -133,6 +136,11 @@ public class PersonHelper extends HelperBase{
        /* if (!wd.findElement(By.xpath("//div[@id='content']/form/select[5]//option[1]")).isSelected()) {
             wd.findElement(By.xpath("//div[@id='content']/form/select[5]//option[1]")).click();
         }*/
+        if(insert){
+            new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(personData.getGroup());
+        }else{
+            Assert.assertFalse(isElementPresent(By.name("new_group")));
+        }
         type(By.name("address2"),personData.getAddress2());
         /*
         wd.findElement(By.name("address2")).click();
@@ -143,6 +151,7 @@ public class PersonHelper extends HelperBase{
         wd.findElement(By.name("phone2")).click();
         wd.findElement(By.name("phone2")).sendKeys(personData.getPhone2());
         */
+
     }
 
     public void selectPerson() {
