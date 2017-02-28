@@ -1,7 +1,8 @@
-package ru.stqa.pft.homework;
+package ru.stqa.pft.homework.tests_function;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import ru.stqa.pft.homework.Point;
 
 /**
  * Created by Summoner on 17.02.2017.

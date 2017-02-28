@@ -1,6 +1,5 @@
-package ru.stqa.pft.homework.tests;
+package ru.stqa.pft.homework.tests_addressbook;
 
-import org.openqa.selenium.By;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import ru.stqa.pft.homework.appmanager.ApplicationManager;

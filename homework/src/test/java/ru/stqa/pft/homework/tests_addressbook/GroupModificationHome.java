@@ -1,4 +1,4 @@
-package ru.stqa.pft.homework.tests;
+package ru.stqa.pft.homework.tests_addressbook;
 
 import org.testng.annotations.Test;
 import ru.stqa.pft.homework.model.GroupData;
