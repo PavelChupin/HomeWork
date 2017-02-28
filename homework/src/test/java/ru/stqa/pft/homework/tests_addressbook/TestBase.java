@@ -11,7 +11,11 @@ import org.openqa.selenium.remote.BrowserType;
  */
 public class TestBase  {
 
-    protected final ApplicationManager app = new ApplicationManager(BrowserType.CHROME);
+    protected final ApplicationManager app /*= new ApplicationManager(BrowserType.CHROME)*/;
+
+    public TestBase (String browserType){
+        app = new ApplicationManager(browserType);
+    }
 
     @BeforeMethod
     public void setUp() throws Exception {

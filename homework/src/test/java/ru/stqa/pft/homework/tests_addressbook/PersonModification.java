@@ -1,5 +1,6 @@
 package ru.stqa.pft.homework.tests_addressbook;
 
+import org.openqa.selenium.remote.BrowserType;
 import org.testng.annotations.Test;
 import ru.stqa.pft.homework.model.PersonData;
 
@@ -7,6 +8,11 @@ import ru.stqa.pft.homework.model.PersonData;
  * Created by Summoner on 27.02.2017.
  */
 public class PersonModification extends TestBase {
+
+    public PersonModification(){
+        super(BrowserType.CHROME);
+    }
+
     @Test
     public void modificationPerson(){
         app.getNavigationHelper().gotoHomePage();

@@ -1,5 +1,6 @@
 package ru.stqa.pft.homework.tests_addressbook;
 
+import org.openqa.selenium.remote.BrowserType;
 import org.testng.annotations.Test;
 import ru.stqa.pft.homework.model.GroupData;
 
@@ -7,6 +8,10 @@ import ru.stqa.pft.homework.model.GroupData;
  * Created by Summoner on 27.02.2017.
  */
 public class GroupModificationHome extends TestBase {
+
+    public GroupModificationHome(){
+        super(BrowserType.CHROME);
+    }
 
     @Test
     public void homeGroupModification (){

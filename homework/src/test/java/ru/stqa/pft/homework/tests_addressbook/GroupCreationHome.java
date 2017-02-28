@@ -6,6 +6,10 @@ import ru.stqa.pft.homework.model.GroupData;
 
 public class GroupCreationHome extends TestBase {
 
+    public GroupCreationHome(){
+        super(BrowserType.FIREFOX);
+    }
+
     @Test
     public void homeGroupCreation() {
         app.getNavigationHelper().gotoGroupPage();
