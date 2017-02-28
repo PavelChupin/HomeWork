@@ -1,6 +1,7 @@
 package ru.stqa.pft.homework.appmanager;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import ru.stqa.pft.homework.model.LoginData;
 
@@ -10,7 +11,7 @@ import ru.stqa.pft.homework.model.LoginData;
 public class SessionHelper extends HelperBase {
     //private FirefoxDriver wd;
 
-    public SessionHelper(FirefoxDriver wd) {
+    public SessionHelper(WebDriver wd) {
         super(wd);
     }
 

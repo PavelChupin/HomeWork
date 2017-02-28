@@ -1,5 +1,6 @@
 package ru.stqa.pft.homework.tests_addressbook;
 
+import org.openqa.selenium.remote.BrowserType;
 import org.testng.annotations.Test;
 import ru.stqa.pft.homework.model.GroupData;
 
