@@ -1,9 +1,7 @@
 package ru.stqa.pft.homework.appmanager;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.homework.model.PersonData;
@@ -94,27 +92,27 @@ public class PersonHelper extends HelperBase{
         wd.findElement(By.name("homepage")).click();
         wd.findElement(By.name("homepage")).sendKeys(personData.getHomepage());
         */
-        if (!wd.findElement(By.xpath("//div[@id='content']/form/select[1]//option[1]")).isSelected()) {
-            wd.findElement(By.xpath("//div[@id='content']/form/select[1]//option[1]")).click();
+        if (!findElement(By.xpath("//div[@id='content']/form/select[1]//option[1]")).isSelected()) {
+            findElement(By.xpath("//div[@id='content']/form/select[1]//option[1]")).click();
         }
-        if (!wd.findElement(By.xpath("//div[@id='content']/form/select[1]//option[3]")).isSelected()) {
-            wd.findElement(By.xpath("//div[@id='content']/form/select[1]//option[3]")).click();
+        if (!findElement(By.xpath("//div[@id='content']/form/select[1]//option[3]")).isSelected()) {
+            findElement(By.xpath("//div[@id='content']/form/select[1]//option[3]")).click();
         }
-        if (!wd.findElement(By.xpath("//div[@id='content']/form/select[1]//option[12]")).isSelected()) {
-            wd.findElement(By.xpath("//div[@id='content']/form/select[1]//option[12]")).click();
+        if (!findElement(By.xpath("//div[@id='content']/form/select[1]//option[12]")).isSelected()) {
+            findElement(By.xpath("//div[@id='content']/form/select[1]//option[12]")).click();
         }
-        if (!wd.findElement(By.xpath("//div[@id='content']/form/select[1]//option[12]")).isSelected()) {
-            wd.findElement(By.xpath("//div[@id='content']/form/select[1]//option[12]")).click();
+        if (!findElement(By.xpath("//div[@id='content']/form/select[1]//option[12]")).isSelected()) {
+            findElement(By.xpath("//div[@id='content']/form/select[1]//option[12]")).click();
         }
-        if (!wd.findElement(By.xpath("//div[@id='content']/form/select[2]//option[1]")).isSelected()) {
-            wd.findElement(By.xpath("//div[@id='content']/form/select[2]//option[1]")).click();
+        if (!findElement(By.xpath("//div[@id='content']/form/select[2]//option[1]")).isSelected()) {
+            findElement(By.xpath("//div[@id='content']/form/select[2]//option[1]")).click();
         }
-        if (!wd.findElement(By.xpath("//div[@id='content']/form/select[1]//option[13]")).isSelected()) {
-            wd.findElement(By.xpath("//div[@id='content']/form/select[1]//option[13]")).click();
+        if (!findElement(By.xpath("//div[@id='content']/form/select[1]//option[13]")).isSelected()) {
+            findElement(By.xpath("//div[@id='content']/form/select[1]//option[13]")).click();
         }
-        wd.findElement(By.name("byear")).click();
-        if (!wd.findElement(By.xpath("//div[@id='content']/form/select[2]//option[7]")).isSelected()) {
-            wd.findElement(By.xpath("//div[@id='content']/form/select[2]//option[7]")).click();
+        findElement(By.name("byear")).click();
+        if (!findElement(By.xpath("//div[@id='content']/form/select[2]//option[7]")).isSelected()) {
+            findElement(By.xpath("//div[@id='content']/form/select[2]//option[7]")).click();
         }
         type(By.name("byear"),personData.getByear());
         /*
@@ -122,11 +120,11 @@ public class PersonHelper extends HelperBase{
         wd.findElement(By.name("byear")).clear();
         wd.findElement(By.name("byear")).sendKeys(personData.getByear());
         */
-        if (!wd.findElement(By.xpath("//div[@id='content']/form/select[3]//option[1]")).isSelected()) {
-            wd.findElement(By.xpath("//div[@id='content']/form/select[3]//option[1]")).click();
+        if (!findElement(By.xpath("//div[@id='content']/form/select[3]//option[1]")).isSelected()) {
+            findElement(By.xpath("//div[@id='content']/form/select[3]//option[1]")).click();
         }
-        if (!wd.findElement(By.xpath("//div[@id='content']/form/select[4]//option[1]")).isSelected()) {
-            wd.findElement(By.xpath("//div[@id='content']/form/select[4]//option[1]")).click();
+        if (!findElement(By.xpath("//div[@id='content']/form/select[4]//option[1]")).isSelected()) {
+            findElement(By.xpath("//div[@id='content']/form/select[4]//option[1]")).click();
         }
         type(By.name("ayear"),personData.getAyear());
         /*
@@ -137,7 +135,7 @@ public class PersonHelper extends HelperBase{
             wd.findElement(By.xpath("//div[@id='content']/form/select[5]//option[1]")).click();
         }*/
         if(insert){
-            new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(personData.getGroup());
+            new Select(findElement(By.name("new_group"))).selectByVisibleText(personData.getGroup());
         }else{
             Assert.assertFalse(isElementPresent(By.name("new_group")));
         }

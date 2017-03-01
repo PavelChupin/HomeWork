@@ -2,7 +2,6 @@ package ru.stqa.pft.homework.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import ru.stqa.pft.homework.model.GroupData;
 
 /**
@@ -24,7 +23,7 @@ public class GroupHelper extends HelperBase {
 
     public void fillGroupForm(GroupData groupData) {
         type(By.name("group_name"), groupData.getName());
-        if (!wd.findElement(By.xpath("//div[@id='content']/form/select//option[1]")).isSelected()) {
+        if (!findElement(By.xpath("//div[@id='content']/form/select//option[1]")).isSelected()) {
             click(By.xpath("//div[@id='content']/form/select//option[1]"));
         }
         type(By.name("group_header"), groupData.getHeader());
