@@ -15,6 +15,11 @@ public class PersonModification extends TestBase {
 
     @Test
     public void modificationPerson(){
+        //app.getNavigationHelper().gotoHomePage();
+        if (! app.getPersonHelper().isTherePersone()){
+            app.getNavigationHelper().gotoAddNewPage();
+            app.getPersonHelper().insertPerson(new PersonData("Pavel", "", "Chupin", "PavelChupin", "", "", "630089, Novosibirsk, B.Bogatkova 185", "", "+79137382899", "pavel.chupin@gmail.com", "", "", "", "1984", "", "", "", null),true);
+        }
         app.getNavigationHelper().gotoHomePage();
         app.getPersonHelper().selectPerson();
         app.getPersonHelper().initPersonModification();

@@ -2,9 +2,14 @@ package ru.stqa.pft.homework.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Quotes;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.homework.model.PersonData;
+import ru.stqa.pft.homework.tests_addressbook.GroupCreationHome;
+
+import java.util.List;
 
 /**
  * Created by Summoner on 27.02.2017.
@@ -135,10 +140,18 @@ public class PersonHelper extends HelperBase{
             wd.findElement(By.xpath("//div[@id='content']/form/select[5]//option[1]")).click();
         }*/
         if(insert){
-            new Select(findElement(By.name("new_group"))).selectByVisibleText(personData.getGroup());
+            if (personData.getGroup() != null) {
+                List<WebElement> options = findElement(By.name("new_group")).findElements(By.xpath(".//option[normalize-space(.) = " + Quotes.escape(personData.getGroup()) + "]"));
+                if (options.size() == 0) { /*Если группа с заданным именем не найдена, то добавим в группу по умолчанию*/
+                    personData.setGroup("[none]");
+                }
+
+                new Select(findElement(By.name("new_group"))).selectByVisibleText(personData.getGroup());
+            }
         }else{
             Assert.assertFalse(isElementPresent(By.name("new_group")));
         }
+
         type(By.name("address2"),personData.getAddress2());
         /*
         wd.findElement(By.name("address2")).click();
@@ -173,5 +186,23 @@ public class PersonHelper extends HelperBase{
     public void submitPersonModification() {
         click(By.xpath("//div[@id='content']/form[1]/input[22]"));
         //click(By.xpath("//div/div[4]/form[1]/input[22]"));
+    }
+
+    public void insertPerson(PersonData personData, boolean b) {
+      //  if (personData.getGroup() != null) { /*если передается наименование группы то проверим ее на существования*/
+      //      List<WebElement> options = findElement(By.name("new_group")).findElements(By.xpath(".//option[normalize-space(.) = " + Quotes.escape(personData.getGroup()) + "]"));
+       //     if (options.size() == 0) { /*Если группа с заданным именем не найдена, то добавим такую группу*/
+
+       //         GroupCreationHome groupCreationHome = new GroupCreationHome();
+        //        groupCreationHome.homeGroupCreation(personData.getGroup());
+        //        new NavigationHelper(wd).gotoAddNewPage();
+        //    }
+       // }
+        fillPersonForm(personData,b);
+        savePersonData();
+    }
+
+    public boolean isTherePersone() {
+        return isElementPresent(By.name("selected[]"));
     }
 }

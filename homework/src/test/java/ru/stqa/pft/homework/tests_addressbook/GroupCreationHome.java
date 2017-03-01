@@ -13,10 +13,12 @@ public class GroupCreationHome extends TestBase {
     @Test
     public void homeGroupCreation() {
         app.getNavigationHelper().gotoGroupPage();
-        app.getGroupHelper().initGroupCreation();
+        app.getGroupHelper().creationGroup(new GroupData("HomeGroup", "HomeGroup1", "HomeGroup2"));
+        /*app.getGroupHelper().initGroupCreation();
         app.getGroupHelper().fillGroupForm(new GroupData("HomeGroup", "HomeGroup1", "HomeGroup2"));
         app.getGroupHelper().submitGroupCreation();
         app.getGroupHelper().returnGroupToPage();
+        */
     }
 
 }
