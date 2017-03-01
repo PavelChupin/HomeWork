@@ -14,13 +14,22 @@ public class HelperBase {
     }
 
     protected void click(By locator) {
-        wd.findElement(locator).click();
+        //wd.findElement(locator).click();
+        findElement(locator).click();
     }
 
     protected void type(By locator, String text) {
         click(locator);
-        wd.findElement(locator).clear();
-        wd.findElement(locator).sendKeys(text);
+
+        if (text != null) { //Если поле к заполнению передано, то необходимо его изменить
+            String existingText = findElement(locator).getAttribute("value");
+            if (! text.equals(existingText)) {
+                //wd.findElement(locator).clear();
+                //wd.findElement(locator).sendKeys(text);
+                findElement(locator).clear();
+                findElement(locator).sendKeys(text);
+            }
+        }
     }
 
     public boolean isAlertPresent() {

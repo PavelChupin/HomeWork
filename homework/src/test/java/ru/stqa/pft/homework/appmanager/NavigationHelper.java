@@ -14,20 +14,31 @@ public class NavigationHelper extends HelperBase {
     }
 
     public void gotoGroupPage() {
-        if(isElementPresent(By.tagName("h1"))
-                && findElement(By.tagName("h1")).getText().equals("Groups")
-                && isElementPresent(By.name("new"))){
+        if (isElementPresent(By.tagName("h1")) //Если на странице есть элемент заголовок (тег)
+                && findElement(By.tagName("h1")).getText().equals("Groups") //Если значение элемента заголовок равно проверяемому значению
+                && isElementPresent(By.name("new"))) {/*Если на странице есть кнопка с именем*/
             return;
         }
         click(By.linkText("groups"));
     }
 
-    public void gotoAddNewPage() {
 
+    public void gotoAddNewPage() {
+        if (isElementPresent(By.tagName("h1")) //Если на странице есть элемент заголовок (тег)
+                && findElement(By.tagName("h1")).getText().equals("Edit / add address book entry") //Если значение элемента заголовок равно проверяемому значению
+                && isElementPresent(By.name("submit"))) { /*Если на странице есть кнопка с именем*/
+            return;
+        }
         click(By.linkText("add new"));
     }
 
     public void gotoHomePage() {
+        if (/*isElementPresent(By.linkText("Send e-Mail"))
+                && findElement(By.linkText("Send e-Mail")).getText().equals("Send e-Mail")
+                && */isElementPresent(By.name("add"))
+                && findElement(By.name("add")).getText().equals("Add to")){
+            return;
+        }
         click(By.linkText("home"));
     }
 }
