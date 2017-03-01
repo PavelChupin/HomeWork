@@ -33,10 +33,7 @@ public class NavigationHelper extends HelperBase {
     }
 
     public void gotoHomePage() {
-        if (/*isElementPresent(By.linkText("Send e-Mail"))
-                && findElement(By.linkText("Send e-Mail")).getText().equals("Send e-Mail")
-                && */isElementPresent(By.name("add"))
-                && findElement(By.name("add")).getText().equals("Add to")){
+        if (isElementPresent(By.id("maintable"))){
             return;
         }
         click(By.linkText("home"));
