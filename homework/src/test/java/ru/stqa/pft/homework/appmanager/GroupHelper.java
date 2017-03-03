@@ -9,8 +9,11 @@ import ru.stqa.pft.homework.model.GroupData;
  */
 public class GroupHelper extends HelperBase {
 
-    public GroupHelper(WebDriver wd) {
+    private NavigationHelper navigationHelper;
+
+    public GroupHelper(WebDriver wd, NavigationHelper navigationHelper) {
         super(wd);
+        this.navigationHelper = navigationHelper;
     }
 
     public void returnGroupToPage() {
@@ -51,12 +54,21 @@ public class GroupHelper extends HelperBase {
     }
 
     public void creationGroup(GroupData groupData) {
+        navigationHelper.gotoGroupPage();
         initGroupCreation();
         fillGroupForm(groupData);
         submitGroupCreation();
         returnGroupToPage();
     }
 
+/*    public void creationGroupForPerson(GroupData groupData) {
+        navigationHelper.gotoGroupPage();
+        initGroupCreation();
+        fillGroupForm(groupData);
+        submitGroupCreation();
+        returnGroupToPage();
+    }
+*/
     public boolean isThereGroup() {
         return isElementPresent(By.name("selected[]"));
     }

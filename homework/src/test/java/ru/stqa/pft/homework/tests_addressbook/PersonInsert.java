@@ -13,7 +13,7 @@ public class PersonInsert extends TestBase {
     @Test
     public void insertPerson() {
         //wd.findElement(By.id("nav")).click();
-        app.getNavigationHelper().gotoAddNewPage();
+        //app.getNavigationHelper().gotoAddNewPage();
         app.getPersonHelper().insertPerson(new PersonData("Pavel", "", "Chupin", "PavelChupin", "", "", "630089, Novosibirsk, B.Bogatkova 185", "", "+79137382899", "pavel.chupin@gmail.com", "", "", "", "1984", "", "", "","1234"),true);
         //app.getPersonHelper().fillPersonForm(new PersonData("Pavel", "", "Chupin", "PavelChupin", "", "", "630089, Novosibirsk, B.Bogatkova 185", "", "+79137382899", "pavel.chupin@gmail.com", "", "", "", "1984", "", "", "","HomeGroup"),true);
         //app.getPersonHelper().savePersonData();

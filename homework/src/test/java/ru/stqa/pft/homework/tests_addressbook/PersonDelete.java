@@ -14,7 +14,7 @@ public class PersonDelete extends TestBase {
     public void deletePerson() {
         //app.getNavigationHelper().gotoHomePage();
         if (! app.getPersonHelper().isTherePersone()){
-            app.getNavigationHelper().gotoAddNewPage();
+            //app.getNavigationHelper().gotoAddNewPage();
             app.getPersonHelper().insertPerson(new PersonData("Pavel", "", "Chupin", "PavelChupin", "", "", "630089, Novosibirsk, B.Bogatkova 185", "", "+79137382899", "pavel.chupin@gmail.com", "", "", "", "1984", "", "", "","test1"),true);
         }
         app.getNavigationHelper().gotoHomePage();
