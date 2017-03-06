@@ -10,6 +10,7 @@ import ru.stqa.pft.homework.model.GroupData;
 import ru.stqa.pft.homework.model.PersonData;
 import ru.stqa.pft.homework.tests_addressbook.GroupCreationHome;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -170,9 +171,10 @@ public class PersonHelper extends HelperBase {
 
     }
 
-    public void selectPerson() {
+    public void selectPerson(int index) {
         //wd.findElement(By.name("selected[]")).click();
-        click(By.name("selected[]"));
+        //click(By.name("selected[]"));
+        wd.findElements(By.name("selected[]")).get(index).click();
     }
 
     public void deleteSelectedPerson() {
@@ -208,5 +210,20 @@ public class PersonHelper extends HelperBase {
 
     public boolean isTherePersone() {
         return isElementPresent(By.name("selected[]"));
+    }
+
+    public List<PersonData> getPersoneDataList() {
+        List<PersonData> personDataList = new ArrayList<PersonData>();
+        List<WebElement> elements = wd.findElements(By.name("entry"));
+        for(WebElement element : elements){
+            List<WebElement> elementList = element.findElements(By.tagName("td"));
+            String firstName = elementList.get(2).getText();
+            String lastName = elementList.get(1).getText();
+
+            PersonData personData = new PersonData(firstName,lastName);
+
+            personDataList.add(personData);
+        }
+        return personDataList;
     }
 }

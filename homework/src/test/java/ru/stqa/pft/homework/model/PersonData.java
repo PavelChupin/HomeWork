@@ -41,6 +41,26 @@ public class PersonData {
         this.group = group;
     }
 
+    public PersonData(String firstname, String lastname) {
+        this.firstname = firstname;
+        this.middlename = null;
+        this.lastname = lastname;
+        this.nickname = null;
+        this.title = null;
+        this.company = null;
+        this.address = null;
+        this.home = null;
+        this.mobilephone = null;
+        this.email = null;
+        this.email2 = null;
+        this.email3 = null;
+        this.homepage = null;
+        this.byear = null;
+        this.ayear = null;
+        this.address2 = null;
+        this.phone2 = null;
+        this.group = null;
+    }
     public String getFirstname() {
         return firstname;
     }
@@ -116,4 +136,31 @@ public class PersonData {
     public void setGroup(String group) {
         this.group = group;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        PersonData that = (PersonData) o;
+
+        if (firstname != null ? !firstname.equals(that.firstname) : that.firstname != null) return false;
+        return lastname != null ? lastname.equals(that.lastname) : that.lastname == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = firstname != null ? firstname.hashCode() : 0;
+        result = 31 * result + (lastname != null ? lastname.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "PersonData{" +
+                "firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                '}';
+    }
+
 }
