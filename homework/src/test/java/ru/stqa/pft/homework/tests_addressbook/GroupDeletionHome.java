@@ -24,8 +24,11 @@ public class GroupDeletionHome extends TestBase {
         app.getGroupHelper().deleteSelectedGroups();
         app.getGroupHelper().returnGroupToPage();
         List<GroupData> after = app.getGroupHelper().getGroupList();
-
+        //Проверка совпадения длин списков
         Assert.assertEquals(before.size() - 1,after.size());
+
+        //Проверка совпадения наполнения списков
+        //Удалим из первоночального списка удаленный элемент
         before.remove(before.size() - 1);
         Assert.assertEquals(before,after);
     }

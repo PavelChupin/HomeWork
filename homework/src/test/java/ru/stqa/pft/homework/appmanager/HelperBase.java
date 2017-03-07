@@ -23,6 +23,7 @@ public class HelperBase {
 
         if (text != null) { //Если поле к заполнению передано, то необходимо его изменить
             String existingText = findElement(locator).getAttribute("value");
+            //Если существующее значение не равно переданному, то изменяем его
             if (! text.equals(existingText)) {
                 //wd.findElement(locator).clear();
                 //wd.findElement(locator).sendKeys(text);

@@ -27,11 +27,12 @@ public class PersonDelete extends TestBase {
         app.getPersonHelper().alertWindowOk();
         app.getNavigationHelper().gotoHomePage();
         List<PersonData> afterPersonDataList = app.getPersonHelper().getPersoneDataList();
-
+        //Проверка совпадения длин списков
         Assert.assertEquals(afterPersonDataList.size(), beforePersonDataList.size() - 1);
 
+        //Проверка совпадения наполнения списков
+        //Удалим из первоночального списка удаленный элемент
         beforePersonDataList.remove(beforePersonDataList.size() - 1);
-
         Assert.assertEquals(afterPersonDataList, beforePersonDataList);
     }
 

@@ -43,29 +43,26 @@
       <file leaf-file-name="PersonHelper.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/appmanager/PersonHelper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="215" column="70" lean-forward="true" selection-start-line="215" selection-start-column="70" selection-end-line="215" selection-end-column="70" />
+            <state relative-caret-position="338">
+              <caret line="213" column="25" lean-forward="false" selection-start-line="213" selection-start-column="25" selection-end-line="213" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#8456#8457#0" expanded="true" />
-                <element signature="e#8502#8503#0" expanded="true" />
-                <element signature="e#8546#8547#0" expanded="true" />
-                <element signature="e#8629#8630#0" expanded="true" />
-                <element signature="e#9633#9634#0" expanded="true" />
-                <element signature="e#9695#9696#0" expanded="true" />
-                <element signature="e#9804#9816#0" expanded="true" />
+                <element signature="e#10264#10276#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PersonDelete.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/tests_addressbook/PersonDelete.java">
+      <file leaf-file-name="PersonData.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/model/PersonData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="17" column="32" lean-forward="false" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
+            <state relative-caret-position="339">
+              <caret line="178" column="8" lean-forward="false" selection-start-line="178" selection-start-column="8" selection-end-line="178" selection-end-column="21" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#4647#4648#0" expanded="true" />
+                <element signature="e#4672#4673#0" expanded="true" />
+                <element signature="e#4705#4706#0" expanded="true" />
+                <element signature="e#4733#4734#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -74,18 +71,8 @@
       <file leaf-file-name="GroupCreationHome.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/tests_addressbook/GroupCreationHome.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="52" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TestBase.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/tests_addressbook/TestBase.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+            <state relative-caret-position="85">
+              <caret line="25" column="48" lean-forward="true" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -94,8 +81,8 @@
       <file leaf-file-name="GroupDeletionHome.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/tests_addressbook/GroupDeletionHome.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="25" column="45" lean-forward="false" selection-start-line="25" selection-start-column="45" selection-end-line="25" selection-end-column="45" />
+            <state relative-caret-position="305">
+              <caret line="25" column="26" lean-forward="true" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -103,55 +90,67 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GroupModificationHome.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/tests_addressbook/GroupModificationHome.java">
+      <file leaf-file-name="LoginData.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/model/LoginData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+            <state relative-caret-position="153">
+              <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PersonData.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/model/PersonData.java">
+      <file leaf-file-name="GroupModificationHome.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/tests_addressbook/GroupModificationHome.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="61" column="25" lean-forward="false" selection-start-line="61" selection-start-column="25" selection-end-line="61" selection-end-column="25" />
+            <state relative-caret-position="571">
+              <caret line="45" column="8" lean-forward="false" selection-start-line="45" selection-start-column="8" selection-end-line="45" selection-end-column="84" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PersonModification.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/tests_addressbook/PersonModification.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="24" column="8" lean-forward="true" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PersonDelete.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/tests_addressbook/PersonDelete.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="141">
+              <caret line="19" column="40" lean-forward="false" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
               <folding>
-                <element signature="e#3331#3332#0" expanded="true" />
-                <element signature="e#3365#3366#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NavigationHelper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/appmanager/NavigationHelper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="35" column="47" lean-forward="false" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PersonInsert.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PersonInsert.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/tests_addressbook/PersonInsert.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="15" column="60" lean-forward="false" selection-start-line="15" selection-start-column="60" selection-end-line="15" selection-end-column="60" />
+            <state relative-caret-position="170">
+              <caret line="21" column="39" lean-forward="true" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PersonModification.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/tests_addressbook/PersonModification.java">
+      <file leaf-file-name="GroupHelper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/appmanager/GroupHelper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="23" column="8" lean-forward="false" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
-              <folding />
+            <state relative-caret-position="151">
+              <caret line="61" column="16" lean-forward="false" selection-start-line="61" selection-start-column="16" selection-end-line="61" selection-end-column="16" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2333#2344#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -508,25 +507,27 @@
         <option value="$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/TestTest.java" />
         <option value="$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/appmanager/SessionHelper.java" />
         <option value="$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/tests_addressbook/TestBase.java" />
-        <option value="$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/appmanager/HelperBase.java" />
         <option value="$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/appmanager/NavigationHelper.java" />
         <option value="$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/appmanager/ApplicationManager.java" />
-        <option value="$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/tests_addressbook/GroupCreationHome.java" />
-        <option value="$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/appmanager/GroupHelper.java" />
+        <option value="$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/tests_addressbook/PersonDelete.java" />
         <option value="$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/tests_addressbook/GroupDeletionHome.java" />
         <option value="$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/tests_addressbook/GroupModificationHome.java" />
-        <option value="$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/model/GroupData.java" />
-        <option value="$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/model/PersonData.java" />
-        <option value="$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/appmanager/PersonHelper.java" />
-        <option value="$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/tests_addressbook/PersonInsert.java" />
-        <option value="$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/tests_addressbook/PersonDelete.java" />
+        <option value="$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/appmanager/HelperBase.java" />
         <option value="$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/tests_addressbook/PersonModification.java" />
+        <option value="$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/appmanager/GroupHelper.java" />
+        <option value="$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/model/GroupData.java" />
+        <option value="$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/tests_addressbook/GroupCreationHome.java" />
+        <option value="$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/model/PersonData.java" />
+        <option value="$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/tests_addressbook/PersonInsert.java" />
+        <option value="$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/appmanager/PersonHelper.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="1962" />
+    <option name="y" value="27" />
     <option name="width" value="1452" />
-    <option name="height" value="948" />
+    <option name="height" value="940" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -718,7 +719,7 @@
       <recent name="ru.stqa.pft.homework" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.PersonDelete">
+  <component name="RunManager" selected="TestNG.PersonModification">
     <configuration default="false" name="PersonModification" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -785,39 +786,6 @@
       <listeners />
       <method />
     </configuration>
-    <configuration default="false" name="GroupDeletionHome" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="ru.stqa.pft.homework.tests_addressbook.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="homework_test" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" value="ru.stqa.pft.homework.tests_addressbook" />
-      <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.homework.tests_addressbook.GroupDeletionHome" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/homework" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
-      <method />
-    </configuration>
     <configuration default="false" name="PersonInsert" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -864,6 +832,39 @@
       <option name="SUITE_NAME" />
       <option name="PACKAGE_NAME" value="ru.stqa.pft.homework.tests_addressbook" />
       <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.homework.tests_addressbook.PersonDelete" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/homework" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="false" name="GroupCreationHome" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="ru.stqa.pft.homework.tests_addressbook.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="homework_test" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" value="ru.stqa.pft.homework.tests_addressbook" />
+      <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.homework.tests_addressbook.GroupCreationHome" />
       <option name="METHOD_NAME" />
       <option name="GROUP_NAME" />
       <option name="TEST_OBJECT" value="CLASS" />
@@ -1091,16 +1092,16 @@
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="TestNG.PersonModification" />
       <item index="1" class="java.lang.String" itemvalue="TestNG.GroupModificationHome" />
-      <item index="2" class="java.lang.String" itemvalue="TestNG.GroupDeletionHome" />
-      <item index="3" class="java.lang.String" itemvalue="TestNG.PersonInsert" />
-      <item index="4" class="java.lang.String" itemvalue="TestNG.PersonDelete" />
+      <item index="2" class="java.lang.String" itemvalue="TestNG.PersonInsert" />
+      <item index="3" class="java.lang.String" itemvalue="TestNG.PersonDelete" />
+      <item index="4" class="java.lang.String" itemvalue="TestNG.GroupCreationHome" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="TestNG.PersonDelete" />
-        <item index="1" class="java.lang.String" itemvalue="TestNG.GroupDeletionHome" />
-        <item index="2" class="java.lang.String" itemvalue="TestNG.PersonModification" />
-        <item index="3" class="java.lang.String" itemvalue="TestNG.PersonInsert" />
+        <item index="0" class="java.lang.String" itemvalue="TestNG.PersonModification" />
+        <item index="1" class="java.lang.String" itemvalue="TestNG.PersonDelete" />
+        <item index="2" class="java.lang.String" itemvalue="TestNG.PersonInsert" />
+        <item index="3" class="java.lang.String" itemvalue="TestNG.GroupCreationHome" />
         <item index="4" class="java.lang.String" itemvalue="TestNG.GroupModificationHome" />
       </list>
     </recent_temporary>
@@ -1119,63 +1120,63 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="GroupDeletionHome - 2017.03.06 at 15h 22m 16s.xml">
-      <configuration name="GroupDeletionHome" configurationId="TestNG" />
+    <history-entry file="GroupCreationHome - 2017.03.07 at 12h 28m 33s.xml">
+      <configuration name="GroupCreationHome" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="GroupDeletionHome - 2017.03.06 at 15h 23m 13s.xml">
-      <configuration name="GroupDeletionHome" configurationId="TestNG" />
+    <history-entry file="GroupCreationHome - 2017.03.07 at 12h 30m 20s.xml">
+      <configuration name="GroupCreationHome" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="PersonDelete - 2017.03.03 at 15h 42m 13s.xml">
+    <history-entry file="GroupCreationHome - 2017.03.07 at 12h 31m 46s.xml">
+      <configuration name="GroupCreationHome" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="GroupCreationHome - 2017.03.07 at 12h 32m 42s.xml">
+      <configuration name="GroupCreationHome" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="PersonDelete - 2017.03.07 at 12h 41m 20s.xml">
       <configuration name="PersonDelete" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="PersonDelete - 2017.03.03 at 15h 43m 23s.xml">
-      <configuration name="PersonDelete" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="PersonDelete - 2017.03.06 at 16h 51m 02s.xml">
-      <configuration name="PersonDelete" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="PersonDelete - 2017.03.06 at 16h 53m 12s.xml">
-      <configuration name="PersonDelete" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="PersonDelete - 2017.03.06 at 16h 58m 21s.xml">
-      <configuration name="PersonDelete" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="PersonInsert - 2017.03.03 at 15h 41m 49s.xml">
+    <history-entry file="PersonInsert - 2017.03.07 at 12h 40m 09s.xml">
       <configuration name="PersonInsert" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="PersonModification - 2017.03.03 at 15h 42m 01s.xml">
+    <history-entry file="PersonInsert - 2017.03.07 at 12h 41m 04s.xml">
+      <configuration name="PersonInsert" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="PersonModification - 2017.03.07 at 12h 15m 10s.xml">
       <configuration name="PersonModification" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="PersonModification - 2017.03.03 at 15h 42m 36s.xml">
+    <history-entry file="PersonModification - 2017.03.07 at 12h 15m 27s.xml">
+      <configuration name="PersonModification" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="PersonModification - 2017.03.07 at 12h 41m 31s.xml">
       <configuration name="PersonModification" configurationId="TestNG" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1452" height="948" extended-state="0" />
-    <editor active="true" />
+    <frame x="1962" y="27" width="1452" height="940" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32816228" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32769555" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38305488" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.386747" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23259053" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23259053" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37947494" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37710842" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1221,7 +1222,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="11" />
+      <option name="time" value="20" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1230,27 +1231,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/tests_addressbook/PersonModification.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="17" column="49" lean-forward="false" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/appmanager/PersonHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#785#786#0" expanded="false" />
-            <element signature="e#900#901#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/appmanager/NavigationHelper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -1272,9 +1252,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1321,9 +1299,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1425,14 +1401,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/Test.java" />
     <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/TestTest.java" />
-    <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/model/LoginData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/homework/src/main/java/ru/stqa/pft/homework/MainHomeWork.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -1461,14 +1429,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="48" column="40" lean-forward="true" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.testng/testng/6.10/fa7502ae129b9073f57cfdf7a25f11c9b0270fae/testng-6.10-sources.jar!/org/testng/internal/Invoker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="685" column="80" lean-forward="true" selection-start-line="685" selection-start-column="80" selection-end-line="685" selection-end-column="80" />
           <folding />
         </state>
       </provider>
@@ -1532,65 +1492,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/appmanager/SessionHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="19" column="10" lean-forward="true" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/appmanager/ApplicationManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="128">
           <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/appmanager/HelperBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/appmanager/GroupHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-364">
-          <caret line="45" column="66" lean-forward="false" selection-start-line="45" selection-start-column="66" selection-end-line="45" selection-end-column="66" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1234#1235#0" expanded="true" />
-            <element signature="e#1271#1272#0" expanded="true" />
-            <element signature="e#1468#1469#0" expanded="true" />
-            <element signature="e#1508#1509#0" expanded="true" />
-            <element signature="e#2329#2340#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/model/GroupData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="26" column="37" lean-forward="false" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="37" />
-          <folding>
-            <element signature="e#834#835#0" expanded="true" />
-            <element signature="e#891#892#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/model/PersonData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="61" column="25" lean-forward="false" selection-start-line="61" selection-start-column="25" selection-end-line="61" selection-end-column="25" />
-          <folding>
-            <element signature="e#3331#3332#0" expanded="true" />
-            <element signature="e#3365#3366#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1603,79 +1510,164 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/tests_addressbook/PersonDelete.java">
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.testng/testng/6.10/fa7502ae129b9073f57cfdf7a25f11c9b0270fae/testng-6.10-sources.jar!/org/testng/Assert.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="17" column="32" lean-forward="false" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
+        <state relative-caret-position="178">
+          <caret line="759" column="21" lean-forward="false" selection-start-line="759" selection-start-column="21" selection-end-line="759" selection-end-column="21" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#25077#25078#0" expanded="true" />
+            <element signature="e#25123#25124#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/tests_addressbook/PersonInsert.java">
+    <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/appmanager/SessionHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="15" column="60" lean-forward="false" selection-start-line="15" selection-start-column="60" selection-end-line="15" selection-end-column="60" />
+        <state relative-caret-position="238">
+          <caret line="19" column="10" lean-forward="true" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/util/List.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="543" column="6" lean-forward="false" selection-start-line="543" selection-start-column="6" selection-end-line="543" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/tests_addressbook/TestBase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
+        <state relative-caret-position="272">
           <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/tests_addressbook/GroupCreationHome.java">
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.testng/testng/6.10/fa7502ae129b9073f57cfdf7a25f11c9b0270fae/testng-6.10-sources.jar!/org/testng/internal/Invoker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="52" />
+        <state relative-caret-position="529">
+          <caret line="691" column="39" lean-forward="true" selection-start-line="691" selection-start-column="39" selection-end-line="691" selection-end-column="39" />
+          <folding>
+            <element signature="e#27140#27153#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/appmanager/HelperBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding>
+            <element signature="e#1516#1517#0" expanded="true" />
+            <element signature="e#1562#1563#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/model/GroupData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <folding>
+            <element signature="e#811#812#0" expanded="true" />
+            <element signature="e#839#840#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/model/LoginData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/appmanager/PersonHelper.java">
+    <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/appmanager/GroupHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="215" column="70" lean-forward="true" selection-start-line="215" selection-start-column="70" selection-end-line="215" selection-end-column="70" />
+        <state relative-caret-position="151">
+          <caret line="61" column="16" lean-forward="false" selection-start-line="61" selection-start-column="16" selection-end-line="61" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#8456#8457#0" expanded="true" />
-            <element signature="e#8502#8503#0" expanded="true" />
-            <element signature="e#8546#8547#0" expanded="true" />
-            <element signature="e#8629#8630#0" expanded="true" />
-            <element signature="e#9633#9634#0" expanded="true" />
-            <element signature="e#9695#9696#0" expanded="true" />
-            <element signature="e#9804#9816#0" expanded="true" />
+            <element signature="e#2333#2344#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/tests_addressbook/GroupDeletionHome.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="25" column="26" lean-forward="true" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/tests_addressbook/GroupModificationHome.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+        <state relative-caret-position="571">
+          <caret line="45" column="8" lean-forward="false" selection-start-line="45" selection-start-column="8" selection-end-line="45" selection-end-column="84" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/tests_addressbook/GroupDeletionHome.java">
+    <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/tests_addressbook/GroupCreationHome.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="25" column="45" lean-forward="false" selection-start-line="25" selection-start-column="45" selection-end-line="25" selection-end-column="45" />
+        <state relative-caret-position="85">
+          <caret line="25" column="48" lean-forward="true" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/tests_addressbook/PersonModification.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="24" column="8" lean-forward="true" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/tests_addressbook/PersonDelete.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="19" column="40" lean-forward="false" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/tests_addressbook/PersonModification.java">
+    <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/model/PersonData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="23" column="8" lean-forward="false" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
+        <state relative-caret-position="339">
+          <caret line="178" column="8" lean-forward="false" selection-start-line="178" selection-start-column="8" selection-end-line="178" selection-end-column="21" />
+          <folding>
+            <element signature="e#4647#4648#0" expanded="true" />
+            <element signature="e#4672#4673#0" expanded="true" />
+            <element signature="e#4705#4706#0" expanded="true" />
+            <element signature="e#4733#4734#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/appmanager/PersonHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="213" column="25" lean-forward="false" selection-start-line="213" selection-start-column="25" selection-end-line="213" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#10264#10276#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/src/test/java/ru/stqa/pft/homework/tests_addressbook/PersonInsert.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="21" column="39" lean-forward="true" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
           <folding />
         </state>
       </provider>

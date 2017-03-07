@@ -1,6 +1,7 @@
 package ru.stqa.pft.homework.model;
 
 public class PersonData {
+    private int id;
     private final String firstname;
     private final String middlename;
     private final String lastname;
@@ -20,7 +21,9 @@ public class PersonData {
     private final String phone2;
     private String group;
 
+
     public PersonData(String firstname, String middlename, String lastname, String nickname, String title, String company, String address, String home, String mobilephone, String email, String email2, String email3, String homepage, String byear, String ayear, String address2, String phone2, String group) {
+        this.id = 0;
         this.firstname = firstname;
         this.middlename = middlename;
         this.lastname = lastname;
@@ -41,7 +44,37 @@ public class PersonData {
         this.group = group;
     }
 
-    public PersonData(String firstname, String lastname) {
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        PersonData that = (PersonData) o;
+
+        if (id != that.id) return false;
+        if (firstname != null ? !firstname.equals(that.firstname) : that.firstname != null) return false;
+        return lastname != null ? lastname.equals(that.lastname) : that.lastname == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id;
+        result = 31 * result + (firstname != null ? firstname.hashCode() : 0);
+        result = 31 * result + (lastname != null ? lastname.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "PersonData{" +
+                "id=" + id +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                '}';
+    }
+
+    public PersonData(int id, String firstname, String middlename, String lastname, String nickname, String title, String company, String address, String home, String mobilephone, String email, String email2, String email3, String homepage, String byear, String ayear, String address2, String phone2, String group) {
+        this.id = id;
         this.firstname = firstname;
         this.middlename = null;
         this.lastname = lastname;
@@ -61,6 +94,7 @@ public class PersonData {
         this.phone2 = null;
         this.group = null;
     }
+
     public String getFirstname() {
         return firstname;
     }
@@ -137,30 +171,11 @@ public class PersonData {
         this.group = group;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        PersonData that = (PersonData) o;
-
-        if (firstname != null ? !firstname.equals(that.firstname) : that.firstname != null) return false;
-        return lastname != null ? lastname.equals(that.lastname) : that.lastname == null;
+    public int getId() {
+        return id;
     }
 
-    @Override
-    public int hashCode() {
-        int result = firstname != null ? firstname.hashCode() : 0;
-        result = 31 * result + (lastname != null ? lastname.hashCode() : 0);
-        return result;
+    public void setId(int id) {
+        this.id = id;
     }
-
-    @Override
-    public String toString() {
-        return "PersonData{" +
-                "firstname='" + firstname + '\'' +
-                ", lastname='" + lastname + '\'' +
-                '}';
-    }
-
 }

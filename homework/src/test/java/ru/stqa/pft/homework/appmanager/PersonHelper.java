@@ -8,7 +8,6 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.homework.model.GroupData;
 import ru.stqa.pft.homework.model.PersonData;
-import ru.stqa.pft.homework.tests_addressbook.GroupCreationHome;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -186,13 +185,19 @@ public class PersonHelper extends HelperBase {
         wd.switchTo().alert().accept();
     }
 
-    public void initPersonModification() {
-        click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
+    public void initPersonModification(int index) {
+        //click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
+        //wd.findElements(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img")).get(index).click();
+        List<WebElement> elements = wd.findElements(By.name("entry"));
+        String id = elements.get(index).findElement(By.tagName("input")).getAttribute("value");
+        wd.findElement(By.cssSelector("a[href='edit.php?id=" + id + "']")).click();
+        //wd.findElement(By.cssSelector("a[href='edit.php?id=80']")).click();
     }
 
     public void submitPersonModification() {
-        click(By.xpath("//div[@id='content']/form[1]/input[22]"));
+        //click(By.xpath("//div[@id='content']/form[1]/input[22]"));
         //click(By.xpath("//div/div[4]/form[1]/input[22]"));
+        click(By.name("update"));
     }
 
     public void insertPerson(PersonData personData, boolean b) {
@@ -206,6 +211,7 @@ public class PersonHelper extends HelperBase {
         }
         fillPersonForm(personData, b);
         savePersonData();
+        navigationHelper.gotoHomePage();
     }
 
     public boolean isTherePersone() {
@@ -219,8 +225,8 @@ public class PersonHelper extends HelperBase {
             List<WebElement> elementList = element.findElements(By.tagName("td"));
             String firstName = elementList.get(2).getText();
             String lastName = elementList.get(1).getText();
-
-            PersonData personData = new PersonData(firstName,lastName);
+            int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
+            PersonData personData = new PersonData(id, firstName, null, lastName, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
 
             personDataList.add(personData);
         }
