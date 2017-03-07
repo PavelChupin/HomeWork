@@ -5,6 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.stqa.pft.homework.model.PersonData;
 
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 
@@ -49,7 +50,17 @@ public class PersonModification extends TestBase {
         beforePersonDataList.remove(beforePersonDataList.size() - 1);
         //Добавим в первоначальный список измененый элемент
         beforePersonDataList.add(personData);
+
+        //Упорядочим списки
+        Comparator<? super PersonData> byId = (p1, p2) -> Integer.compare(p1.getId(), p2.getId());
+        beforePersonDataList.sort(byId);
+        afterPersonDataList.sort(byId);
+
         //Сравнение списков делаем не по упорядоченному списку, для этого преобразуем упорядочный список в множество
-        Assert.assertEquals(new HashSet<Object>(afterPersonDataList), new HashSet<Object>(beforePersonDataList));
+        //Assert.assertEquals(new HashSet<Object>(afterPersonDataList), new HashSet<Object>(beforePersonDataList));
+
+        //Сравним упорядочные списки
+        Assert.assertEquals(beforePersonDataList,afterPersonDataList);
+
     }
 }

@@ -5,6 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.stqa.pft.homework.model.PersonData;
 
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 
@@ -25,19 +26,29 @@ public class PersonInsert extends TestBase {
         Assert.assertEquals(afterPersonDataList.size(), beforePersonDataList.size() + 1);
 
         //Найдем и установим новый индекс для нового элемента
-        int max = 0;
+       /* int max = 0;
         for (PersonData p : afterPersonDataList){
             if(p.getId() > max){
                 max = p.getId();
             }
-        }
+        }*/
         //Добавим хзначение максимального индекса в новый контакт
-        personData.setId(max);
+       // Comparator<? super PersonData> byId = (Comparator<PersonData>) (o1, o2) -> Integer.compare(o1.getId(),o2.getId());
+       // int max1 = afterPersonDataList.stream().max((o1, o2) -> Integer.compare(o1.getId(),o2.getId())).get().getId();
+        //personData.setId(afterPersonDataList.stream().max((o1, o2) -> Integer.compare(o1.getId(),o2.getId())).get().getId());
         //Добавим в первоночальный список нвый добавленный контакт
         beforePersonDataList.add(personData);
 
-        //Проверка совпадения наполнения списков предварительно преобразовав их в множества
-        Assert.assertEquals(new HashSet<Object>(afterPersonDataList), new HashSet<Object>(beforePersonDataList));
+        //Упорядочим списки
+        Comparator<? super PersonData> byId = (p1, p2) -> Integer.compare(p1.getId(), p2.getId());
+        beforePersonDataList.sort(byId);
+        afterPersonDataList.sort(byId);
+
+        //Сравнение списков делаем не по упорядоченному списку, для этого преобразуем упорядочный список в множество
+        //Assert.assertEquals(new HashSet<Object>(afterPersonDataList), new HashSet<Object>(beforePersonDataList));
+
+        //Сравним упорядочные списки
+        Assert.assertEquals(beforePersonDataList,afterPersonDataList);
     }
 
 }
