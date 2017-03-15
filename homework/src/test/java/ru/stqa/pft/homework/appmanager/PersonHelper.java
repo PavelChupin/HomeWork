@@ -9,8 +9,9 @@ import org.testng.Assert;
 import ru.stqa.pft.homework.model.GroupData;
 import ru.stqa.pft.homework.model.PersonData;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Summoner on 27.02.2017.
@@ -149,9 +150,9 @@ public class PersonHelper extends HelperBase {
             //    List<WebElement> options = findElement(By.name("new_group")).findElements(By.xpath(".//option[normalize-space(.) = " + Quotes.escape(personData.getGroup()) + "]"));
             //    if (options.size() == 0) { /*Если группа с заданным именем не найдена, то добавим в группу по умолчанию*/
             //        personData.setGroup("[none]");
-                    //groupHelper.create(new GroupData(personData.getGroup(),personData.getGroup(),personData.getGroup()));
+            //groupHelper.create(new GroupData(personData.getGroup(),personData.getGroup(),personData.getGroup()));
             //    }
-                new Select(findElement(By.name("new_group"))).selectByVisibleText(personData.getGroup());
+            new Select(findElement(By.name("new_group"))).selectByVisibleText(personData.getGroup());
             //}
         } else {
             Assert.assertFalse(isElementPresent(By.name("new_group")));
@@ -170,12 +171,13 @@ public class PersonHelper extends HelperBase {
 
     }
 
-    public void selectPerson(int index) {
-        //wd.findElement(By.name("selected[]")).click();
-        //click(By.name("selected[]"));
-        wd.findElements(By.name("selected[]")).get(index).click();
-    }
-
+    /*
+        public void selectPerson(int index) {
+            //wd.findElement(By.name("selected[]")).click();
+            //click(By.name("selected[]"));
+            wd.findElements(By.name("selected[]")).get(index).click();
+        }
+    */
     public void deleteSelectedPerson() {
         //wd.findElement(By.xpath("//div[@id='content']/form[2]/div[2]/input")).click();
         click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
@@ -185,15 +187,16 @@ public class PersonHelper extends HelperBase {
         wd.switchTo().alert().accept();
     }
 
-    public void initPersonModification(int index) {
-        //click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
-        //wd.findElements(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img")).get(index).click();
-        List<WebElement> elements = wd.findElements(By.name("entry"));
-        String id = elements.get(index).findElement(By.tagName("input")).getAttribute("value");
-        wd.findElement(By.cssSelector("a[href='edit.php?id=" + id + "']")).click();
-        //wd.findElement(By.cssSelector("a[href='edit.php?id=80']")).click();
-    }
-
+    /*
+        public void initPersonModification(int index) {
+            //click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
+            //wd.findElements(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img")).get(index).click();
+            List<WebElement> elements = wd.findElements(By.name("entry"));
+            String id = elements.get(index).findElement(By.tagName("input")).getAttribute("value");
+            wd.findElement(By.cssSelector("a[href='edit.php?id=" + id + "']")).click();
+            //wd.findElement(By.cssSelector("a[href='edit.php?id=80']")).click();
+        }
+    */
     public void submitPersonModification() {
         //click(By.xpath("//div[@id='content']/form[1]/input[22]"));
         //click(By.xpath("//div/div[4]/form[1]/input[22]"));
@@ -215,31 +218,56 @@ public class PersonHelper extends HelperBase {
         navigationHelper.homePage();
     }
 
-    public void modify(PersonData personData, int index) {
+    public void modify(PersonData person) {
         //Выбрать кнкретную запись
-        selectPerson(index);
+        selectPersonById(person.getId());
         //Так как кнопок редактирования тоже несколько, то нужно нажать правильную
-        initPersonModification(index);
-        fillPersonForm(personData, false);
+        initPersonModificationById(person.getId());
+        fillPersonForm(person, false);
         submitPersonModification();
         navigationHelper.homePage();
     }
 
-    public void delete(int index) {
-        selectPerson(index);
-        deleteSelectedPerson();
-        alertWindowOk();
-        navigationHelper.homePage();
+    public void initPersonModificationById(int id) {
+        //click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
+        //wd.findElements(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img")).get(index).click();
+        List<WebElement> elements = wd.findElements(By.name("entry"));
+        //String id = elements.get(index).findElement(By.tagName("input")).getAttribute("value");
+        wd.findElement(By.cssSelector("a[href='edit.php?id=" + id + "']")).click();
+        //wd.findElement(By.cssSelector("a[href='edit.php?id=80']")).click();
     }
 
+    /*
+        public void delete(int index) {
+            selectPerson(index);
+            deleteSelectedPerson();
+            alertWindowOk();
+            navigationHelper.homePage();
+        }
+    */
     public boolean isTherePersone() {
         return isElementPresent(By.name("selected[]"));
     }
 
-    public List<PersonData> list() {
-        List<PersonData> personDataList = new ArrayList<PersonData>();
+    /*
+        public List<PersonData> list() {
+            List<PersonData> personDataList = new ArrayList<PersonData>();
+            List<WebElement> elements = wd.findElements(By.name("entry"));
+            for(WebElement element : elements){
+                List<WebElement> elementList = element.findElements(By.tagName("td"));
+                String firstName = elementList.get(2).getText();
+                String lastName = elementList.get(1).getText();
+                int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
+                //PersonData personData = new PersonData(id, firstName, null, lastName, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+                personDataList.add(new PersonData().withId(id).withFirstname(firstName).withLastname(lastName));
+            }
+            return personDataList;
+        }
+    */
+    public Set<PersonData> all() {
+        Set<PersonData> personDataList = new HashSet<PersonData>();
         List<WebElement> elements = wd.findElements(By.name("entry"));
-        for(WebElement element : elements){
+        for (WebElement element : elements) {
             List<WebElement> elementList = element.findElements(By.tagName("td"));
             String firstName = elementList.get(2).getText();
             String lastName = elementList.get(1).getText();
@@ -248,5 +276,20 @@ public class PersonHelper extends HelperBase {
             personDataList.add(new PersonData().withId(id).withFirstname(firstName).withLastname(lastName));
         }
         return personDataList;
+    }
+
+
+    public void delete(PersonData person) {
+        selectPersonById(person.getId());
+        deleteSelectedPerson();
+        alertWindowOk();
+        navigationHelper.homePage();
+    }
+
+    public void selectPersonById(int id) {
+        //wd.findElement(By.name("selected[]")).click();
+        //click(By.name("selected[]"));
+        //wd.findElements(By.name("selected[]")).get(index).click();
+        wd.findElement(By.cssSelector("input[value='" + id + "']")).click();
     }
 }

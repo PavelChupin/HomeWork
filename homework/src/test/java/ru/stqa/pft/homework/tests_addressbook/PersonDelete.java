@@ -5,8 +5,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.homework.model.PersonData;
 
-
-import java.util.List;
+import java.util.Set;
 
 public class PersonDelete extends TestBase {
     /*
@@ -21,7 +20,7 @@ public class PersonDelete extends TestBase {
         app.setBrowser(BrowserType.IE);
         */
         app.goTo().homePage();
-        if (app.persone().list().size() == 0) {
+        if (app.persone().all().size() == 0) {
             app.persone().create(new PersonData()
                     .withFirstname("Pavel").withLastname("Chupin").withNickname("PavelChupin").withAddress("630089, Novosibirsk, B.Bogatkova 185").withMobilephone("+79137382899").withEmail("pavel.chupin@gmail.com").withGroup("test"), true);
         }
@@ -29,17 +28,21 @@ public class PersonDelete extends TestBase {
 
     @Test//(enabled = false)//Отключить включить тест (enabled = false) или
     public void deletePerson() {
-        List<PersonData> beforePersonDataList = app.persone().list();
-        int index = beforePersonDataList.size() - 1;
-        app.persone().delete(index);
-        List<PersonData> afterPersonDataList = app.persone().list();
+        Set<PersonData> beforePersonData = app.persone().all();
+        //int index = beforePersonData.size() - 1;
+        PersonData deletePerson = beforePersonData.iterator().next();
+        //Удаляем объект по его ссылке
+        app.persone().delete(deletePerson);
+
+        Set<PersonData> afterPersonData = app.persone().all();
         //Проверка совпадения длин списков
-        Assert.assertEquals(afterPersonDataList.size(), beforePersonDataList.size() - 1);
+        Assert.assertEquals(afterPersonData.size(), beforePersonData.size() - 1);
 
         //Проверка совпадения наполнения списков
         //Удалим из первоночального списка удаленный элемент
-        beforePersonDataList.remove(index);
-        Assert.assertEquals(afterPersonDataList, beforePersonDataList);
+        beforePersonData.remove(deletePerson);
+
+        Assert.assertEquals(afterPersonData, beforePersonData);
     }
 
 }

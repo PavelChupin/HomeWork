@@ -2,7 +2,6 @@ package ru.stqa.pft.homework.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import ru.stqa.pft.homework.model.LoginData;
 
 /**
@@ -16,8 +15,8 @@ public class SessionHelper extends HelperBase {
     }
 
     public void login(LoginData loginData) {
-        type(By.name("user"),loginData.getUsername());
-        type(By.name("pass"),loginData.getPassword());
+        type(By.name("user"), loginData.getUsername());
+        type(By.name("pass"), loginData.getPassword());
         click(By.xpath("//form[@id='LoginForm']/input[3]"));
     }
 }

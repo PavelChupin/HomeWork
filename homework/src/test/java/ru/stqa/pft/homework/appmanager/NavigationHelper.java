@@ -33,7 +33,7 @@ public class NavigationHelper extends HelperBase {
     }
 
     public void homePage() {
-        if (isElementPresent(By.id("maintable"))){ //если есть таблица, то это страница Home
+        if (isElementPresent(By.id("maintable"))) { //если есть таблица, то это страница Home
             return;
         }
         click(By.linkText("home"));
