@@ -1,29 +1,30 @@
 package ru.stqa.pft.homework.tests_addressbook;
 
-import org.openqa.selenium.remote.BrowserType;
-import org.openqa.selenium.remote.InterfaceImplementation;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.stqa.pft.homework.model.GroupData;
 
 import java.util.Comparator;
-import java.util.HashSet;
 import java.util.List;
 
 public class GroupCreationHome extends TestBase {
 
-    public GroupCreationHome(){
+    /*public GroupCreationHome(){
         super(BrowserType.FIREFOX);
     }
-
+*/
     @Test
     public void homeGroupCreation() {
-        app.getNavigationHelper().gotoGroupPage();
-        List<GroupData> before = app.getGroupHelper().getGroupList();
-        GroupData groupData = new GroupData("HomeGroup2", "HomeGroup4", "HomeGroup5");
-        app.getGroupHelper().creationGroup(groupData);
-
-        List<GroupData> after = app.getGroupHelper().getGroupList();
+/*
+        //Установим браузер в котором запускать тест
+        app.persone().setWd(new FirefoxDriver());
+*/
+        app.goTo().groupPage();
+        List<GroupData> before = app.group().list();
+        GroupData groupData = new GroupData()
+                .withName("HomeGroup2").withFooter("HomeGroup2").withHeader("HomeGroup2");
+        app.group().create(groupData);
+        List<GroupData> after = app.group().list();
         //Проверка совпадения длин списков, после добавления первоначальный список становиться длинее
         Assert.assertEquals(after.size(),before.size() + 1);
 

@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import ru.stqa.pft.homework.model.GroupData;
-import ru.stqa.pft.homework.tests_addressbook.GroupCreationHome;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,16 +58,29 @@ public class GroupHelper extends HelperBase {
         click(By.name("update"));
     }
 
-    public void creationGroup(GroupData groupData) {
-        navigationHelper.gotoGroupPage();
+    public void create(GroupData groupData) {
+        navigationHelper.groupPage();
         initGroupCreation();
         fillGroupForm(groupData);
         submitGroupCreation();
         returnGroupToPage();
     }
 
+    public void modify(int index, GroupData groupData) {
+        selectGroup(index);
+        initGroupModification();
+        fillGroupForm(groupData);
+        submitGroupModification();
+        returnGroupToPage();
+    }
+
+    public void delete(int index) {
+        selectGroup(index);
+        deleteSelectedGroups();
+        returnGroupToPage();
+    }
 /*    public void creationGroupForPerson(GroupData groupData) {
-        navigationHelper.gotoGroupPage();
+        navigationHelper.groupPage();
         initGroupCreation();
         fillGroupForm(groupData);
         submitGroupCreation();
@@ -79,14 +91,14 @@ public class GroupHelper extends HelperBase {
         return isElementPresent(By.name("selected[]"));
     }
 
-    public List<GroupData> getGroupList() {
+    public List<GroupData> list() {
         List<GroupData> groups = new ArrayList<GroupData>();
         List<WebElement> elements = wd.findElements(By.cssSelector("span.group"));
         for(WebElement element : elements){
             String name = element.getText();
             int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-            GroupData group = new GroupData(id,name, null, null);
-            groups.add(group);
+            //GroupData group = new GroupData().withId(id).withName(name);
+            groups.add(new GroupData().withId(id).withName(name));
         }
         return groups;
     }

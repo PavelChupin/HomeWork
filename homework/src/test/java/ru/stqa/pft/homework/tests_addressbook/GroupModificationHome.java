@@ -1,13 +1,11 @@
 package ru.stqa.pft.homework.tests_addressbook;
 
-import com.sun.corba.se.impl.orbutil.HexOutputStream;
-import org.openqa.selenium.remote.BrowserType;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.homework.model.GroupData;
 
 import java.util.Comparator;
-import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -15,33 +13,40 @@ import java.util.List;
  */
 public class GroupModificationHome extends TestBase {
 
-    public GroupModificationHome(){
+    /*public GroupModificationHome(){
         super(BrowserType.CHROME);
+    }
+*/
+    @BeforeMethod
+    public void ensurePreconditions() {
+/*
+        //Установим браузер в котором запускать тест
+        app.persone().setWd(new ChromeDriver());
+*/
+        app.goTo().groupPage();
+        if (app.group().list().size() == 0){
+            app.group().create(new GroupData()
+                    .withName("HomeGroup2"));
+        }
     }
 
     @Test
     public void homeGroupModification (){
-        app.getNavigationHelper().gotoGroupPage();
-        if (! app.getGroupHelper().isThereGroup()){
-                app.getGroupHelper().creationGroup(new GroupData("HomeGroup1", "HomeGroup4", "HomeGroup5"));
-        }
-        List<GroupData> before = app.getGroupHelper().getGroupList();
-
-        app.getGroupHelper().selectGroup(before.size() - 1);
-        app.getGroupHelper().initGroupModification();
+        List<GroupData> before = app.group().list();
+        int index = before.size() - 1;
         //Для того чтобы помнить какой элемент изменили в модель данных сохраним ID изменяемого элемента
-        GroupData groupData = new GroupData(before.get(before.size() - 1).getId(),"HomeGroup1", "HomeGroup4", "HomeGroup5");
-        app.getGroupHelper().fillGroupForm(groupData);
-        app.getGroupHelper().submitGroupModification();
-        app.getGroupHelper().returnGroupToPage();
+        GroupData groupData = new GroupData()
+                .withId(before.get(index).getId()).withName("HomeGroup2").withFooter("HomeGroup2").withHeader("HomeGroup2");
+        //Метод изменения перенесли в GroupHelper
+        app.group().modify(index, groupData);
 
-        List<GroupData> after = app.getGroupHelper().getGroupList();
+        List<GroupData> after = app.group().list();
         //Проверка совпадения длин списков
         Assert.assertEquals(before.size(),after.size());
 
         //Проверка совпадения наполнения списков
         //Удаляем из списка элемент который изменяем
-        before.remove(before.size() - 1);
+        before.remove(index);
         //Добавляем в список элемент на который изменили
         before.add(groupData);
 
@@ -54,4 +59,8 @@ public class GroupModificationHome extends TestBase {
         //Производим проверку по упорядоченному списку
         Assert.assertEquals(before,after);
     }
+
+
+
+
 }

@@ -1,8 +1,6 @@
 package ru.stqa.pft.homework.tests_addressbook;
 
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import ru.stqa.pft.homework.appmanager.ApplicationManager;
 //import sun.plugin2.util.BrowserType;
 import org.openqa.selenium.remote.BrowserType;
@@ -11,18 +9,18 @@ import org.openqa.selenium.remote.BrowserType;
  */
 public class TestBase  {
 
-    protected final ApplicationManager app /*= new ApplicationManager(BrowserType.CHROME)*/;
+    protected static final ApplicationManager app = new ApplicationManager(BrowserType.CHROME);
 
-    public TestBase (String browserType){
+   /* public TestBase (String browserType){
         app = new ApplicationManager(browserType);
     }
-
-    @BeforeMethod
+*/
+    @BeforeSuite
     public void setUp() throws Exception {
         app.init();
     }
 
-    @AfterMethod
+    @AfterSuite
     public void tearDown() {
         app.stop();
     }

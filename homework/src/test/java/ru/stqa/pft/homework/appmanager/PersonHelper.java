@@ -37,7 +37,7 @@ public class PersonHelper extends HelperBase {
         wd.findElement(By.name("firstname")).clear();
         wd.findElement(By.name("firstname")).sendKeys(personData.getFirstname());
         */
-        type(By.name("middlename"), personData.getMiddlename());
+        //type(By.name("middlename"), personData.getMiddlename());
         /*
         wd.findElement(By.name("middlename")).click();
         wd.findElement(By.name("middlename")).clear();
@@ -54,12 +54,12 @@ public class PersonHelper extends HelperBase {
         wd.findElement(By.name("nickname")).clear();
         wd.findElement(By.name("nickname")).sendKeys(personData.getNickname());
         */
-        type(By.name("title"), personData.getTitle());
+        //type(By.name("title"), personData.getTitle());
         /*
         wd.findElement(By.name("title")).click();
         wd.findElement(By.name("title")).sendKeys(personData.getTitle());
         */
-        type(By.name("company"), personData.getCompany());
+        //type(By.name("company"), personData.getCompany());
         /*
         wd.findElement(By.name("company")).click();
         wd.findElement(By.name("company")).sendKeys(personData.getCompany());
@@ -70,7 +70,7 @@ public class PersonHelper extends HelperBase {
         wd.findElement(By.name("address")).clear();
         wd.findElement(By.name("address")).sendKeys(personData.getAddress());
         */
-        type(By.name("home"), personData.getHome());
+        //type(By.name("home"), personData.getHome());
         /*
         wd.findElement(By.name("home")).click();
         wd.findElement(By.name("home")).sendKeys(personData.getHome());
@@ -87,17 +87,17 @@ public class PersonHelper extends HelperBase {
         wd.findElement(By.name("email")).clear();
         wd.findElement(By.name("email")).sendKeys(personData.getEmail());
         */
-        type(By.name("email2"), personData.getEmail2());
+        //type(By.name("email2"), personData.getEmail2());
         /*
         wd.findElement(By.name("email2")).click();
         wd.findElement(By.name("email2")).sendKeys(personData.getEmail2());
         */
-        type(By.name("email3"), personData.getEmail3());
+        //type(By.name("email3"), personData.getEmail3());
         /*
         wd.findElement(By.name("email3")).click();
         wd.findElement(By.name("email3")).sendKeys(personData.getEmail3());
         */
-        type(By.name("homepage"), personData.getHomepage());
+        //type(By.name("homepage"), personData.getHomepage());
         /*
         wd.findElement(By.name("homepage")).click();
         wd.findElement(By.name("homepage")).sendKeys(personData.getHomepage());
@@ -124,7 +124,7 @@ public class PersonHelper extends HelperBase {
         if (!findElement(By.xpath("//div[@id='content']/form/select[2]//option[7]")).isSelected()) {
             findElement(By.xpath("//div[@id='content']/form/select[2]//option[7]")).click();
         }
-        type(By.name("byear"), personData.getByear());
+        //type(By.name("byear"), personData.getByear());
         /*
         wd.findElement(By.name("byear")).click();
         wd.findElement(By.name("byear")).clear();
@@ -136,7 +136,7 @@ public class PersonHelper extends HelperBase {
         if (!findElement(By.xpath("//div[@id='content']/form/select[4]//option[1]")).isSelected()) {
             findElement(By.xpath("//div[@id='content']/form/select[4]//option[1]")).click();
         }
-        type(By.name("ayear"), personData.getAyear());
+        //type(By.name("ayear"), personData.getAyear());
         /*
         wd.findElement(By.name("ayear")).click();
         wd.findElement(By.name("ayear")).sendKeys(personData.getAyear());
@@ -149,7 +149,7 @@ public class PersonHelper extends HelperBase {
             //    List<WebElement> options = findElement(By.name("new_group")).findElements(By.xpath(".//option[normalize-space(.) = " + Quotes.escape(personData.getGroup()) + "]"));
             //    if (options.size() == 0) { /*Если группа с заданным именем не найдена, то добавим в группу по умолчанию*/
             //        personData.setGroup("[none]");
-                    //groupHelper.creationGroup(new GroupData(personData.getGroup(),personData.getGroup(),personData.getGroup()));
+                    //groupHelper.create(new GroupData(personData.getGroup(),personData.getGroup(),personData.getGroup()));
             //    }
                 new Select(findElement(By.name("new_group"))).selectByVisibleText(personData.getGroup());
             //}
@@ -157,12 +157,12 @@ public class PersonHelper extends HelperBase {
             Assert.assertFalse(isElementPresent(By.name("new_group")));
         }
 
-        type(By.name("address2"), personData.getAddress2());
+        //type(By.name("address2"), personData.getAddress2());
         /*
         wd.findElement(By.name("address2")).click();
         wd.findElement(By.name("address2")).sendKeys(personData.getAddress2());
         */
-        type(By.name("phone2"), personData.getPhone2());
+        //type(By.name("phone2"), personData.getPhone2());
         /*
         wd.findElement(By.name("phone2")).click();
         wd.findElement(By.name("phone2")).sendKeys(personData.getPhone2());
@@ -200,25 +200,43 @@ public class PersonHelper extends HelperBase {
         click(By.name("update"));
     }
 
-    public void insertPerson(PersonData personData, boolean b) {
+    public void create(PersonData personData, boolean b) {
         navigationHelper.gotoAddNewPage();
         if (personData.getGroup() != null) { /*если передается наименование группы то проверим ее на существования*/
             List<WebElement> options = findElement(By.name("new_group")).findElements(By.xpath(".//option[normalize-space(.) = " + Quotes.escape(personData.getGroup()) + "]"));
             if (options.size() == 0) { /*Если группа с заданным именем не найдена, то добавим такую группу*/
-                groupHelper.creationGroup(new GroupData(personData.getGroup(), personData.getGroup(), personData.getGroup()));
+                //groupHelper.create(new GroupData(personData.getGroup(), personData.getGroup(), personData.getGroup()));
+                groupHelper.create(new GroupData().withName(personData.getGroup()).withHeader(personData.getGroup()).withFooter(personData.getGroup()));
                 navigationHelper.gotoAddNewPage();
             }
         }
         fillPersonForm(personData, b);
         savePersonData();
-        navigationHelper.gotoHomePage();
+        navigationHelper.homePage();
+    }
+
+    public void modify(PersonData personData, int index) {
+        //Выбрать кнкретную запись
+        selectPerson(index);
+        //Так как кнопок редактирования тоже несколько, то нужно нажать правильную
+        initPersonModification(index);
+        fillPersonForm(personData, false);
+        submitPersonModification();
+        navigationHelper.homePage();
+    }
+
+    public void delete(int index) {
+        selectPerson(index);
+        deleteSelectedPerson();
+        alertWindowOk();
+        navigationHelper.homePage();
     }
 
     public boolean isTherePersone() {
         return isElementPresent(By.name("selected[]"));
     }
 
-    public List<PersonData> getPersoneDataList() {
+    public List<PersonData> list() {
         List<PersonData> personDataList = new ArrayList<PersonData>();
         List<WebElement> elements = wd.findElements(By.name("entry"));
         for(WebElement element : elements){
@@ -226,9 +244,8 @@ public class PersonHelper extends HelperBase {
             String firstName = elementList.get(2).getText();
             String lastName = elementList.get(1).getText();
             int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-            PersonData personData = new PersonData(id, firstName, null, lastName, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
-
-            personDataList.add(personData);
+            //PersonData personData = new PersonData(id, firstName, null, lastName, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+            personDataList.add(new PersonData().withId(id).withFirstname(firstName).withLastname(lastName));
         }
         return personDataList;
     }

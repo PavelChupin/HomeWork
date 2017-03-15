@@ -1,27 +1,30 @@
 package ru.stqa.pft.homework.tests_addressbook;
 
-import org.openqa.selenium.remote.BrowserType;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.stqa.pft.homework.model.PersonData;
 
 import java.util.Comparator;
-import java.util.HashSet;
 import java.util.List;
 
 public class PersonInsert extends TestBase {
-
+/*
     public PersonInsert(){
         super(BrowserType.FIREFOX);
     }
-
-    @Test
+*/
+    @Test//(enabled = false)
     public void insertPerson() {
-        app.getNavigationHelper().gotoHomePage();
-        List<PersonData> beforePersonDataList = app.getPersonHelper().getPersoneDataList();
-        PersonData personData = new PersonData("Pavel", "", "Chupin", "PavelChupin", "", "", "630089, Novosibirsk, B.Bogatkova 185", "", "+79137382899", "pavel.chupin@gmail.com", "", "", "", "1984", "", "", "","1234");
-        app.getPersonHelper().insertPerson(personData,true);
-        List<PersonData> afterPersonDataList = app.getPersonHelper().getPersoneDataList();
+        /*
+        //Установим браузер в котором запускать тест
+        app.setBrowser(BrowserType.FIREFOX);
+        */
+        app.goTo().homePage();
+        List<PersonData> beforePersonDataList = app.persone().list();
+        PersonData personData = new PersonData()
+                .withFirstname("Pavel").withLastname("Chupin").withNickname("PavelChupin").withAddress("630089, Novosibirsk, B.Bogatkova 185").withMobilephone("+79137382899").withEmail("pavel.chupin@gmail.com").withGroup("test");
+        app.persone().create(personData,true);
+        List<PersonData> afterPersonDataList = app.persone().list();
         //Проверка совпадения длин списков
         Assert.assertEquals(afterPersonDataList.size(), beforePersonDataList.size() + 1);
 

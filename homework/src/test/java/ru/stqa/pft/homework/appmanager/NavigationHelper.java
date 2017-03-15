@@ -13,7 +13,7 @@ public class NavigationHelper extends HelperBase {
         super(wd);
     }
 
-    public void gotoGroupPage() {
+    public void groupPage() {
         if (isElementPresent(By.tagName("h1")) //Если на странице есть элемент заголовок (тег)
                 && findElement(By.tagName("h1")).getText().equals("Groups") //Если значение элемента заголовок равно проверяемому значению
                 && isElementPresent(By.name("new"))) {/*Если на странице есть кнопка с именем*/
@@ -32,7 +32,7 @@ public class NavigationHelper extends HelperBase {
         click(By.linkText("add new"));
     }
 
-    public void gotoHomePage() {
+    public void homePage() {
         if (isElementPresent(By.id("maintable"))){ //если есть таблица, то это страница Home
             return;
         }
