@@ -1,11 +1,18 @@
 package ru.stqa.pft.homework.tests_addressbook;
 
+import org.hamcrest.CoreMatchers;
+import org.hamcrest.MatcherAssert;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.homework.model.PersonData;
+import ru.stqa.pft.homework.model.Persons;
 
 import java.util.Set;
+
+import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.MatcherAssert.*;
+import static org.testng.Assert.*;
 
 /**
  * Created by Summoner on 27.02.2017.
@@ -32,7 +39,7 @@ public class PersonModification extends TestBase {
     @Test//(enabled = false)
     public void modificationPerson() {
         //Составим первоначальный список
-        Set<PersonData> beforePersonData = app.persone().all();
+        Persons beforePersonData = app.persone().all();
         PersonData modifyPerson = beforePersonData.iterator().next();
         //Сохраним индекс изменяемого элемента,
         //PersonData personData = new PersonData(beforePersonData.get(beforePersonData.size() - 1).getId(), "Pavel", "", "Chupin", "PavelChupin", "", "", "630089, Novosibirsk, B.Bogatkova 185", "", "+79137382899", "pavel.chupin@gmail.com", "", "", "", "1984", "", "", "", "1234");
@@ -41,14 +48,15 @@ public class PersonModification extends TestBase {
         //int index = beforePersonData.size() - 1;
         app.persone().modify(personData);
         //Составим измененый список
-        Set<PersonData> afterPersonData = app.persone().all();
+        Persons afterPersonData = app.persone().all();
         //Проверка совпадения длин списков, длина до и после не зменяется так как мы делаем изменение записи в списке
-        Assert.assertEquals(afterPersonData.size(), beforePersonData.size());
+        //assertEquals(afterPersonData.size(), beforePersonData.size());
+        assertThat(afterPersonData.size(),equalTo(beforePersonData.size()));
         //Проверка совпадения наполнения списков
         //Удалим из первоначального списка изменяемый элемент
-        beforePersonData.remove(modifyPerson);
+        //beforePersonData.remove(modifyPerson);
         //Добавим в первоначальный список измененый элемент
-        beforePersonData.add(personData);
+        //beforePersonData.add(personData);
 
         //Упорядочим списки
         //Comparator<? super PersonData> byId = (p1, p2) -> Integer.compare(p1.getId(), p2.getId());
@@ -59,7 +67,9 @@ public class PersonModification extends TestBase {
         //Assert.assertEquals(new HashSet<Object>(afterPersonData), new HashSet<Object>(beforePersonData));
 
         //Сравним упорядочные списки
-        Assert.assertEquals(beforePersonData, afterPersonData);
+        //assertEquals(beforePersonData, afterPersonData);
+
+        assertThat(afterPersonData, equalTo(beforePersonData.without(modifyPerson).withAdded(personData)));
 
     }
 

@@ -1,10 +1,11 @@
 package ru.stqa.pft.homework.tests_addressbook;
 
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.stqa.pft.homework.model.GroupData;
+import ru.stqa.pft.homework.model.Groups;
 
-import java.util.Set;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class GroupCreationHome extends TestBase {
 
@@ -19,14 +20,15 @@ public class GroupCreationHome extends TestBase {
         app.persone().setWd(new FirefoxDriver());
 */
         app.goTo().groupPage();
-        Set<GroupData> before = app.group().all();
+        Groups before = app.group().all();
         GroupData groupData = new GroupData()
                 .withName("HomeGroup2").withFooter("HomeGroup2").withHeader("HomeGroup2");
         app.group().create(groupData);
-        Set<GroupData> after = app.group().all();
+        Groups after = app.group().all();
         //Проверка совпадения длин списков, после добавления первоначальный список становиться длинее
-        Assert.assertEquals(after.size(), before.size() + 1);
+        //assertEquals(after.size(), before.size() + 1);
 
+        assertThat(after.size(), equalTo(before.size() + 1));
         //Найдем максимальный индетификатор равный новой группе
         /*int max = 0;
         for(GroupData g : after){
@@ -41,9 +43,9 @@ public class GroupCreationHome extends TestBase {
         //groupData.setId(after.stream().max((o1, o2) -> Integer.compare(o1.getId(), o2.getId())).get().getId());
 
         //Присвоим вновoь созданной группе новый идентификатор. Найдем максимальный идентификатор
-        groupData.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt());
+        //groupData.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt());
 
-        before.add(groupData);
+        //before.add(groupData);
 
         //Сортируем списки
         //Comparator<? super GroupData> byId = (g1, g2) -> Integer.compare(g1.getId(),g2.getId());
@@ -52,7 +54,9 @@ public class GroupCreationHome extends TestBase {
         //Сравнения производим не по упорядоченному списку, а преобразуем его в множество
         //Assert.assertEquals(new HashSet<Object>(before),new HashSet<Object>(after));
         //Производим проверку по упорядоченному списку
-        Assert.assertEquals(before, after);
+        //assertEquals(before, after);
+        assertThat(after, equalTo(
+                before.withAdded(groupData.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
     }
 
 }
