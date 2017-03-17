@@ -6,6 +6,9 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.homework.model.PersonData;
 
+import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.MatcherAssert.*;
+
 /**
  * Created by Summoner on 17.03.2017.
  */
@@ -28,17 +31,32 @@ public class PersonAllData extends TestBase{
     public void dataPersonAll(){
         app.goTo().homePage();
         PersonData person = app.persone().all().iterator().next();
-        //PersonData personInfoFromEditForm = app.persone().infoFromDetailForm(person);
-/*
-        MatcherAssert.assertThat(person.getFirstname(), CoreMatchers.equalTo(personInfoFromEditForm.getFirstname()));
-        MatcherAssert.assertThat(person.getLastname(), CoreMatchers.equalTo(personInfoFromEditForm.getLastname()));
-        MatcherAssert.assertThat(person.getAllPhones(), CoreMatchers.equalTo(personInfoFromEditForm.getAllPhones()));
-        MatcherAssert.assertThat(person.getAddress(), CoreMatchers.equalTo(personInfoFromEditForm.getAddress()));
-        MatcherAssert.assertThat(person.getAllEmail(), CoreMatchers.equalTo(personInfoFromEditForm.getAllEmail()));
-    */
+        PersonData personInfoFromEditForm = app.persone().infoFromDetailForm(person);
+
+        //String a = cleanedAll(personInfoFromEditForm.getAllPersonData());
+        //String b = person.getFirstname().concat(person.getLastname()).concat(person.getAddress()).concat(cleanedPhone2(person.getAllPhones(),person.getPhone2())).concat(cleanedEmails(person.getAllEmail())).concat(person.getPhone2());
+        /*
+        assertThat(person.getFirstname(), equalTo(cleaned(personInfoFromEditForm.getAllPersonData()));
+        assertThat(person.getFirstname(), equalTo(personInfoFromEditForm.getFirstname()));
+        assertThat(person.getLastname(), equalTo(personInfoFromEditForm.getLastname()));
+        assertThat(person.getAllPhones(), equalTo(personInfoFromEditForm.getAllPhones()));
+        assertThat(person.getAddress(), equalTo(personInfoFromEditForm.getAddress()));
+        assertThat(person.getAllEmail(), equalTo(personInfoFromEditForm.getAllEmail()));
+*/
+        assertThat(cleanedAll(personInfoFromEditForm.getAllPersonData())
+                ,equalTo(person.getFirstname().concat(person.getLastname()).concat(person.getAddress().replaceAll("\\s+",""))
+                        .concat(cleanedPhone2(person.getAllPhones(),person.getPhone2())).concat(cleanedEmails(person.getAllEmail())).concat(person.getPhone2())));
     }
 
-    public static String cleaned(String allPersonData){
-        return allPersonData.replaceAll("\\s","");
+    public static String cleanedAll(String allPersonData){
+        return allPersonData.replaceAll("H:","").replaceAll("M:","").replaceAll("W:","").replaceAll("P:","").replaceAll("\\s","").replaceAll("[()]","");
+    }
+
+    public static String cleanedPhone2(String allPhone, String phone){
+        return allPhone.replaceAll(phone,"").replaceAll("\\s","").replaceAll("[-()]","");
+    }
+
+    public static String cleanedEmails(String emails){
+        return emails.replaceAll("\\s","");
     }
 }
