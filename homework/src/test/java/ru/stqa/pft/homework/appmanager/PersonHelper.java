@@ -184,6 +184,12 @@ public class PersonHelper extends HelperBase {
         click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
     }
 
+    public void selectPersonById(int id) {
+        //wd.findElement(By.name("selected[]")).click();
+        //click(By.name("selected[]"));
+        //wd.findElements(By.name("selected[]")).get(index).click();
+        wd.findElement(By.cssSelector("input[value='" + id + "']")).click();
+    }
     public void alertWindowOk() {
         wd.switchTo().alert().accept();
     }
@@ -202,31 +208,6 @@ public class PersonHelper extends HelperBase {
         //click(By.xpath("//div[@id='content']/form[1]/input[22]"));
         //click(By.xpath("//div/div[4]/form[1]/input[22]"));
         click(By.name("update"));
-    }
-
-    public void create(PersonData personData, boolean b) {
-        navigationHelper.gotoAddNewPage();
-        if (personData.getGroup() != null) { /*если передается наименование группы то проверим ее на существования*/
-            List<WebElement> options = findElement(By.name("new_group")).findElements(By.xpath(".//option[normalize-space(.) = " + Quotes.escape(personData.getGroup()) + "]"));
-            if (options.size() == 0) { /*Если группа с заданным именем не найдена, то добавим такую группу*/
-                //groupHelper.create(new GroupData(personData.getGroup(), personData.getGroup(), personData.getGroup()));
-                groupHelper.create(new GroupData().withName(personData.getGroup()).withHeader(personData.getGroup()).withFooter(personData.getGroup()));
-                navigationHelper.gotoAddNewPage();
-            }
-        }
-        fillPersonForm(personData, b);
-        savePersonData();
-        navigationHelper.homePage();
-    }
-
-    public void modify(PersonData person) {
-        //Выбрать кнкретную запись
-        selectPersonById(person.getId());
-        //Так как кнопок редактирования тоже несколько, то нужно нажать правильную
-        initPersonModificationById(person.getId());
-        fillPersonForm(person, false);
-        submitPersonModification();
-        navigationHelper.homePage();
     }
 
     public void initPersonModificationById(int id) {
@@ -265,8 +246,16 @@ public class PersonHelper extends HelperBase {
             return personDataList;
         }
     */
+    //Переменная для хранения кеш списка контактов
+    private Persons personCache = null;
+
     public Persons all() {
-        Persons personDataList = new Persons();
+        //Проверим переменную кеша на заполненость, если она заполнена, то вернем копию ссылки на список групп и выйдем из метода получения списка
+        if (personCache != null){
+            return new Persons(personCache);
+        }
+        //Объявим список кеша
+        personCache = new Persons();
         List<WebElement> elements = wd.findElements(By.name("entry"));
         for (WebElement element : elements) {
             List<WebElement> elementList = element.findElements(By.tagName("td"));
@@ -274,9 +263,12 @@ public class PersonHelper extends HelperBase {
             String lastName = elementList.get(1).getText();
             int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
             //PersonData personData = new PersonData(id, firstName, null, lastName, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
-            personDataList.add(new PersonData().withId(id).withFirstname(firstName).withLastname(lastName));
+            //Добавим в кеш элемент списка контакта
+            personCache.add(new PersonData().withId(id).withFirstname(firstName).withLastname(lastName));
         }
-        return personDataList;
+        //Вернем ссылку на кеш списка контактов
+        //return personDataList;
+        return new Persons(personCache);
     }
 
 
@@ -284,13 +276,37 @@ public class PersonHelper extends HelperBase {
         selectPersonById(person.getId());
         deleteSelectedPerson();
         alertWindowOk();
+        //Так как состав контактов изменился, то кеш необходимо обнулить
+        personCache = null;
         navigationHelper.homePage();
     }
 
-    public void selectPersonById(int id) {
-        //wd.findElement(By.name("selected[]")).click();
-        //click(By.name("selected[]"));
-        //wd.findElements(By.name("selected[]")).get(index).click();
-        wd.findElement(By.cssSelector("input[value='" + id + "']")).click();
+    public void create(PersonData personData, boolean b) {
+        navigationHelper.gotoAddNewPage();
+        if (personData.getGroup() != null) { /*если передается наименование группы то проверим ее на существования*/
+            List<WebElement> options = findElement(By.name("new_group")).findElements(By.xpath(".//option[normalize-space(.) = " + Quotes.escape(personData.getGroup()) + "]"));
+            if (options.size() == 0) { /*Если группа с заданным именем не найдена, то добавим такую группу*/
+                //groupHelper.create(new GroupData(personData.getGroup(), personData.getGroup(), personData.getGroup()));
+                groupHelper.create(new GroupData().withName(personData.getGroup()).withHeader(personData.getGroup()).withFooter(personData.getGroup()));
+                navigationHelper.gotoAddNewPage();
+            }
+        }
+        fillPersonForm(personData, b);
+        savePersonData();
+        //Так как состав контактов изменился, то кеш необходимо обнулить
+        personCache = null;
+        navigationHelper.homePage();
+    }
+
+    public void modify(PersonData person) {
+        //Выбрать кнкретную запись
+        selectPersonById(person.getId());
+        //Так как кнопок редактирования тоже несколько, то нужно нажать правильную
+        initPersonModificationById(person.getId());
+        fillPersonForm(person, false);
+        submitPersonModification();
+        //Так как состав контактов изменился, то кеш необходимо обнулить
+        personCache = null;
+        navigationHelper.homePage();
     }
 }

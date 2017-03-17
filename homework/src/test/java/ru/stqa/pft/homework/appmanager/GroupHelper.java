@@ -61,21 +61,12 @@ public class GroupHelper extends HelperBase {
         click(By.name("update"));
     }
 
-    public void create(GroupData groupData) {
-        navigationHelper.groupPage();
-        initGroupCreation();
-        fillGroupForm(groupData);
-        submitGroupCreation();
-        returnGroupToPage();
+    public void selectGroupById(int id) {
+        //wd.findElements(By.name("selected[]")).get(index).click();
+        //click(By.name("selected[]"));
+        wd.findElement(By.cssSelector("input[value='" + id + "']")).click();
     }
 
-    public void modify(GroupData group) {
-        selectGroupById(group.getId());
-        initGroupModification();
-        fillGroupForm(group);
-        submitGroupModification();
-        returnGroupToPage();
-    }
 
     /*
         public void delete(int index) {
@@ -109,27 +100,54 @@ public class GroupHelper extends HelperBase {
             return groups;
         }
     */
+    //Заводим переменную для хранения кеша списка начитанного списка груп
+    private Groups groupCache = null;
+
     public Groups all() {
-        Groups groups = new Groups();
+        //Делаем предпроверку заполнености кеша. Если кеш списка групп не пустой то возвращаем на него ссылку при этом делаем копию, и выходим из метода.
+        if (groupCache != null){
+            return new Groups(groupCache);
+        }
+        //Инициализируем переменную кеша
+        groupCache = new Groups();
         List<WebElement> elements = wd.findElements(By.cssSelector("span.group"));
         for (WebElement element : elements) {
             String name = element.getText();
             int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
             //GroupData group = new GroupData().withId(id).withName(name);
-            groups.add(new GroupData().withId(id).withName(name));
+            //Добавим в кеш элемент группы
+            groupCache.add(new GroupData().withId(id).withName(name));
         }
-        return groups;
+        //Вернем копию списка групп
+        return new Groups(groupCache);
     }
 
     public void delete(GroupData group) {
         selectGroupById(group.getId());
         deleteSelectedGroups();
+        //Так как состав групп изменился, то кеш уже не актуален сбросим его
+        groupCache = null;
         returnGroupToPage();
     }
 
-    public void selectGroupById(int id) {
-        //wd.findElements(By.name("selected[]")).get(index).click();
-        //click(By.name("selected[]"));
-        wd.findElement(By.cssSelector("input[value='" + id + "']")).click();
+    public void create(GroupData groupData) {
+        navigationHelper.groupPage();
+        initGroupCreation();
+        fillGroupForm(groupData);
+        submitGroupCreation();
+        //Так как состав групп изменился, то кеш уже не актуален сбросим его
+        groupCache = null;
+        returnGroupToPage();
     }
+
+    public void modify(GroupData group) {
+        selectGroupById(group.getId());
+        initGroupModification();
+        fillGroupForm(group);
+        submitGroupModification();
+        //Так как состав групп изменился, то кеш уже не актуален сбросим его
+        groupCache = null;
+        returnGroupToPage();
+    }
+
 }
