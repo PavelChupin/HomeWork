@@ -1,5 +1,7 @@
 package ru.stqa.pft.homework.tests_addressbook;
 
+import org.hamcrest.CoreMatchers;
+import org.hamcrest.MatcherAssert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.homework.model.PersonData;
@@ -26,8 +28,17 @@ public class PersonAllData extends TestBase{
     public void dataPersonAll(){
         app.goTo().homePage();
         PersonData person = app.persone().all().iterator().next();
-        PersonData personInfoFromEditForm = app.persone().infoFromEditForm(person);
+        //PersonData personInfoFromEditForm = app.persone().infoFromDetailForm(person);
+/*
+        MatcherAssert.assertThat(person.getFirstname(), CoreMatchers.equalTo(personInfoFromEditForm.getFirstname()));
+        MatcherAssert.assertThat(person.getLastname(), CoreMatchers.equalTo(personInfoFromEditForm.getLastname()));
+        MatcherAssert.assertThat(person.getAllPhones(), CoreMatchers.equalTo(personInfoFromEditForm.getAllPhones()));
+        MatcherAssert.assertThat(person.getAddress(), CoreMatchers.equalTo(personInfoFromEditForm.getAddress()));
+        MatcherAssert.assertThat(person.getAllEmail(), CoreMatchers.equalTo(personInfoFromEditForm.getAllEmail()));
+    */
+    }
 
-
+    public static String cleaned(String allPersonData){
+        return allPersonData.replaceAll("\\s","");
     }
 }

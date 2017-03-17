@@ -351,5 +351,41 @@ public class PersonHelper extends HelperBase {
                 .withId(person.getId()).withFirstname(firstName).withLastname(lastName).withMobilephone(mobilePhone)
                 .withWorkphone(workPhone).withHomephone(homePhone).withPhone2(phone2).withAddress(address).withEmail(email).withEmail2(email2).withEmail3(email3);
     }
+/*
+    //поиск значений на странице информации по контакту
+    public PersonData infoFromDetailForm(PersonData person) {
+        //Перейдти на страницу редактирования контакта по идентификатору контакта
+        initPersonDetailById(person.getId());
+        //Начитываем параметры
+        String allPersonData = wd.findElement(By.id("content")).getText();
+
+
+        String firstName = wd.findElement(By.name("firstname")).getAttribute("value");
+        String lastName = wd.findElement(By.name("lastname")).getAttribute("value");
+        //String nickName = wd.findElement(By.name("nickname")).getAttribute("value");
+        String address = wd.findElement(By.name("address")).getAttribute("value");
+        String homePhone = wd.findElement(By.name("home")).getAttribute("value");
+        String mobilePhone = wd.findElement(By.name("mobile")).getAttribute("value");
+        String workPhone = wd.findElement(By.name("work")).getAttribute("value");
+        String email = wd.findElement(By.name("email")).getAttribute("value");
+        String email2 = wd.findElement(By.name("email2")).getAttribute("value");
+        String email3 = wd.findElement(By.name("email3")).getAttribute("value");
+        String phone2 = wd.findElement(By.name("phone2")).getAttribute("value");
+
+        //Возвращаемся на предыдущею страницу
+        wd.navigate().back();
+        //Возвращаем копию ссылки на объект с начитанными параметрами
+        return new PersonData().withAllPersonData(allPersonData);
+                .withId(person.getId()).withFirstname(firstName).withLastname(lastName).withMobilephone(mobilePhone)
+                .withWorkphone(workPhone).withHomephone(homePhone).withPhone2(phone2).withAddress(address).withEmail(email).withEmail2(email2).withEmail3(email3);
+
+    }*/
+
+    private void initPersonDetailById(int id) {
+        List<WebElement> elements = wd.findElements(By.name("entry"));
+        //String id = elements.get(index).findElement(By.tagName("input")).getAttribute("value");
+        wd.findElement(By.cssSelector("a[href='view.php?id=" + id + "']")).click();
+
+    }
 
 }

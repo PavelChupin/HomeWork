@@ -45,10 +45,10 @@ public class PersonAddress extends TestBase{
 
     private String mergeEmail(PersonData person) {
             return Arrays.asList(person.getEmail(),person.getEmail2(),person.getEmail3())
-                    .stream().filter((s) -> ! s.equals("")).map((email) -> cleaned(email)).collect(Collectors.joining("\n"));
+                    .stream().filter((s) -> ! s.equals("")).map(PersonAddress::cleaned).collect(Collectors.joining("\n"));
     }
 
-    public String cleaned(String email){
+    public static String cleaned(String email){
         return email.replaceAll("\\s","");
     }
 }

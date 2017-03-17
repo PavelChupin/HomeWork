@@ -24,6 +24,7 @@ public class PersonData {
     private String group;
     private String allEmail;
     private String allPhones;
+    private String allPersonData;
 
     @Override
     public String toString() {
@@ -52,6 +53,11 @@ public class PersonData {
         result = 31 * result + (firstname != null ? firstname.hashCode() : 0);
         result = 31 * result + (lastname != null ? lastname.hashCode() : 0);
         return result;
+    }
+
+    public PersonData withAllPersonData(String allPersonData) {
+        this.allPersonData = allPersonData;
+        return this;
     }
 
     public PersonData withAllEmail(String allEmail) {
@@ -186,5 +192,9 @@ public class PersonData {
 
     public String getAllEmail() {
         return allEmail;
+    }
+
+    public String getAllPersonData() {
+        return allPersonData;
     }
 }
