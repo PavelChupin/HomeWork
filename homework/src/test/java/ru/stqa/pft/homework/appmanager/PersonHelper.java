@@ -262,7 +262,7 @@ public class PersonHelper extends HelperBase {
             String lastName = elementList.get(1).getText();
             String allPhones = elementList.get(5).getText();
             //Получим и разрежем строку телефонов
-            String[] phones = elementList.get(5).getText().split("\n");
+            //String[] phones = elementList.get(5).getText().split("\n");
 
             //Получим адресс
             String address = elementList.get(3).getText();
@@ -277,8 +277,17 @@ public class PersonHelper extends HelperBase {
            /* personCache.add(new PersonData()
                     .withId(id).withFirstname(firstName).withLastname(lastName).withHomephone(phones[0]).withMobilephone(phones[1])
                     .withWorkphone(phones[2]).withPhone2(phones[3]).withAddress(address).withEmail(email));*/
+           /*String s;
+           if (phones.length < 3){
+               s = "";
+           }else{
+               s = phones[3];
+           }
             personCache.add(new PersonData()
-                    .withId(id).withFirstname(firstName).withLastname(lastName).withAllPhones(allPhones).withAddress(address).withAllEmail(emails).withPhone2(phones[3]));
+                    .withId(id).withFirstname(firstName).withLastname(lastName).withAllPhones(allPhones).withAddress(address).withAllEmail(emails).withPhone2(s));
+                    */
+            personCache.add(new PersonData()
+                    .withId(id).withFirstname(firstName).withLastname(lastName).withAllPhones(allPhones).withAddress(address).withAllEmail(emails));
         }
         //Вернем ссылку на кеш списка контактов
         //return personDataList;
