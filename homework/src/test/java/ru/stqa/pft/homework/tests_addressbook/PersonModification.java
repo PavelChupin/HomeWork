@@ -47,11 +47,12 @@ public class PersonModification extends TestBase {
                 .withId(modifyPerson.getId()).withFirstname("Pavel").withLastname("Chupin").withNickname("PavelChupin").withAddress("630089, Novosibirsk, B.Bogatkova 185").withMobilephone("+79137382899").withEmail("pavel.chupin@gmail.com").withGroup("test");
         //int index = beforePersonData.size() - 1;
         app.persone().modify(personData);
+        assertThat(app.persone().count(),equalTo(beforePersonData.size()));
         //Составим измененый список
         Persons afterPersonData = app.persone().all();
         //Проверка совпадения длин списков, длина до и после не зменяется так как мы делаем изменение записи в списке
         //assertEquals(afterPersonData.size(), beforePersonData.size());
-        assertThat(afterPersonData.size(),equalTo(beforePersonData.size()));
+        //assertThat(afterPersonData.size(),equalTo(beforePersonData.size()));
         //Проверка совпадения наполнения списков
         //Удалим из первоначального списка изменяемый элемент
         //beforePersonData.remove(modifyPerson);
@@ -72,5 +73,7 @@ public class PersonModification extends TestBase {
         assertThat(afterPersonData, equalTo(beforePersonData.without(modifyPerson).withAdded(personData)));
 
     }
+
+
 
 }

@@ -24,10 +24,11 @@ public class PersonInsert extends TestBase {
         PersonData personData = new PersonData()
                 .withFirstname("Pavel").withLastname("Chupin").withNickname("PavelChupin").withAddress("630089, Novosibirsk, B.Bogatkova 185").withMobilephone("+79137382899").withEmail("pavel.chupin@gmail.com").withGroup("test");
         app.persone().create(personData, true);
+        assertThat(app.persone().count(), equalTo(beforePersonData.size() + 1));
         Persons afterPersonData = app.persone().all();
         //Проверка совпадения длин списков
         //assertEquals(afterPersonDataList.size(), beforePersonData.size() + 1);
-        assertThat(afterPersonData.size(), equalTo(beforePersonData.size() + 1));
+        //assertThat(afterPersonData.size(), equalTo(beforePersonData.size() + 1));
         //Найдем и установим новый индекс для нового элемента
        /* int max = 0;
         for (PersonData p : afterPersonDataList){
@@ -58,6 +59,22 @@ public class PersonInsert extends TestBase {
         //assertEquals(beforePersonData, afterPersonDataList);
         assertThat(afterPersonData, equalTo(
                 beforePersonData.withAdded(personData.withId(afterPersonData.stream().mapToInt((p) -> p.getId()).max().getAsInt()))));
+    }
+
+    @Test//(enabled = false)
+    public void insertBadPerson() {
+        /*
+        //Установим браузер в котором запускать тест
+        app.setBrowser(BrowserType.FIREFOX);
+        */
+        app.goTo().homePage();
+        Persons beforePersonData = app.persone().all();
+        PersonData personData = new PersonData()
+                .withFirstname("Pavel'").withLastname("Chupin'").withNickname("PavelChupin'").withAddress("630089, Novosibirsk, B.Bogatkova 185").withMobilephone("+79137382899").withEmail("pavel.chupin@gmail.com").withGroup("test");
+        app.persone().create(personData, true);
+        assertThat(app.persone().count(), equalTo(beforePersonData.size()));
+        Persons afterPersonData = app.persone().all();
+        assertThat(afterPersonData, equalTo(beforePersonData));
     }
 
 }

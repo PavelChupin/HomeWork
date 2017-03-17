@@ -41,10 +41,11 @@ public class GroupDeletionHome extends TestBase {
         //int index = before.size() - 1;
         //Удаляем объект по его ссылке
         app.group().delete(deleteGroup);
+        assertThat(app.group().count(),equalTo(before.size() - 1));
         Groups after = app.group().all();
         //Проверка совпадения длин списков
         //assertEquals(before.size() - 1, after.size());
-        assertThat(after.size(),equalTo(before.size() - 1));
+        //assertThat(after.size(),equalTo(before.size() - 1));
         //Проверка совпадения наполнения списков
         //Удалим из первоночального списка удаленный элемент
         //before.remove(index);

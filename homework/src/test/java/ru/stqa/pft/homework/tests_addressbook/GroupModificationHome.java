@@ -47,11 +47,11 @@ public class GroupModificationHome extends TestBase {
                 .withId(modifiedGroup.getId()).withName("HomeGroup2").withFooter("HomeGroup2").withHeader("HomeGroup2");
         //Метод изменения перенесли в GroupHelper
         app.group().modify(groupData);
-
+        assertThat(app.group().count(),equalTo(before.size()));
         Groups after = app.group().all();
         //Проверка совпадения длин списков
         //assertEquals(before.size(), after.size());
-        assertThat(before.size(),equalTo(after.size()));
+        //assertThat(before.size(),equalTo(after.size()));
         //Проверка совпадения наполнения списков
         //Удаляем из списка элемент который изменяем
         //before.remove(modifiedGroup);

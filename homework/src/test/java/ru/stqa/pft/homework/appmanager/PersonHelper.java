@@ -309,4 +309,8 @@ public class PersonHelper extends HelperBase {
         personCache = null;
         navigationHelper.homePage();
     }
+
+    public int count() {
+        return wd.findElements(By.name("selected[]")).size();
+    }
 }

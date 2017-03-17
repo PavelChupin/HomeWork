@@ -40,12 +40,12 @@ public class PersonDelete extends TestBase {
         PersonData deletePerson = beforePersonData.iterator().next();
         //Удаляем объект по его ссылке
         app.persone().delete(deletePerson);
-
+        assertThat(app.persone().count(),equalTo(beforePersonData.size() - 1));
         Persons afterPersonData = app.persone().all();
         //Проверка совпадения длин списков
         //assertEquals(afterPersonData.size(), beforePersonData.size() - 1);
 
-        assertThat(afterPersonData.size(),equalTo(beforePersonData.size() - 1));
+        //assertThat(afterPersonData.size(),equalTo(beforePersonData.size() - 1));
         //Проверка совпадения наполнения списков
         //Удалим из первоночального списка удаленный элемент
         //beforePersonData.remove(deletePerson);
