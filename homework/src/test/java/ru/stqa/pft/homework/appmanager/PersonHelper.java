@@ -10,9 +10,7 @@ import ru.stqa.pft.homework.model.GroupData;
 import ru.stqa.pft.homework.model.PersonData;
 import ru.stqa.pft.homework.model.Persons;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Created by Summoner on 27.02.2017.
@@ -190,6 +188,7 @@ public class PersonHelper extends HelperBase {
         //wd.findElements(By.name("selected[]")).get(index).click();
         wd.findElement(By.cssSelector("input[value='" + id + "']")).click();
     }
+
     public void alertWindowOk() {
         wd.switchTo().alert().accept();
     }
@@ -251,7 +250,7 @@ public class PersonHelper extends HelperBase {
 
     public Persons all() {
         //Проверим переменную кеша на заполненость, если она заполнена, то вернем копию ссылки на список групп и выйдем из метода получения списка
-        if (personCache != null){
+        if (personCache != null) {
             return new Persons(personCache);
         }
         //Объявим список кеша
@@ -261,10 +260,23 @@ public class PersonHelper extends HelperBase {
             List<WebElement> elementList = element.findElements(By.tagName("td"));
             String firstName = elementList.get(2).getText();
             String lastName = elementList.get(1).getText();
+            String allPhones = elementList.get(5).getText();
+            //Получим и разрежем строку телефонов
+            //String[] phones = elementList.get(5).getText().split("\n");
+
+            //Получим адресс
+            String address = elementList.get(3).getText();
+            //Получим почтовый адресс
+            String email = elementList.get(4).findElement(By.tagName("a")).getText();
+
             int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
             //PersonData personData = new PersonData(id, firstName, null, lastName, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
             //Добавим в кеш элемент списка контакта
-            personCache.add(new PersonData().withId(id).withFirstname(firstName).withLastname(lastName));
+           /* personCache.add(new PersonData()
+                    .withId(id).withFirstname(firstName).withLastname(lastName).withHomephone(phones[0]).withMobilephone(phones[1])
+                    .withWorkphone(phones[2]).withPhone2(phones[3]).withAddress(address).withEmail(email));*/
+            personCache.add(new PersonData()
+                    .withId(id).withFirstname(firstName).withLastname(lastName).withAllPhones(allPhones).withAddress(address).withEmail(email));
         }
         //Вернем ссылку на кеш списка контактов
         //return personDataList;
@@ -313,4 +325,27 @@ public class PersonHelper extends HelperBase {
     public int count() {
         return wd.findElements(By.name("selected[]")).size();
     }
+
+    //поиск значений на странице редактирования
+    public PersonData infoFromEditForm(PersonData person) {
+        //Перейдти на страницу редактирования контакта по идентификатору контакта
+        initPersonModificationById(person.getId());
+        //Начитываем параметры
+        String firstName = wd.findElement(By.name("firstname")).getAttribute("value");
+        String lastName = wd.findElement(By.name("lastname")).getAttribute("value");
+        //String nickName = wd.findElement(By.name("nickname")).getAttribute("value");
+        String address = wd.findElement(By.name("address")).getAttribute("value");
+        String homePhone = wd.findElement(By.name("home")).getAttribute("value");
+        String mobilePhone = wd.findElement(By.name("mobile")).getAttribute("value");
+        String workPhone = wd.findElement(By.name("work")).getAttribute("value");
+        String email = wd.findElement(By.name("email")).getAttribute("value");
+        String phone2 = wd.findElement(By.name("phone2")).getAttribute("value");
+        //Возвращаемся на предыдущею страницу
+        wd.navigate().back();
+        //Возвращаем копию ссылки на объект с начитанными параметрами
+        return new PersonData()
+                .withId(person.getId()).withFirstname(firstName).withLastname(lastName).withMobilephone(mobilePhone)
+                .withWorkphone(workPhone).withHomephone(homePhone).withPhone2(phone2).withAddress(address).withEmail(email);
+    }
+
 }

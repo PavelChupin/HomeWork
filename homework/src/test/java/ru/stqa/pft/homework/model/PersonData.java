@@ -2,6 +2,7 @@ package ru.stqa.pft.homework.model;
 
 public class PersonData {
     private int id = Integer.MAX_VALUE;
+
     private String firstname;
     //private String middlename;
     private String lastname;
@@ -9,8 +10,9 @@ public class PersonData {
     //private String title;
     //private String company;
     private String address;
-    //private String home;
+    private String homephone;
     private String mobilephone;
+    private String workphone;
     private String email;
     //private String email2;
     //private String email3;
@@ -18,13 +20,10 @@ public class PersonData {
     //private String byear;
     //private String ayear;
     //private String address2;
-    //private String phone2;
+    private String phone2;
     private String group;
+    private String allPhones;
 
-    public PersonData withFirstname(String firstname) {
-        this.firstname = firstname;
-        return this;
-    }
 
     @Override
     public String toString() {
@@ -55,6 +54,15 @@ public class PersonData {
         return result;
     }
 
+    public PersonData withAllPhones(String allPhones) {
+        this.allPhones = allPhones;
+        return this;
+    }
+
+    public PersonData withFirstname(String firstname) {
+        this.firstname = firstname;
+        return this;
+    }
     public PersonData withLastname(String lastname) {
         this.lastname = lastname;
         return this;
@@ -90,6 +98,33 @@ public class PersonData {
         return this;
     }
 
+    public PersonData withHomephone(String homephone) {
+        this.homephone = homephone;
+        return this;
+    }
+
+    public PersonData withWorkphone(String workphone) {
+        this.workphone = workphone;
+        return this;
+    }
+
+    public String getHomephone() {
+        return homephone;
+    }
+
+    public String getWorkphone() {
+        return workphone;
+    }
+
+    public String getPhone2() {
+        return phone2;
+    }
+
+    public PersonData withPhone2(String phone2) {
+        this.phone2 = phone2;
+        return this;
+    }
+
     public int getId() {
         return id;
     }
@@ -122,4 +157,7 @@ public class PersonData {
         return group;
     }
 
+    public String getAllPhones() {
+        return allPhones;
+    }
 }
