@@ -267,7 +267,9 @@ public class PersonHelper extends HelperBase {
             //Получим адресс
             String address = elementList.get(3).getText();
             //Получим почтовый адресс
-            String email = elementList.get(4).findElement(By.tagName("a")).getText();
+            //String email = elementList.get(4).findElement(By.tagName("a")).getText();
+            //Получим почтовый адресс полностью
+            String emails = elementList.get(4).getText();
 
             int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
             //PersonData personData = new PersonData(id, firstName, null, lastName, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
@@ -276,7 +278,7 @@ public class PersonHelper extends HelperBase {
                     .withId(id).withFirstname(firstName).withLastname(lastName).withHomephone(phones[0]).withMobilephone(phones[1])
                     .withWorkphone(phones[2]).withPhone2(phones[3]).withAddress(address).withEmail(email));*/
             personCache.add(new PersonData()
-                    .withId(id).withFirstname(firstName).withLastname(lastName).withAllPhones(allPhones).withAddress(address).withEmail(email));
+                    .withId(id).withFirstname(firstName).withLastname(lastName).withAllPhones(allPhones).withAddress(address).withAllEmail(emails));
         }
         //Вернем ссылку на кеш списка контактов
         //return personDataList;
@@ -339,13 +341,15 @@ public class PersonHelper extends HelperBase {
         String mobilePhone = wd.findElement(By.name("mobile")).getAttribute("value");
         String workPhone = wd.findElement(By.name("work")).getAttribute("value");
         String email = wd.findElement(By.name("email")).getAttribute("value");
+        String email2 = wd.findElement(By.name("email2")).getAttribute("value");
+        String email3 = wd.findElement(By.name("email3")).getAttribute("value");
         String phone2 = wd.findElement(By.name("phone2")).getAttribute("value");
         //Возвращаемся на предыдущею страницу
         wd.navigate().back();
         //Возвращаем копию ссылки на объект с начитанными параметрами
         return new PersonData()
                 .withId(person.getId()).withFirstname(firstName).withLastname(lastName).withMobilephone(mobilePhone)
-                .withWorkphone(workPhone).withHomephone(homePhone).withPhone2(phone2).withAddress(address).withEmail(email);
+                .withWorkphone(workPhone).withHomephone(homePhone).withPhone2(phone2).withAddress(address).withEmail(email).withEmail2(email2).withEmail3(email3);
     }
 
 }

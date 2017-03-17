@@ -14,16 +14,16 @@ public class PersonData {
     private String mobilephone;
     private String workphone;
     private String email;
-    //private String email2;
-    //private String email3;
+    private String email2;
+    private String email3;
     //private String homepage;
     //private String byear;
     //private String ayear;
     //private String address2;
     private String phone2;
     private String group;
+    private String allEmail;
     private String allPhones;
-
 
     @Override
     public String toString() {
@@ -52,6 +52,21 @@ public class PersonData {
         result = 31 * result + (firstname != null ? firstname.hashCode() : 0);
         result = 31 * result + (lastname != null ? lastname.hashCode() : 0);
         return result;
+    }
+
+    public PersonData withAllEmail(String allEmail) {
+        this.allEmail = allEmail;
+        return this;
+    }
+
+    public PersonData withEmail2(String email2) {
+        this.email2 = email2;
+        return this;
+    }
+
+    public PersonData withEmail3(String email3) {
+        this.email3 = email3;
+        return this;
     }
 
     public PersonData withAllPhones(String allPhones) {
@@ -159,5 +174,17 @@ public class PersonData {
 
     public String getAllPhones() {
         return allPhones;
+    }
+
+    public String getEmail3() {
+        return email3;
+    }
+
+    public String getEmail2() {
+        return email2;
+    }
+
+    public String getAllEmail() {
+        return allEmail;
     }
 }

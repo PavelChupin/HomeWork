@@ -1,23 +1,14 @@
 package ru.stqa.pft.homework.tests_addressbook;
 
-import org.hamcrest.CoreMatchers;
-import org.hamcrest.MatcherAssert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.homework.model.PersonData;
 
-import javax.swing.border.MatteBorder;
-
-import java.util.Arrays;
-import java.util.stream.Collectors;
-
-import static org.hamcrest.CoreMatchers.*;
-import static org.hamcrest.MatcherAssert.*;
-
 /**
  * Created by Summoner on 17.03.2017.
  */
-public class PersonAddress extends TestBase{
+public class PersonAllData extends TestBase{
+
     @BeforeMethod  //Отрабатывает перед выполнением теста
     public void ensurePreconditions() {
         /*
@@ -32,23 +23,11 @@ public class PersonAddress extends TestBase{
     }
 
     @Test
-    public void addressPerson(){
+    public void dataPersonAll(){
         app.goTo().homePage();
         PersonData person = app.persone().all().iterator().next();
         PersonData personInfoFromEditForm = app.persone().infoFromEditForm(person);
-        assertThat(person.getAddress(), equalTo(personInfoFromEditForm.getAddress()));
-        //assertThat(person.getEmail(), equalTo(personInfoFromEditForm.getEmail()));
 
 
-        assertThat(person.getAllEmail(), equalTo(mergeEmail(personInfoFromEditForm)));
-    }
-
-    private String mergeEmail(PersonData person) {
-            return Arrays.asList(person.getEmail(),person.getEmail2(),person.getEmail3())
-                    .stream().filter((s) -> ! s.equals("")).map((email) -> cleaned(email)).collect(Collectors.joining("\n"));
-    }
-
-    public String cleaned(String email){
-        return email.replaceAll("\\s","");
     }
 }
