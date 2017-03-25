@@ -1,5 +1,7 @@
 package ru.stqa.pft.homework.model;
 
+import java.io.File;
+
 public class PersonData {
     private int id = Integer.MAX_VALUE;
 
@@ -25,6 +27,7 @@ public class PersonData {
     private String allEmail;
     private String allPhones;
     private String allPersonData;
+    private File photo;
 
     @Override
     public String toString() {
@@ -127,6 +130,14 @@ public class PersonData {
     public PersonData withWorkphone(String workphone) {
         this.workphone = workphone;
         return this;
+    }
+
+    public PersonData withPhote(File phote) {
+        this.photo = phote;
+        return this;
+    }
+    public File getPhoto() {
+        return photo;
     }
 
     public String getHomephone() {

@@ -4,6 +4,8 @@ import org.testng.annotations.Test;
 import ru.stqa.pft.homework.model.PersonData;
 import ru.stqa.pft.homework.model.Persons;
 
+import java.io.File;
+
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -13,7 +15,7 @@ public class PersonInsert extends TestBase {
             super(BrowserType.FIREFOX);
         }
     */
-    @Test//(enabled = false)
+    @Test(enabled = true)
     public void insertPerson() {
         /*
         //Установим браузер в котором запускать тест
@@ -21,8 +23,13 @@ public class PersonInsert extends TestBase {
         */
         app.goTo().homePage();
         Persons beforePersonData = app.persone().all();
+        //File currentDir = new File("."); //Точка текущая директория
+        //currentDir.getAbsolutePath(); //Получить путь дирректории
+        File photo = new File("src/test/resources/stru.png");
         PersonData personData = new PersonData()
-                .withFirstname("Pavel").withLastname("Chupin").withNickname("PavelChupin").withAddress("630089, Novosibirsk, B.Bogatkova 185").withMobilephone("+79137382899").withEmail("pavel.chupin@gmail.com").withGroup("test");
+                .withFirstname("Pavel").withLastname("Chupin").withNickname("PavelChupin")
+                .withAddress("630089, Novosibirsk, B.Bogatkova 185").withMobilephone("+79137382899")
+                .withEmail("pavel.chupin@gmail.com").withGroup("test").withPhote(photo);
         app.persone().create(personData, true);
         assertThat(app.persone().count(), equalTo(beforePersonData.size() + 1));
         Persons afterPersonData = app.persone().all();
@@ -61,7 +68,7 @@ public class PersonInsert extends TestBase {
                 beforePersonData.withAdded(personData.withId(afterPersonData.stream().mapToInt((p) -> p.getId()).max().getAsInt()))));
     }
 
-    @Test//(enabled = false)
+    @Test(enabled = false)
     public void insertBadPerson() {
         /*
         //Установим браузер в котором запускать тест
@@ -75,6 +82,16 @@ public class PersonInsert extends TestBase {
         assertThat(app.persone().count(), equalTo(beforePersonData.size()));
         Persons afterPersonData = app.persone().all();
         assertThat(afterPersonData, equalTo(beforePersonData));
+    }
+
+    @Test (enabled = false)
+    public void testCurrentDir() {
+        File currentDir = new File("."); //Точка текущая директория
+        //currentDir.getAbsolutePath(); //Получить путь дирректории
+        System.out.println(currentDir.getAbsolutePath());
+        File photo = new File("src/test/resources/stru.png");
+        System.out.println(photo.getAbsolutePath());
+        System.out.println(photo.exists()); //Метод проверки наличия файла по пути к нему
     }
 
 }

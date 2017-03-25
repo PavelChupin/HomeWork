@@ -49,6 +49,12 @@ public class PersonHelper extends HelperBase {
         wd.findElement(By.name("lastname")).sendKeys(personData.getLastname());
         */
         type(By.name("nickname"), personData.getNickname());
+
+        //Вариант добавления фото мой
+        type(By.name("photo"), personData.getPhoto().getAbsolutePath()); //Передаем обсолютный путь к файлу
+        //Вариант добавления из Лекции
+        //attach(By.name("photo"),personData.getPhoto());
+
         /*
         wd.findElement(By.name("nickname")).click();
         wd.findElement(By.name("nickname")).clear();
