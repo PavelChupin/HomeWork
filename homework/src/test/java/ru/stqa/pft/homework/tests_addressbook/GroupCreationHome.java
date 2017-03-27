@@ -1,5 +1,7 @@
 package ru.stqa.pft.homework.tests_addressbook;
 
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.stqa.pft.homework.model.GroupData;
@@ -12,6 +14,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -25,13 +28,17 @@ public class GroupCreationHome extends TestBase {
     //Создадим метод провайдер тестовых данных
     @DataProvider
     public Iterator<Object[]> validGroups() throws IOException {
-        List<Object[]> list = new ArrayList<Object[]>();
+
         /*
+        List<Object[]> list = new ArrayList<Object[]>();
         //Простой метод генерации данных
         list.add(new Object[]{new GroupData().withName("test1").withFooter("footer 1").withHeader("header 1")});
         list.add(new Object[]{new GroupData().withName("test2").withFooter("footer 2").withHeader("header 2")});
         list.add(new Object[]{new GroupData().withName("test3").withFooter("footer 3").withHeader("header 3")});
+        return list.iterator();
         */
+        /*
+        List<Object[]> list = new ArrayList<Object[]>();
         //Получение тестовых данных из файла CSV
         BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/groups.csv")));
         String line = reader.readLine();
@@ -42,6 +49,21 @@ public class GroupCreationHome extends TestBase {
             line = reader.readLine();
         }
         return list.iterator();
+        */
+
+        //Получение тестовых данных из файла XML используем библиотеку com.thoughtworks.xstream:xstream:1.4.9
+        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/groups.xml")));
+        String xml = "";
+        String line = reader.readLine();
+        while (line != null) {
+            xml += line;
+             line = reader.readLine();
+        }
+        XStream xStream = new XStream();
+        xStream.processAnnotations(GroupData.class);
+        List<GroupData> groups = (List<GroupData>) xStream.fromXML(xml);
+        return groups.stream().map((g) -> new Object[] {g}).collect(Collectors.toList()).iterator();
+        //-----Конец начитки через xml
     }
 
     @Test(dataProvider = "validGroups") //Подключаем провайдер тестовых данных

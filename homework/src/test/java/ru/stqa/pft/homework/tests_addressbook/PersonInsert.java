@@ -1,5 +1,6 @@
 package ru.stqa.pft.homework.tests_addressbook;
 
+import com.thoughtworks.xstream.XStream;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.stqa.pft.homework.model.GroupData;
@@ -10,6 +11,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -26,6 +28,7 @@ public class PersonInsert extends TestBase {
         List<Object[]> list = new ArrayList<Object[]>();
 
         /*
+        List<Object[]> list = new ArrayList<Object[]>();
         //Простой метод генерации данных
         File photo = new File("src/test/resources/stru.png");
         list.add(new Object[]{new PersonData()
@@ -40,9 +43,11 @@ public class PersonInsert extends TestBase {
                 .withFirstname("Pavel3").withLastname("Chupin3").withNickname("PavelChupin3")
                 .withAddress("630089, Novosibirsk, B.Bogatkova 185").withMobilephone("+79137382899")
                 .withEmail("pavel.chupin@gmail.com").withGroup("test").withPhoto(photo)});
+        return list.iterator();
         */
-
+/*
         //Прочитаем тестовые данные из файла CSV
+        List<Object[]> list = new ArrayList<Object[]>();
         BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/persons.csv")));
         String line = reader.readLine();
         while (line != null) {
@@ -53,6 +58,20 @@ public class PersonInsert extends TestBase {
             line = reader.readLine();
         }
         return list.iterator();
+*/
+        //Получение тестовых данных из файла XML используем библиотеку com.thoughtworks.xstream:xstream:1.4.9
+        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/persons.xml")));
+        String xml = "";
+        String line = reader.readLine();
+        while (line != null) {
+            xml += line;
+            line = reader.readLine();
+        }
+        XStream xStream = new XStream();
+        xStream.processAnnotations(PersonData.class);
+        List<PersonData> persons = (List<PersonData>) xStream.fromXML(xml);
+        return persons.stream().map((g) -> new Object[] {g}).collect(Collectors.toList()).iterator();
+        //-----Конец начитки через xml
     }
 
     @Test(dataProvider = "validPersons")
