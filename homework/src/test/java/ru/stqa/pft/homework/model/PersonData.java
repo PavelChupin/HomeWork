@@ -132,8 +132,8 @@ public class PersonData {
         return this;
     }
 
-    public PersonData withPhote(File phote) {
-        this.photo = phote;
+    public PersonData withPhoto(File photo) {
+        this.photo = photo;
         return this;
     }
     public File getPhoto() {

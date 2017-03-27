@@ -6,7 +6,7 @@ import ru.stqa.pft.homework.model.GroupData;
 import ru.stqa.pft.homework.model.PersonData;
 import ru.stqa.pft.homework.model.Persons;
 
-import java.io.File;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -22,21 +22,32 @@ public class PersonInsert extends TestBase {
     */
     //Создадим метод провайдер тестовых данных
     @DataProvider
-    public Iterator<Object[]> validPersons() {
+    public Iterator<Object[]> validPersons() throws IOException {
         List<Object[]> list = new ArrayList<Object[]>();
+        /*
         File photo = new File("src/test/resources/stru.png");
         list.add(new Object[]{new PersonData()
                 .withFirstname("Pavel1").withLastname("Chupin1").withNickname("PavelChupin1")
                 .withAddress("630089, Novosibirsk, B.Bogatkova 185").withMobilephone("+79137382899")
-                .withEmail("pavel.chupin@gmail.com").withGroup("test").withPhote(photo)});
+                .withEmail("pavel.chupin@gmail.com").withGroup("test").withPhoto(photo)});
         list.add(new Object[]{new PersonData()
                 .withFirstname("Pavel2").withLastname("Chupin2").withNickname("PavelChupin2")
                 .withAddress("630089, Novosibirsk, B.Bogatkova 185").withMobilephone("+79137382899")
-                .withEmail("pavel.chupin@gmail.com").withGroup("test").withPhote(photo)});
+                .withEmail("pavel.chupin@gmail.com").withGroup("test").withPhoto(photo)});
         list.add(new Object[]{new PersonData()
                 .withFirstname("Pavel3").withLastname("Chupin3").withNickname("PavelChupin3")
                 .withAddress("630089, Novosibirsk, B.Bogatkova 185").withMobilephone("+79137382899")
-                .withEmail("pavel.chupin@gmail.com").withGroup("test").withPhote(photo)});
+                .withEmail("pavel.chupin@gmail.com").withGroup("test").withPhoto(photo)});
+        */
+        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/persons.csv")));
+        String line = reader.readLine();
+        while (line != null) {
+            //Методом split дробим строку по регулярному выражению
+            String[] split = line.split(";");
+            list.add(new Object[]{new PersonData().withFirstname(split[0]).withLastname(split[1]).withNickname(split[2]).withAddress(split[3])
+                    .withMobilephone(split[4]).withEmail(split[5]).withGroup(split[6]).withPhoto(new File(split[7]))});
+            line = reader.readLine();
+        }
         return list.iterator();
     }
 
@@ -55,7 +66,7 @@ public class PersonInsert extends TestBase {
         PersonData personData = new PersonData()
                 .withFirstname("Pavel").withLastname("Chupin").withNickname("PavelChupin")
                 .withAddress("630089, Novosibirsk, B.Bogatkova 185").withMobilephone("+79137382899")
-                .withEmail("pavel.chupin@gmail.com").withGroup("test").withPhote(photo);
+                .withEmail("pavel.chupin@gmail.com").withGroup("test").withPhoto(photo);
          */
         app.persone().create(personData, true);
         assertThat(app.persone().count(), equalTo(beforePersonData.size() + 1));

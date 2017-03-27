@@ -5,6 +5,10 @@ import org.testng.annotations.Test;
 import ru.stqa.pft.homework.model.GroupData;
 import ru.stqa.pft.homework.model.Groups;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -20,11 +24,22 @@ public class GroupCreationHome extends TestBase {
 */
     //Создадим метод провайдер тестовых данных
     @DataProvider
-    public Iterator<Object[]> validGroups() {
+    public Iterator<Object[]> validGroups() throws IOException {
         List<Object[]> list = new ArrayList<Object[]>();
+        /*
         list.add(new Object[]{new GroupData().withName("test1").withFooter("footer 1").withHeader("header 1")});
         list.add(new Object[]{new GroupData().withName("test2").withFooter("footer 2").withHeader("header 2")});
         list.add(new Object[]{new GroupData().withName("test3").withFooter("footer 3").withHeader("header 3")});
+        */
+        //Получение тестовых данных из файла
+        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/groups.csv")));
+        String line = reader.readLine();
+        while (line != null) {
+            //Методом split дробим строку по регулярному выражению
+            String[] split = line.split(";");
+            list.add(new Object[]{new GroupData().withName(split[0]).withHeader(split[1]).withFooter(split[2])});
+            line = reader.readLine();
+        }
         return list.iterator();
     }
 

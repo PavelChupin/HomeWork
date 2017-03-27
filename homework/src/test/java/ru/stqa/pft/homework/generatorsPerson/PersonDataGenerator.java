@@ -18,10 +18,10 @@ import java.util.List;
 public class PersonDataGenerator {
 
     //Аннотация библиотеки jcommander
-    @Parameter (names = "-c", description = "Person count")
+    @Parameter(names = "-c", description = "Person count")
     public int count;
     //Аннотация библиотеки jcommander
-    @Parameter (names = "-f", description = "Target file")
+    @Parameter(names = "-f", description = "Target file")
     public String file;
 
     public static void main(String[] args) throws IOException {
@@ -29,7 +29,7 @@ public class PersonDataGenerator {
         JCommander jCommander = new JCommander(generator);
         try {
             jCommander.parse(args);
-        }catch (ParameterException ex){
+        } catch (ParameterException ex) {
             jCommander.usage();
             return;
         }
@@ -39,7 +39,6 @@ public class PersonDataGenerator {
         //Сохраним входные параметры количество контактов и путь к файлу
         //int count = Integer.parseInt(args[0]);
         //File file = new File(args[1]);
-
 
 
     }
@@ -53,8 +52,17 @@ public class PersonDataGenerator {
 
     private List<PersonData> generatePerson(int count) {
         List<PersonData> persons = new ArrayList<PersonData>();
+        File photo = new File("src/test/resources/stru.png");
         for (int i = 0; i < count; i++) {
-            persons.add(new PersonData().withFirstname(String.format("Chupin %s", i)).withLastname(String.format("Pavel %s", i)));
+            /*
+            new PersonData()
+                .withFirstname("Pavel1").withLastname("Chupin1").withNickname("PavelChupin1")
+                .withAddress("630089, Novosibirsk, B.Bogatkova 185").withMobilephone("+79137382899")
+                .withEmail("pavel.chupin@gmail.com").withGroup("test").withPhote(photo)
+            */
+            persons.add(new PersonData().withFirstname(String.format("Pavel %s", i)).withLastname(String.format("Chupin %s", i)).withNickname(String.format("PavelChupin %s", i))
+                    .withAddress(String.format("630089, Novosibirsk, B.Bogatkova 185 %s", i)).withMobilephone(String.format("+79137382899 %s", i))
+                    .withEmail(String.format("pavel.chupin@gmail.com %s", i)).withGroup(String.format("test %s", i)).withPhoto(photo));
         }
         return persons;
 
@@ -69,7 +77,8 @@ public class PersonDataGenerator {
         //Запишим построчно сгенеренные данные из коллекции построчно
         for (PersonData person : persons) {
             //запись по формату и в конце строки перевод строки
-            writer.write(String.format("%s;%s\n", person.getFirstname(), person.getLastname()));
+            writer.write(String.format("%s;%s;%s;%s;%s;%s;%s;%s\n", person.getFirstname(), person.getLastname(), person.getNickname(), person.getAddress(), person.getMobilephone()
+                    , person.getEmail(), person.getGroup(), person.getPhoto().getAbsolutePath()));
         }
         //После записи закрыть файл. Так как явная запись в файл производиться в момент закрытия, а до этого все сохраняется в кеше.
         //Если этого не сделать запись в фаил не произайдет
