@@ -27,11 +27,12 @@ public class GroupCreationHome extends TestBase {
     public Iterator<Object[]> validGroups() throws IOException {
         List<Object[]> list = new ArrayList<Object[]>();
         /*
+        //Простой метод генерации данных
         list.add(new Object[]{new GroupData().withName("test1").withFooter("footer 1").withHeader("header 1")});
         list.add(new Object[]{new GroupData().withName("test2").withFooter("footer 2").withHeader("header 2")});
         list.add(new Object[]{new GroupData().withName("test3").withFooter("footer 3").withHeader("header 3")});
         */
-        //Получение тестовых данных из файла
+        //Получение тестовых данных из файла CSV
         BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/groups.csv")));
         String line = reader.readLine();
         while (line != null) {

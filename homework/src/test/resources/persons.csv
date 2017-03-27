@@ -1,3 +1,53 @@
-Pavel 0;Chupin 0;PavelChupin 0;630089, Novosibirsk, B.Bogatkova 185 0;+79137382899 0;pavel.chupin@gmail.com 0;test 0;D:\GitRepository\Learn\HomeWork\homework\src\test\resources\stru.png
-Pavel 1;Chupin 1;PavelChupin 1;630089, Novosibirsk, B.Bogatkova 185 1;+79137382899 1;pavel.chupin@gmail.com 1;test 1;D:\GitRepository\Learn\HomeWork\homework\src\test\resources\stru.png
-Pavel 2;Chupin 2;PavelChupin 2;630089, Novosibirsk, B.Bogatkova 185 2;+79137382899 2;pavel.chupin@gmail.com 2;test 2;D:\GitRepository\Learn\HomeWork\homework\src\test\resources\stru.png
+<list>
+  <person>
+    <firstname>Pavel
+0</firstname>
+    <lastname>Chupin
+0</lastname>
+    <nickname>PavelChupin
+0</nickname>
+    <address>630089, Novosibirsk, B.Bogatkova 185
+0</address>
+    <mobilephone>+79137382899
+0</mobilephone>
+    <email>pavel.chupin@gmail.com
+0</email>
+    <group>test
+0</group>
+    <photo>src\test\resources\stru.png</photo>
+  </person>
+  <person>
+    <firstname>Pavel
+1</firstname>
+    <lastname>Chupin
+1</lastname>
+    <nickname>PavelChupin
+1</nickname>
+    <address>630089, Novosibirsk, B.Bogatkova 185
+1</address>
+    <mobilephone>+79137382899
+1</mobilephone>
+    <email>pavel.chupin@gmail.com
+1</email>
+    <group>test
+1</group>
+    <photo>src\test\resources\stru.png</photo>
+  </person>
+  <person>
+    <firstname>Pavel
+2</firstname>
+    <lastname>Chupin
+2</lastname>
+    <nickname>PavelChupin
+2</nickname>
+    <address>630089, Novosibirsk, B.Bogatkova 185
+2</address>
+    <mobilephone>+79137382899
+2</mobilephone>
+    <email>pavel.chupin@gmail.com
+2</email>
+    <group>test
+2</group>
+    <photo>src\test\resources\stru.png</photo>
+  </person>
+</list>

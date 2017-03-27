@@ -24,7 +24,9 @@ public class PersonInsert extends TestBase {
     @DataProvider
     public Iterator<Object[]> validPersons() throws IOException {
         List<Object[]> list = new ArrayList<Object[]>();
+
         /*
+        //Простой метод генерации данных
         File photo = new File("src/test/resources/stru.png");
         list.add(new Object[]{new PersonData()
                 .withFirstname("Pavel1").withLastname("Chupin1").withNickname("PavelChupin1")
@@ -39,6 +41,8 @@ public class PersonInsert extends TestBase {
                 .withAddress("630089, Novosibirsk, B.Bogatkova 185").withMobilephone("+79137382899")
                 .withEmail("pavel.chupin@gmail.com").withGroup("test").withPhoto(photo)});
         */
+
+        //Прочитаем тестовые данные из файла CSV
         BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/persons.csv")));
         String line = reader.readLine();
         while (line != null) {

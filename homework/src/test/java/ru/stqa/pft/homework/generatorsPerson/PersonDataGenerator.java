@@ -3,6 +3,7 @@ package ru.stqa.pft.homework.generatorsPerson;
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.ParameterException;
+import com.thoughtworks.xstream.XStream;
 import ru.stqa.pft.homework.model.PersonData;
 
 import java.io.File;
@@ -23,6 +24,10 @@ public class PersonDataGenerator {
     //Аннотация библиотеки jcommander
     @Parameter(names = "-f", description = "Target file")
     public String file;
+
+    //Аннотация библиотеки jcommander
+    @Parameter(names = "-d", description = "Data format")
+    public String format;
 
     public static void main(String[] args) throws IOException {
         PersonDataGenerator generator = new PersonDataGenerator();
@@ -47,7 +52,25 @@ public class PersonDataGenerator {
         //Метод генерации тестовых данных контакта
         List<PersonData> persons = generatePerson(count);
         //Метод сохранения сформированных данных в файл
-        save(persons, new File(file));
+        if (format.equals("csv")) {
+            saveAsCsv(persons, new File(file));
+        } else if (format.equals("xml")) {
+            saveAsXml(persons, new File(file));
+        } else {
+            System.out.println("Unrecoqnized format " + format);
+        }
+    }
+
+    //Метод для записи в файл в формате XML используем библиотеку com.thoughtworks.xstream:xstream:1.4.9
+    private void saveAsXml(List<PersonData> persons, File file) throws IOException {
+        XStream xStream = new XStream();
+        //xStream.alias("group",GroupData.class);
+        xStream.processAnnotations(PersonData.class);
+        String xml = xStream.toXML(persons);
+        Writer writer = new FileWriter(file);
+        writer.write(xml);
+        //Закрыть файл
+        writer.close();
     }
 
     private List<PersonData> generatePerson(int count) {
@@ -60,15 +83,15 @@ public class PersonDataGenerator {
                 .withAddress("630089, Novosibirsk, B.Bogatkova 185").withMobilephone("+79137382899")
                 .withEmail("pavel.chupin@gmail.com").withGroup("test").withPhote(photo)
             */
-            persons.add(new PersonData().withFirstname(String.format("Pavel %s", i)).withLastname(String.format("Chupin %s", i)).withNickname(String.format("PavelChupin %s", i))
-                    .withAddress(String.format("630089, Novosibirsk, B.Bogatkova 185 %s", i)).withMobilephone(String.format("+79137382899 %s", i))
-                    .withEmail(String.format("pavel.chupin@gmail.com %s", i)).withGroup(String.format("test %s", i)).withPhoto(photo));
+            persons.add(new PersonData().withFirstname(String.format("Pavel\n%s", i)).withLastname(String.format("Chupin\n%s", i)).withNickname(String.format("PavelChupin\n%s", i))
+                    .withAddress(String.format("630089, Novosibirsk, B.Bogatkova 185\n%s", i)).withMobilephone(String.format("+79137382899\n%s", i))
+                    .withEmail(String.format("pavel.chupin@gmail.com\n%s", i)).withGroup(String.format("test\n%s", i)).withPhoto(photo));
         }
         return persons;
 
     }
 
-    private void save(List<PersonData> persons, File file) throws IOException {
+    private void saveAsCsv(List<PersonData> persons, File file) throws IOException {
         //System.out.println(new File(".").getAbsolutePath());
         //Откроем файл для возможности записи. Передадим путь к файлу конструктуру.
         //Может возникать исключение. Мы его ен перехватываем а перебрасываем на верхний уровень

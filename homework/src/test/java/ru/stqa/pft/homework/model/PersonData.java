@@ -1,8 +1,13 @@
 package ru.stqa.pft.homework.model;
 
-import java.io.File;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamOmitField;
 
+import java.io.File;
+@XStreamAlias("person") // Наименованеи обьектов в файле
 public class PersonData {
+
+    @XStreamOmitField //Не сохранять поле в выходной форма
     private int id = Integer.MAX_VALUE;
 
     private String firstname;
