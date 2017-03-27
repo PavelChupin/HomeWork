@@ -1,8 +1,13 @@
 package ru.stqa.pft.homework.tests_addressbook;
 
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.stqa.pft.homework.model.GroupData;
 import ru.stqa.pft.homework.model.Groups;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -13,16 +18,29 @@ public class GroupCreationHome extends TestBase {
         super(BrowserType.FIREFOX);
     }
 */
-    @Test
-    public void homeGroupCreation() {
+    //Создадим метод провайдер тестовых данных
+    @DataProvider
+    public Iterator<Object[]> validGroups() {
+        List<Object[]> list = new ArrayList<Object[]>();
+        list.add(new Object[]{new GroupData().withName("test1").withFooter("footer 1").withHeader("header 1")});
+        list.add(new Object[]{new GroupData().withName("test2").withFooter("footer 2").withHeader("header 2")});
+        list.add(new Object[]{new GroupData().withName("test3").withFooter("footer 3").withHeader("header 3")});
+        return list.iterator();
+    }
+
+    @Test(dataProvider = "validGroups") //Подключаем провайдер тестовых данных
+    public void homeGroupCreation(GroupData groupData) {
+
 /*
         //Установим браузер в котором запускать тест
         app.persone().setWd(new FirefoxDriver());
 */
         app.goTo().groupPage();
         Groups before = app.group().all();
+        /*
         GroupData groupData = new GroupData()
                 .withName("HomeGroup2").withFooter("HomeGroup2").withHeader("HomeGroup2");
+        */
         app.group().create(groupData);
         assertThat(app.group().count(), equalTo(before.size() + 1));
         Groups after = app.group().all();
@@ -58,9 +76,10 @@ public class GroupCreationHome extends TestBase {
         //assertEquals(before, after);
         assertThat(after, equalTo(
                 before.withAdded(groupData.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
+
     }
 
-    @Test
+    @Test(enabled = false)
     public void homeBadGroupCreation() {
 /*
         //Установим браузер в котором запускать тест

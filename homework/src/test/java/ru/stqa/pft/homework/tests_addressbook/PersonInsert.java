@@ -1,10 +1,15 @@
 package ru.stqa.pft.homework.tests_addressbook;
 
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import ru.stqa.pft.homework.model.GroupData;
 import ru.stqa.pft.homework.model.PersonData;
 import ru.stqa.pft.homework.model.Persons;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -15,8 +20,28 @@ public class PersonInsert extends TestBase {
             super(BrowserType.FIREFOX);
         }
     */
-    @Test(enabled = true)
-    public void insertPerson() {
+    //Создадим метод провайдер тестовых данных
+    @DataProvider
+    public Iterator<Object[]> validPersons() {
+        List<Object[]> list = new ArrayList<Object[]>();
+        File photo = new File("src/test/resources/stru.png");
+        list.add(new Object[]{new PersonData()
+                .withFirstname("Pavel1").withLastname("Chupin1").withNickname("PavelChupin1")
+                .withAddress("630089, Novosibirsk, B.Bogatkova 185").withMobilephone("+79137382899")
+                .withEmail("pavel.chupin@gmail.com").withGroup("test").withPhote(photo)});
+        list.add(new Object[]{new PersonData()
+                .withFirstname("Pavel2").withLastname("Chupin2").withNickname("PavelChupin2")
+                .withAddress("630089, Novosibirsk, B.Bogatkova 185").withMobilephone("+79137382899")
+                .withEmail("pavel.chupin@gmail.com").withGroup("test").withPhote(photo)});
+        list.add(new Object[]{new PersonData()
+                .withFirstname("Pavel3").withLastname("Chupin3").withNickname("PavelChupin3")
+                .withAddress("630089, Novosibirsk, B.Bogatkova 185").withMobilephone("+79137382899")
+                .withEmail("pavel.chupin@gmail.com").withGroup("test").withPhote(photo)});
+        return list.iterator();
+    }
+
+    @Test(dataProvider = "validPersons")
+    public void insertPerson(PersonData personData) {
         /*
         //Установим браузер в котором запускать тест
         app.setBrowser(BrowserType.FIREFOX);
@@ -25,11 +50,13 @@ public class PersonInsert extends TestBase {
         Persons beforePersonData = app.persone().all();
         //File currentDir = new File("."); //Точка текущая директория
         //currentDir.getAbsolutePath(); //Получить путь дирректории
+        /*
         File photo = new File("src/test/resources/stru.png");
         PersonData personData = new PersonData()
                 .withFirstname("Pavel").withLastname("Chupin").withNickname("PavelChupin")
                 .withAddress("630089, Novosibirsk, B.Bogatkova 185").withMobilephone("+79137382899")
                 .withEmail("pavel.chupin@gmail.com").withGroup("test").withPhote(photo);
+         */
         app.persone().create(personData, true);
         assertThat(app.persone().count(), equalTo(beforePersonData.size() + 1));
         Persons afterPersonData = app.persone().all();
@@ -84,7 +111,7 @@ public class PersonInsert extends TestBase {
         assertThat(afterPersonData, equalTo(beforePersonData));
     }
 
-    @Test (enabled = false)
+    @Test(enabled = false)
     public void testCurrentDir() {
         File currentDir = new File("."); //Точка текущая директория
         //currentDir.getAbsolutePath(); //Получить путь дирректории
