@@ -3,6 +3,8 @@ package ru.stqa.pft.homework.generators;
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.ParameterException;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.thoughtworks.xstream.XStream;
 import ru.stqa.pft.homework.model.GroupData;
 
@@ -50,9 +52,27 @@ public class GroupDataGenerator {
             saveAsCsv(groups, new File(file));
         } else if (format.equals("xml")) {
             saveAsXml(groups, new File(file));
+        } else if (format.equals("json")) {
+            saveAsJson(groups, new File(file));
         } else {
             System.out.println("Unrecoqnized format " + format);
         }
+    }
+    //Генератор в формате Json
+    private void saveAsJson(List<GroupData> groups, File file) throws IOException {
+        Gson gson = new GsonBuilder().setPrettyPrinting().excludeFieldsWithoutExposeAnnotation().create();
+        String json = gson.toJson(groups);
+        //Запишим в файл первый способ закрытия файла явно
+        Writer writer = new FileWriter(file);
+        writer.write(json);
+        //Закрыть файл
+        writer.close();
+        //Конец первого способа
+
+        /*//Запись в файл второй способ
+        try (Writer writer = new FileWriter(file)) {
+            writer.write(json);
+        }//Конец второго способа*/
     }
 
     //Метод для записи в файл в формате XML используем библиотеку com.thoughtworks.xstream:xstream:1.4.9
@@ -61,15 +81,22 @@ public class GroupDataGenerator {
         //xStream.alias("group",GroupData.class);
         xStream.processAnnotations(GroupData.class);
         String xml = xStream.toXML(groups);
+        //Запишим в файл первый способ закрытия файла явно
         Writer writer = new FileWriter(file);
         writer.write(xml);
         //Закрыть файл
         writer.close();
+        //Конец первого способа
+
+         /*//Запись в файл второй способ
+        try (Writer writer = new FileWriter(file)) {
+            writer.write(xml);
+        }//Конец второго способа*/
     }
 
     private void saveAsCsv(List<GroupData> groups, File file) throws IOException {
         System.out.println(new File(".").getAbsolutePath());
-        //Запись данных в файл
+        //Запишим в файл первый способ закрытия файла явно
         Writer writer = new FileWriter(file);
         for (GroupData group : groups) {
             //Запись производим по формату  %s;%s;%s
@@ -77,6 +104,15 @@ public class GroupDataGenerator {
         }
         //Закрыть файл
         writer.close();
+        //Конец первого способа
+
+         /*//Запись в файл второй способ
+        try (Writer writer = new FileWriter(file)) {
+            for (GroupData group : groups) {
+            //Запись производим по формату  %s;%s;%s
+            writer.write(String.format("%s;%s;%s\n", group.getName(), group.getHeader(), group.getFooter()));
+            }
+        }//Конец второго способа*/
     }
 
     private List generateGroups(int count) {

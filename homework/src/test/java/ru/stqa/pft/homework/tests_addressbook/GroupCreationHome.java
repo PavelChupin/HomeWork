@@ -1,11 +1,14 @@
 package ru.stqa.pft.homework.tests_addressbook;
 
+import com.google.common.reflect.TypeToken;
+import com.google.gson.Gson;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.stqa.pft.homework.model.GroupData;
 import ru.stqa.pft.homework.model.Groups;
+import sun.security.jgss.GSSCaller;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -25,9 +28,9 @@ public class GroupCreationHome extends TestBase {
         super(BrowserType.FIREFOX);
     }
 */
-    //Создадим метод провайдер тестовых данных
+    //Создадим метод провайдер тестовых данных Xml
     @DataProvider
-    public Iterator<Object[]> validGroups() throws IOException {
+    public Iterator<Object[]> validGroupsFromXml() throws IOException {
 
         /*
         List<Object[]> list = new ArrayList<Object[]>();
@@ -52,21 +55,43 @@ public class GroupCreationHome extends TestBase {
         */
 
         //Получение тестовых данных из файла XML используем библиотеку com.thoughtworks.xstream:xstream:1.4.9
-        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/groups.xml")));
-        String xml = "";
-        String line = reader.readLine();
-        while (line != null) {
-            xml += line;
-             line = reader.readLine();
+        try(BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/groups.xml")))){
+            String xml = "";
+            String line = reader.readLine();
+            while (line != null) {
+                xml += line;
+                line = reader.readLine();
+            }
+            XStream xStream = new XStream();
+            xStream.processAnnotations(GroupData.class);
+            List<GroupData> groups = (List<GroupData>) xStream.fromXML(xml);
+            return groups.stream().map((g) -> new Object[] {g}).collect(Collectors.toList()).iterator();
+            //-----Конец начитки через xml
         }
-        XStream xStream = new XStream();
-        xStream.processAnnotations(GroupData.class);
-        List<GroupData> groups = (List<GroupData>) xStream.fromXML(xml);
-        return groups.stream().map((g) -> new Object[] {g}).collect(Collectors.toList()).iterator();
-        //-----Конец начитки через xml
+
     }
 
-    @Test(dataProvider = "validGroups") //Подключаем провайдер тестовых данных
+    //Создадим метод провайдер тестовых данных  Json
+    @DataProvider
+    public Iterator<Object[]> validGroupsFromJson() throws IOException {
+        //Получение тестовых данных из файла XML используем библиотеку com.thoughtworks.xstream:xstream:1.4.9
+        try (BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/groups.json")))){
+            String json = "";
+            String line = reader.readLine();
+            while (line != null) {
+                json += line;
+                line = reader.readLine();
+            }
+            Gson gson = new Gson();
+            List<GroupData> groups = gson.fromJson(json, new TypeToken<List<GroupData>>(){}.getType());
+            return groups.stream().map((g) -> new Object[] {g}).collect(Collectors.toList()).iterator();
+            //-----Конец начитки через Json
+        }
+
+    }
+
+
+    @Test(dataProvider = "validGroupsFromXml") //Подключаем провайдер тестовых данных
     public void homeGroupCreation(GroupData groupData) {
 
 /*

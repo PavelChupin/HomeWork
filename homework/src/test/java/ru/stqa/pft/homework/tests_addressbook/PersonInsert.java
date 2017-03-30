@@ -1,5 +1,7 @@
 package ru.stqa.pft.homework.tests_addressbook;
 
+import com.google.common.reflect.TypeToken;
+import com.google.gson.Gson;
 import com.thoughtworks.xstream.XStream;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -22,9 +24,9 @@ public class PersonInsert extends TestBase {
             super(BrowserType.FIREFOX);
         }
     */
-    //Создадим метод провайдер тестовых данных
+    //Создадим метод провайдер тестовых данных через Xml
     @DataProvider
-    public Iterator<Object[]> validPersons() throws IOException {
+    public Iterator<Object[]> validPersonsFromXml() throws IOException {
         List<Object[]> list = new ArrayList<Object[]>();
 
         /*
@@ -60,21 +62,42 @@ public class PersonInsert extends TestBase {
         return list.iterator();
 */
         //Получение тестовых данных из файла XML используем библиотеку com.thoughtworks.xstream:xstream:1.4.9
-        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/persons.xml")));
-        String xml = "";
-        String line = reader.readLine();
-        while (line != null) {
-            xml += line;
-            line = reader.readLine();
+        try(BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/persons.xml")))){
+            String xml = "";
+            String line = reader.readLine();
+            while (line != null) {
+                xml += line;
+                line = reader.readLine();
+            }
+            XStream xStream = new XStream();
+            xStream.processAnnotations(PersonData.class);
+            List<PersonData> persons = (List<PersonData>) xStream.fromXML(xml);
+            return persons.stream().map((g) -> new Object[] {g}).collect(Collectors.toList()).iterator();
+            //-----Конец начитки через xml
         }
-        XStream xStream = new XStream();
-        xStream.processAnnotations(PersonData.class);
-        List<PersonData> persons = (List<PersonData>) xStream.fromXML(xml);
-        return persons.stream().map((g) -> new Object[] {g}).collect(Collectors.toList()).iterator();
-        //-----Конец начитки через xml
+
     }
 
-    @Test(dataProvider = "validPersons")
+    //Создадим метод провайдер тестовых данных  Json
+    @DataProvider
+    public Iterator<Object[]> validPersonsFromJson() throws IOException {
+        //Получение тестовых данных из файла XML используем библиотеку com.thoughtworks.xstream:xstream:1.4.9
+        try (BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/persons.json")))){
+            String json = "";
+            String line = reader.readLine();
+            while (line != null) {
+                json += line;
+                line = reader.readLine();
+            }
+            Gson gson = new Gson();
+            List<PersonData> persons = gson.fromJson(json, new TypeToken<List<PersonData>>(){}.getType());
+            return persons.stream().map((g) -> new Object[] {g}).collect(Collectors.toList()).iterator();
+            //-----Конец начитки через Json
+        }
+
+    }
+
+    @Test(dataProvider = "validPersonsFromXml")
     public void insertPerson(PersonData personData) {
         /*
         //Установим браузер в котором запускать тест

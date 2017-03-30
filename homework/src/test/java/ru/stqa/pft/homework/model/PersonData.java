@@ -1,5 +1,6 @@
 package ru.stqa.pft.homework.model;
 
+import com.google.gson.annotations.Expose;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
 
@@ -9,29 +10,41 @@ public class PersonData {
 
     @XStreamOmitField //Не сохранять поле в выходной форма
     private int id = Integer.MAX_VALUE;
-
+    @Expose
     private String firstname;
     //private String middlename;
+    @Expose
     private String lastname;
+
     private String nickname;
     //private String title;
     //private String company;
+    @Expose
     private String address;
+
     private String homephone;
+    @Expose
     private String mobilephone;
+
     private String workphone;
+    @Expose
     private String email;
+
     private String email2;
+
     private String email3;
     //private String homepage;
     //private String byear;
     //private String ayear;
     //private String address2;
+
     private String phone2;
+    @Expose
     private String group;
     private String allEmail;
     private String allPhones;
     private String allPersonData;
+    @Expose
     private File photo;
 
     @Override

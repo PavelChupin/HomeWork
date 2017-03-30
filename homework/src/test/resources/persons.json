@@ -1,0 +1,29 @@
+[
+  {
+    "firstname": "Pavel\n0",
+    "lastname": "Chupin\n0",
+    "address": "630089, Novosibirsk, B.Bogatkova 185\n0",
+    "mobilephone": "+79137382899\n0",
+    "email": "pavel.chupin@gmail.com\n0",
+    "group": "test\n0",
+    "photo": {}
+  },
+  {
+    "firstname": "Pavel\n1",
+    "lastname": "Chupin\n1",
+    "address": "630089, Novosibirsk, B.Bogatkova 185\n1",
+    "mobilephone": "+79137382899\n1",
+    "email": "pavel.chupin@gmail.com\n1",
+    "group": "test\n1",
+    "photo": {}
+  },
+  {
+    "firstname": "Pavel\n2",
+    "lastname": "Chupin\n2",
+    "address": "630089, Novosibirsk, B.Bogatkova 185\n2",
+    "mobilephone": "+79137382899\n2",
+    "email": "pavel.chupin@gmail.com\n2",
+    "group": "test\n2",
+    "photo": {}
+  }
+]

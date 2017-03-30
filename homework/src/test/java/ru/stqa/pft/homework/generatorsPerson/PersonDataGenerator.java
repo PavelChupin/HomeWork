@@ -3,6 +3,8 @@ package ru.stqa.pft.homework.generatorsPerson;
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.ParameterException;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.thoughtworks.xstream.XStream;
 import ru.stqa.pft.homework.model.PersonData;
 
@@ -56,9 +58,27 @@ public class PersonDataGenerator {
             saveAsCsv(persons, new File(file));
         } else if (format.equals("xml")) {
             saveAsXml(persons, new File(file));
+        } else if (format.equals("json")) {
+            saveAsJson(persons, new File(file));
         } else {
             System.out.println("Unrecoqnized format " + format);
         }
+    }
+
+    private void saveAsJson(List<PersonData> persons, File file) throws IOException {
+        Gson gson = new GsonBuilder().setPrettyPrinting().excludeFieldsWithoutExposeAnnotation().create();
+        String json = gson.toJson(persons);
+        //Запишим в файл первый способ закрытия файла явно
+        Writer writer = new FileWriter(file);
+        writer.write(json);
+        //Закрыть файл
+        writer.close();
+        //Конец первого способа
+
+          /*//Запись в файл второй способ
+        try (Writer writer = new FileWriter(file)) {
+            writer.write(json);
+        }//Конец второго способа*/
     }
 
     //Метод для записи в файл в формате XML используем библиотеку com.thoughtworks.xstream:xstream:1.4.9
@@ -67,10 +87,17 @@ public class PersonDataGenerator {
         //xStream.alias("group",GroupData.class);
         xStream.processAnnotations(PersonData.class);
         String xml = xStream.toXML(persons);
+        //Запишим в файл первый способ закрытия файла явно
         Writer writer = new FileWriter(file);
         writer.write(xml);
         //Закрыть файл
         writer.close();
+        //Конец первого способа
+
+          /*//Запись в файл второй способ
+        try (Writer writer = new FileWriter(file)) {
+            writer.write(xml);
+        }//Конец второго способа*/
     }
 
     private List<PersonData> generatePerson(int count) {
@@ -95,6 +122,8 @@ public class PersonDataGenerator {
         //System.out.println(new File(".").getAbsolutePath());
         //Откроем файл для возможности записи. Передадим путь к файлу конструктуру.
         //Может возникать исключение. Мы его ен перехватываем а перебрасываем на верхний уровень
+
+        //Запишим в файл первый способ закрытия файла явно
         Writer writer = new FileWriter(file);
 
         //Запишим построчно сгенеренные данные из коллекции построчно
@@ -106,5 +135,15 @@ public class PersonDataGenerator {
         //После записи закрыть файл. Так как явная запись в файл производиться в момент закрытия, а до этого все сохраняется в кеше.
         //Если этого не сделать запись в фаил не произайдет
         writer.close();
+        //Конец первого способа
+
+          /*//Запись в файл второй способ
+        try (Writer writer = new FileWriter(file)) {
+            for (PersonData person : persons) {
+            //запись по формату и в конце строки перевод строки
+            writer.write(String.format("%s;%s;%s;%s;%s;%s;%s;%s\n", person.getFirstname(), person.getLastname(), person.getNickname(), person.getAddress(), person.getMobilephone()
+                    , person.getEmail(), person.getGroup(), person.getPhoto().getAbsolutePath()));
+        }
+        }//Конец второго способа*/
     }
 }
