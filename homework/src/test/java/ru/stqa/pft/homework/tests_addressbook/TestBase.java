@@ -11,8 +11,15 @@ import ru.stqa.pft.homework.appmanager.ApplicationManager;
  * Created by Summoner on 26.02.2017.
  */
 public class TestBase {
-
+    /*
+    //Переменная для использования браузера дефолтная
     protected static final ApplicationManager app = new ApplicationManager(BrowserType.CHROME);
+    */
+
+    //Переменная для использования браузера из настроек свойств, настройка устанавливается в
+    // EditConfiguration файла теста в поле VM Option через ключь -Dfirefox
+    protected static final ApplicationManager app =
+            new ApplicationManager(System.getProperty("browser",BrowserType.CHROME));
 
     /* public TestBase (String browserType){
          app = new ApplicationManager(browserType);
