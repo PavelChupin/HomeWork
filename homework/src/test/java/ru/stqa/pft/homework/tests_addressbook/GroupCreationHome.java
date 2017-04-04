@@ -4,6 +4,8 @@ import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.stqa.pft.homework.model.GroupData;
@@ -23,6 +25,8 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class GroupCreationHome extends TestBase {
+
+
 
     /*public GroupCreationHome(){
         super(BrowserType.FIREFOX);
@@ -94,6 +98,7 @@ public class GroupCreationHome extends TestBase {
     @Test(dataProvider = "validGroupsFromXml") //Подключаем провайдер тестовых данных
     public void homeGroupCreation(GroupData groupData) {
 
+
 /*
         //Установим браузер в котором запускать тест
         app.persone().setWd(new FirefoxDriver());
@@ -139,6 +144,7 @@ public class GroupCreationHome extends TestBase {
         //assertEquals(before, after);
         assertThat(after, equalTo(
                 before.withAdded(groupData.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
+
 
     }
 

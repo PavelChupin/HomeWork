@@ -7,14 +7,33 @@ repositories{
 }
 
 dependencies{
+    //Тестовая библиотека testng
     compile 'org.testng:testng:6.10'
+    //Конец testng
+    //Драйвер selenium
     compile 'org.seleniumhq.selenium:selenium-java:2.53.1'
+    //Конец selenium
+    //Тестовая библиотека hamcrest
     compile 'org.hamcrest:java-hamcrest:2.0.0.0'
+    //Конец hamcrest
+    //Разбор командной строки jcommander
     compile 'com.beust:jcommander:1.64'
+    //Конец jcommander
+    //Библиотека для XML
     compile 'com.thoughtworks.xstream:xstream:1.4.9'
+    //Конец XML
+    //Библиотека json
     compile 'com.google.code.gson:gson:2.8.0'
+    //Конец json
+    //Библиотеки для работы с БД
+    //jdbc
     compile 'mysql:mysql-connector-java:6.0.6'
+    //hibernate допполнительно нужен jdbc
     compile 'org.hibernate:hibernate-core:5.2.9.Final'
+    //Конец БД
+    //Библиотека для логирования
+    compile 'ch.qos.logback:logback-classic:1.2.2'
+    //Конец логирования
 
 }
 

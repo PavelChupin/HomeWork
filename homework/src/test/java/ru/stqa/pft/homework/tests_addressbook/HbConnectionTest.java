@@ -16,6 +16,8 @@ import java.security.PublicKey;
 /**
  * Created by Summoner on 03.04.2017.
  */
+
+//Тест через hibernate
 public class HbConnectionTest {
     private SessionFactory sessionFactory;
 
@@ -48,6 +50,7 @@ public class HbConnectionTest {
             System.out.println(group);
         }
         session.getTransaction().commit();
+        //Закроем соединение
         session.close();
     }
 }

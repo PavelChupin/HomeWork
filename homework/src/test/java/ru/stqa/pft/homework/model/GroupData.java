@@ -22,7 +22,7 @@ public class GroupData {
 
     @Expose
     @Column(name = "group_name")  //Привязка к столбцу таблици
-    @Type(type = "text")//Добавляем описание типа
+    //@Type(type = "text")//Добавляем описание типа
     private String name;
 
     @Expose
@@ -83,18 +83,20 @@ public class GroupData {
     }
 
     @Override
-    public int hashCode() {
-        int result = id;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        return result;
-    }
-
-    @Override
     public String toString() {
         return "GroupData{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", header='" + header + '\'' +
+                ", footer='" + footer + '\'' +
                 '}';
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        return result;
     }
 
 

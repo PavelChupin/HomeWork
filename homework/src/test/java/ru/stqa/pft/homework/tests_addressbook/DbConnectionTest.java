@@ -9,6 +9,7 @@ import java.sql.*;
 /**
  * Created by Summoner on 03.04.2017.
  */
+//Тест через jdbc драйвер
 public class DbConnectionTest {
     @Test
     public void testConnectionDB() {
@@ -16,7 +17,7 @@ public class DbConnectionTest {
         Connection conn = null;
         try {
             //Указываем адрес базы данных
-            conn = DriverManager.getConnection("jdbc:mysql://localhost/addressbook?user=root&password=");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/addressbook?serverTimezone=UTC&user=root&password=");
 
             //Выполняем обращение к базе
             Statement st = conn.createStatement();
