@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 import ru.stqa.pft.homework.model.PersonData;
 import ru.stqa.pft.homework.model.Persons;
 
+import java.io.File;
 import java.util.Set;
 
 import static org.hamcrest.CoreMatchers.*;
@@ -29,7 +30,10 @@ public class PersonDelete extends TestBase {
         app.goTo().homePage();
         if (app.persone().all().size() == 0) {
             app.persone().create(new PersonData()
-                    .withFirstname("Pavel").withLastname("Chupin").withNickname("PavelChupin").withAddress("630089, Novosibirsk, B.Bogatkova 185").withMobilephone("+79137382899").withEmail("pavel.chupin@gmail.com").withGroup("test"), true);
+                    .withFirstname("Pavel").withLastname("Chupin").withNickname("PavelChupin")
+                    .withAddress("630089, Novosibirsk, B.Bogatkova 185").withHomephone("987564").withMobilephone("+79137382899")
+                    .withWorkphone("98756").withEmail("pavel.chupin@gmail.com").withEmail2("pavel.chupin@gmail.com").withEmail3("pavel.chupin@gmail.com")
+                    .withPhone2("66575").withGroup("test").withPhoto(new File("src/test/resources/stru.png")), true);
         }
     }
 

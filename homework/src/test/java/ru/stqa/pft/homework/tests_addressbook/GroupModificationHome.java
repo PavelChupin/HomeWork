@@ -26,29 +26,46 @@ public class GroupModificationHome extends TestBase {
 */
     @BeforeMethod
     public void ensurePreconditions() {
+        if (app.db().groups().size() == 0){
+            app.goTo().groupPage();
+            app.group().create(new GroupData()
+                    .withName("HomeGroup2").withFooter("HomeGroup2").withHeader("HomeGroup2"));
+        }
 /*
         //Установим браузер в котором запускать тест
         app.persone().setWd(new ChromeDriver());
 */
+/*
         app.goTo().groupPage();
         if (app.group().all().size() == 0) {
             app.group().create(new GroupData()
                     .withName("HomeGroup2"));
         }
+        */
     }
 
     @Test
     public void homeGroupModification() {
-        Groups before = app.group().all();
+        //Меняем получение списка груп с начитки с интерфейса на начитку из базы
+        //Groups before = app.group().all();
+        Groups before = app.db().groups();
+        //---------------------------
+
         GroupData modifiedGroup = before.iterator().next();
         //int index = before.size() - 1;
         //Для того чтобы помнить какой элемент изменили в модель данных сохраним ID изменяемого элемента
         GroupData groupData = new GroupData()
-                .withId(modifiedGroup.getId()).withName("HomeGroup2").withFooter("HomeGroup2").withHeader("HomeGroup2");
+                .withId(modifiedGroup.getId()).withName("HomeGroup4").withFooter("HomeGroup2").withHeader("HomeGroup2");
         //Метод изменения перенесли в GroupHelper
+        app.goTo().groupPage();
         app.group().modify(groupData);
         assertThat(app.group().count(),equalTo(before.size()));
-        Groups after = app.group().all();
+
+        //Меняем получение списка груп с начитки с интерфейса на начитку из базы
+        //Groups after = app.group().all();
+        Groups after = app.db().groups();
+        //---------------------------
+
         //Проверка совпадения длин списков
         //assertEquals(before.size(), after.size());
         //assertThat(before.size(),equalTo(after.size()));

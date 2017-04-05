@@ -1,49 +1,33 @@
-package ru.stqa.pft.homework.tests_addressbook;
+package ru.stqa.pft.homework.appmanager;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
 import ru.stqa.pft.homework.model.GroupData;
+import ru.stqa.pft.homework.model.Groups;
 import ru.stqa.pft.homework.model.PersonData;
+import ru.stqa.pft.homework.model.Persons;
 
 import java.util.List;
 
-import java.security.PublicKey;
-
 /**
- * Created by Summoner on 03.04.2017.
+ * Created by Summoner on 05.04.2017.
  */
+public class DbHelper {
 
-//Тест через hibernate
-public class HbConnectionTest {
-    private SessionFactory sessionFactory;
+    private final SessionFactory sessionFactory;
 
-    //Предобработка чтения файла конфигурации hibernate.cfg.xml подключения к базе и т.д.
-    @BeforeClass
-    protected void setUp() throws Exception {
+    public DbHelper(){
         // A SessionFactory is set up once for an application!
         final StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
                 .configure() // configures settings from hibernate.cfg.xml
                 .build();
-        try {
             sessionFactory = new MetadataSources( registry ).buildMetadata().buildSessionFactory();
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-            // The registry would be destroyed by the SessionFactory, but we had trouble building the SessionFactory
-            // so destroy it manually.
-            StandardServiceRegistryBuilder.destroy( registry );
-        }
     }
 
-    //Тест подключения к базе для GroupData
-    //В конфигурационном файле указать маппинг <mapping class="ru.stqa.pft.homework.model.GroupData"/>
-    @Test(enabled = true)
-    public void testHbConnecGroup(){
+    public Groups groups(){
         //Чтение данных из базы
         Session session = sessionFactory.openSession();
         session.beginTransaction();
@@ -55,12 +39,10 @@ public class HbConnectionTest {
         session.getTransaction().commit();
         //Закроем соединение
         session.close();
+        return new Groups(result);
     }
 
-    //Тест подключения к базе для PersonData
-    //В конфигурационном файле указать маппинг <mapping class="ru.stqa.pft.homework.model.PersonData"/>
-    @Test(enabled = true)
-    public void testHbConnecPerson(){
+    public Persons persons(){
         //Чтение данных из базы
         Session session = sessionFactory.openSession();
         session.beginTransaction();
@@ -72,5 +54,7 @@ public class HbConnectionTest {
         session.getTransaction().commit();
         //Закроем соединение
         session.close();
+        return new Persons(result);
     }
 }
+

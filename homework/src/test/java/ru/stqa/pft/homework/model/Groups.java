@@ -2,8 +2,11 @@ package ru.stqa.pft.homework.model;
 
 import com.google.common.collect.ForwardingSet;
 
+import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * Created by Summoner on 15.03.2017.
@@ -17,6 +20,10 @@ public class Groups extends ForwardingSet<GroupData> {
 
     public Groups() {
         this.delegate = new HashSet<GroupData>();
+    }
+
+    public Groups(Collection<GroupData> groups) {
+        this.delegate = new HashSet<GroupData>(groups);
     }
 
     @Override

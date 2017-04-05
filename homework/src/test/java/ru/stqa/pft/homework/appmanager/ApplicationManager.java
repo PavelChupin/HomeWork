@@ -26,6 +26,7 @@ public class ApplicationManager {
     private PersonHelper personHelper;
     private SessionHelper sessionHelper;
     private String browser;
+    private DbHelper dbHelper;
 
     public ApplicationManager(String browser) {
 
@@ -38,6 +39,9 @@ public class ApplicationManager {
         //Создаем конфигурационный файл
         String target = System.getProperty("target","local");
         properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
+
+        //Добавляем помошник работы с базой данных
+        dbHelper = new DbHelper();
 
         if (browser.equals(BrowserType.FIREFOX)) {
             //Если не находится исполняемый файл браузера то
@@ -62,8 +66,12 @@ public class ApplicationManager {
         //sessionHelper.login(new LoginData("admin", "secret"));
         //Используем свойства из конфигурационного файла
         sessionHelper.login(new LoginData(properties.getProperty("web.adminLogin"), properties.getProperty("web.adminPassword")));
+
     }
 
+    public DbHelper db() {
+        return dbHelper;
+    }
 
     public void stop() {
         wd.quit();

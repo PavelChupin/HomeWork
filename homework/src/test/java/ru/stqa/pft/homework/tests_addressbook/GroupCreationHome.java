@@ -95,23 +95,36 @@ public class GroupCreationHome extends TestBase {
     }
 
 
-    @Test(dataProvider = "validGroupsFromXml") //Подключаем провайдер тестовых данных
+    @Test(dataProvider = "validGroupsFromJson") //Подключаем провайдер тестовых данных
     public void homeGroupCreation(GroupData groupData) {
-
-
 /*
         //Установим браузер в котором запускать тест
         app.persone().setWd(new FirefoxDriver());
 */
         app.goTo().groupPage();
-        Groups before = app.group().all();
+
+        //Меняем получение списка груп с начитки с интерфейса на начитку из базы
+        //Groups before = app.group().all();
+        Groups before = app.db().groups();
+        //--------------------------------------------------
+
         /*
         GroupData groupData = new GroupData()
                 .withName("HomeGroup2").withFooter("HomeGroup2").withHeader("HomeGroup2");
         */
+        /*
+        GroupData groupData = new GroupData()
+                .withName("HomeGroup4").withFooter("HomeGroup2").withHeader("HomeGroup2");
+        */
         app.group().create(groupData);
+
         assertThat(app.group().count(), equalTo(before.size() + 1));
-        Groups after = app.group().all();
+
+        //Меняем получение списка груп с начитки с интерфейса на начитку из базы
+        //Groups after = app.group().all();
+        Groups after = app.db().groups();
+        //--------------------------------------------------
+
         //Проверка совпадения длин списков, после добавления первоначальный список становиться длинее
         //assertEquals(after.size(), before.size() + 1);
 
@@ -142,10 +155,14 @@ public class GroupCreationHome extends TestBase {
         //Assert.assertEquals(new HashSet<Object>(before),new HashSet<Object>(after));
         //Производим проверку по упорядоченному списку
         //assertEquals(before, after);
+
+
+        assertThat(after, equalTo(before.withAdded(groupData.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
+
+/*
         assertThat(after, equalTo(
-                before.withAdded(groupData.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
-
-
+                before.withAdded(groupData)));
+*/
     }
 
     @Test(enabled = false)

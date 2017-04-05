@@ -104,7 +104,10 @@ public class PersonInsert extends TestBase {
         app.setBrowser(BrowserType.FIREFOX);
         */
         app.goTo().homePage();
-        Persons beforePersonData = app.persone().all();
+        //Меняем получение списка груп с начитки с интерфейса на начитку из базы
+        //Persons beforePersonData = app.persone().all();
+        Persons beforePersonData = app.db().persons();
+        //-----------------------------------------
         //File currentDir = new File("."); //Точка текущая директория
         //currentDir.getAbsolutePath(); //Получить путь дирректории
         /*
@@ -114,9 +117,20 @@ public class PersonInsert extends TestBase {
                 .withAddress("630089, Novosibirsk, B.Bogatkova 185").withMobilephone("+79137382899")
                 .withEmail("pavel.chupin@gmail.com").withGroup("test").withPhoto(photo);
          */
+        /*
+        PersonData personData = new PersonData()
+                .withFirstname("Pavel").withLastname("Chupin").withNickname("PavelChupin")
+                .withAddress("630089, Novosibirsk, B.Bogatkova 185").withHomephone("987564").withMobilephone("+79137382899")
+                .withWorkphone("98756").withEmail("pavel.chupin@gmail.com").withEmail2("pavel.chupin@gmail.com").withEmail3("pavel.chupin@gmail.com")
+                .withPhone2("66575").withGroup("test").withPhoto(new File("src/test/resources/stru.png"));
+*/
         app.persone().create(personData, true);
         assertThat(app.persone().count(), equalTo(beforePersonData.size() + 1));
-        Persons afterPersonData = app.persone().all();
+
+        //Меняем получение списка груп с начитки с интерфейса на начитку из базы
+        //Persons afterPersonData = app.persone().all();
+        Persons afterPersonData = app.db().persons();
+        //--------------------------------------------
         //Проверка совпадения длин списков
         //assertEquals(afterPersonDataList.size(), beforePersonData.size() + 1);
         //assertThat(afterPersonData.size(), equalTo(beforePersonData.size() + 1));

@@ -10,7 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@XStreamAlias("group") // Наименованеи обьектов в файле
+@XStreamAlias("group") // Наименованеи обьектов в файле для вывода в Xml
 @Entity //Привязка к базе данных
 @Table(name = "group_list") //Привязываем класс к конкретной таблице в базе
 public class GroupData {
@@ -20,19 +20,19 @@ public class GroupData {
     @Column(name = "group_id")  //Привязка к столбцу таблици
     private int id = Integer.MAX_VALUE;
 
-    @Expose
+    @Expose //Обозначить поля для вывода в формат json
     @Column(name = "group_name")  //Привязка к столбцу таблици
-    //@Type(type = "text")//Добавляем описание типа
+    //@Type(type = "text")//Добавляем описание типа для полей с неявными типами например тут не нужно так как в базе данное поле определено явным типом varchar(255)
     private String name;
 
-    @Expose
+    @Expose //Обозначить поля для вывода в формат json
     @Column(name = "group_header")  //Привязка к столбцу таблици
-    @Type(type = "text")//Добавляем описание типа
+    @Type(type = "text")//Добавляем описание типа для полей с неявными типами например тут в базе поле типа text
     private String header;
 
-    @Expose
+    @Expose //Обозначить поля для вывода в формат json
     @Column(name = "group_footer")  //Привязка к столбцу таблици
-    @Type(type = "text")//Добавляем описание типа
+    @Type(type = "text")//Добавляем описание типа для полей с неявными типами например тут в базе поле типа text
     private String footer;
 
     public String getName() {
@@ -79,7 +79,18 @@ public class GroupData {
         GroupData groupData = (GroupData) o;
 
         if (id != groupData.id) return false;
-        return name != null ? name.equals(groupData.name) : groupData.name == null;
+        if (name != null ? !name.equals(groupData.name) : groupData.name != null) return false;
+        if (header != null ? !header.equals(groupData.header) : groupData.header != null) return false;
+        return footer != null ? footer.equals(groupData.footer) : groupData.footer == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (header != null ? header.hashCode() : 0);
+        result = 31 * result + (footer != null ? footer.hashCode() : 0);
+        return result;
     }
 
     @Override
@@ -91,13 +102,5 @@ public class GroupData {
                 ", footer='" + footer + '\'' +
                 '}';
     }
-
-    @Override
-    public int hashCode() {
-        int result = id;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        return result;
-    }
-
 
 }
