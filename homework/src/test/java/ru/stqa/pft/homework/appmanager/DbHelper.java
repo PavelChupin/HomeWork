@@ -33,9 +33,12 @@ public class DbHelper {
         session.beginTransaction();
         //Запрос к базе
         List<GroupData> result = session.createQuery( "from GroupData" ).list();
+        /*
+        //Вывод на консоль состав начитанных данных из Базы
         for (GroupData group : result) {
             System.out.println(group);
         }
+        */
         session.getTransaction().commit();
         //Закроем соединение
         session.close();
@@ -48,9 +51,12 @@ public class DbHelper {
         session.beginTransaction();
         //Запрос к базе. Извлекаем из базы только не удаленные контакты deprecated = '0000-00-00'
         List<PersonData> result = session.createQuery( "from PersonData where deprecated = '0000-00-00'" ).list();
+        /*
+        //Вывод на консоль состав начитанных данных из Базы
         for (PersonData person : result) {
             System.out.println(person);
         }
+        */
         session.getTransaction().commit();
         //Закроем соединение
         session.close();

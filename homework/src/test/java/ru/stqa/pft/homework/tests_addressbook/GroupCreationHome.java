@@ -94,7 +94,6 @@ public class GroupCreationHome extends TestBase {
 
     }
 
-
     @Test(dataProvider = "validGroupsFromJson") //Подключаем провайдер тестовых данных
     public void homeGroupCreation(GroupData groupData) {
 /*

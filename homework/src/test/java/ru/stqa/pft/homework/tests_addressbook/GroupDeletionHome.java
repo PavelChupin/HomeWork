@@ -22,27 +22,43 @@ public class GroupDeletionHome extends TestBase {
 */
     @BeforeMethod
     public void ensurePreconditions() {
+        if (app.db().groups().size() == 0){
+            app.goTo().groupPage();
+            app.group().create(new GroupData()
+                    .withName("HomeGroup2").withFooter("HomeGroup2").withHeader("HomeGroup2"));
+        }
 /*
         //Установим браузер в котором запускать тест
         app.persone().setWd(new InternetExplorerDriver());
 */
+/*
         app.goTo().groupPage();
         if (app.group().all().size() == 0) {
             app.group().create(new GroupData()
                     .withName("HomeGroup2").withFooter("HomeGroup2").withHeader("HomeGroup2"));
         }
+        */
     }
 
     @Test
     public void homeGroupDeletion() {
-        Groups before = app.group().all();
+        //Меняем получение списка груп с начитки с интерфейса на начитку из базы
+        //Groups before = app.group().all();
+        Groups before = app.db().groups();
+        //--------------------
+
         //Сохраним объект, который планируется удалить
         GroupData deleteGroup = before.iterator().next();
         //int index = before.size() - 1;
         //Удаляем объект по его ссылке
+        app.goTo().groupPage();
         app.group().delete(deleteGroup);
         assertThat(app.group().count(),equalTo(before.size() - 1));
-        Groups after = app.group().all();
+
+        //Меняем получение списка груп с начитки с интерфейса на начитку из базы
+        //Groups after = app.group().all();
+        Groups after = app.db().groups();
+        //---------------------------
         //Проверка совпадения длин списков
         //assertEquals(before.size() - 1, after.size());
         //assertThat(after.size(),equalTo(before.size() - 1));

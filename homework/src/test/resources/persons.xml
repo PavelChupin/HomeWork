@@ -16,38 +16,5 @@
 0</group>
     <photo>src\test\resources\stru.png</photo>
   </person>
-  <person>
-    <firstname>Pavel
-1</firstname>
-    <lastname>Chupin
-1</lastname>
-    <nickname>PavelChupin
-1</nickname>
-    <address>630089, Novosibirsk, B.Bogatkova 185
-1</address>
-    <mobilephone>+79137382899
-1</mobilephone>
-    <email>pavel.chupin@gmail.com
-1</email>
-    <group>test
-1</group>
-    <photo>src\test\resources\stru.png</photo>
-  </person>
-  <person>
-    <firstname>Pavel
-2</firstname>
-    <lastname>Chupin
-2</lastname>
-    <nickname>PavelChupin
-2</nickname>
-    <address>630089, Novosibirsk, B.Bogatkova 185
-2</address>
-    <mobilephone>+79137382899
-2</mobilephone>
-    <email>pavel.chupin@gmail.com
-2</email>
-    <group>test
-2</group>
-    <photo>src\test\resources\stru.png</photo>
-  </person>
+
 </list>

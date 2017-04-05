@@ -81,7 +81,6 @@ public class PersonInsert extends TestBase {
     //Создадим метод провайдер тестовых данных  Json
     @DataProvider
     public Iterator<Object[]> validPersonsFromJson() throws IOException {
-        //Получение тестовых данных из файла XML используем библиотеку com.thoughtworks.xstream:xstream:1.4.9
         try (BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/persons.json")))){
             String json = "";
             String line = reader.readLine();

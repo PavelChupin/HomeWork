@@ -30,7 +30,7 @@ public class PersonModification extends TestBase {
         if (app.db().persons().size() == 0){
             app.goTo().homePage();
             app.persone().create(new PersonData()
-                    //.withFirstname("Pavel").withLastname("Chupin").withNickname("PavelChupin").withAddress("630089, Novosibirsk, B.Bogatkova 185").withMobilephone("+79137382899").withEmail("pavel.chupin@gmail.com").withGroup("test"), true);
+                    /*.withFirstname("Pavel").withLastname("Chupin").withNickname("PavelChupin").withAddress("630089, Novosibirsk, B.Bogatkova 185").withMobilephone("+79137382899").withEmail("pavel.chupin@gmail.com").withGroup("test"), true);*/
                     .withFirstname("Pavel").withLastname("Chupin").withNickname("PavelChupin")
                     .withAddress("630089, Novosibirsk, B.Bogatkova 185").withHomephone("987564").withMobilephone("+79137382899")
                     .withWorkphone("98756").withEmail("pavel.chupin@gmail.com").withEmail2("pavel.chupin@gmail.com").withEmail3("pavel.chupin@gmail.com")
@@ -67,6 +67,7 @@ public class PersonModification extends TestBase {
                 .withWorkphone("98756").withEmail("pavel.chupin@gmail.com").withEmail2("pavel.chupin@gmail.com").withEmail3("pavel.chupin@gmail.com")
                 .withPhone2("66575").withGroup("test").withPhoto(new File("src/test/resources/stru.png"));
         //int index = beforePersonData.size() - 1;
+        app.goTo().homePage();
         app.persone().modify(personData);
         assertThat(app.persone().count(),equalTo(beforePersonData.size()));
 
