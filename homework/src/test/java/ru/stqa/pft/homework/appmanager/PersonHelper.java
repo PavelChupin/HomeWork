@@ -81,13 +81,17 @@ public class PersonHelper extends HelperBase {
         wd.findElement(By.name("home")).click();
         wd.findElement(By.name("home")).sendKeys(personData.getHome());
         */
+        type(By.name("home"), personData.getHomephone());
         type(By.name("mobile"), personData.getMobilephone());
+        type(By.name("work"), personData.getWorkphone());
         /*
         wd.findElement(By.name("mobile")).click();
         wd.findElement(By.name("mobile")).clear();
         wd.findElement(By.name("mobile")).sendKeys(personData.getMobilephone());
         */
         type(By.name("email"), personData.getEmail());
+        type(By.name("email2"), personData.getEmail2());
+        type(By.name("email3"), personData.getEmail3());
         /*
         wd.findElement(By.name("email")).click();
         wd.findElement(By.name("email")).clear();
@@ -169,6 +173,8 @@ public class PersonHelper extends HelperBase {
         wd.findElement(By.name("address2")).sendKeys(personData.getAddress2());
         */
         //type(By.name("phone2"), personData.getPhone2());
+
+        type(By.name("phone2"), personData.getPhone2());
         /*
         wd.findElement(By.name("phone2")).click();
         wd.findElement(By.name("phone2")).sendKeys(personData.getPhone2());

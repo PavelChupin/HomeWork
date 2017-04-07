@@ -248,7 +248,20 @@ public class PersonData {
 
     @Override
     public String toString() {
-        return "PersonData{}";
+        return "PersonData{" +
+                "id=" + id +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", address='" + address + '\'' +
+                ", homephone='" + homephone + '\'' +
+                ", mobilephone='" + mobilephone + '\'' +
+                ", workphone='" + workphone + '\'' +
+                ", email='" + email + '\'' +
+                ", email2='" + email2 + '\'' +
+                ", email3='" + email3 + '\'' +
+                ", phone2='" + phone2 + '\'' +
+                '}';
     }
 
     @Override

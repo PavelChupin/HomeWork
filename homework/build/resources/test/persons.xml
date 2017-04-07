@@ -8,13 +8,22 @@
 0</nickname>
     <address>630089, Novosibirsk, B.Bogatkova 185
 0</address>
+    <homephone>+79137382899
+0</homephone>
     <mobilephone>+79137382899
 0</mobilephone>
+    <workphone>+79137382899
+0</workphone>
     <email>pavel.chupin@gmail.com
 0</email>
+    <email2>pavel.chupin@gmail.com
+0</email2>
+    <email3>pavel.chupin@gmail.com
+0</email3>
+    <phone2>+79137382899
+0</phone2>
     <group>test
 0</group>
     <photo>src\test\resources\stru.png</photo>
   </person>
-
 </list>

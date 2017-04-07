@@ -111,8 +111,9 @@ public class PersonDataGenerator {
                 .withEmail("pavel.chupin@gmail.com").withGroup("test").withPhote(photo)
             */
             persons.add(new PersonData().withFirstname(String.format("Pavel\n%s", i)).withLastname(String.format("Chupin\n%s", i)).withNickname(String.format("PavelChupin\n%s", i))
-                    .withAddress(String.format("630089, Novosibirsk, B.Bogatkova 185\n%s", i)).withMobilephone(String.format("+79137382899\n%s", i))
-                    .withEmail(String.format("pavel.chupin@gmail.com\n%s", i)).withGroup(String.format("test\n%s", i)).withPhoto(photo));
+                    .withAddress(String.format("630089, Novosibirsk, B.Bogatkova 185\n%s", i)).withHomephone(String.format("+79137382899\n%s", i)).withMobilephone(String.format("+79137382899\n%s", i))
+                    .withWorkphone(String.format("+79137382899\n%s", i)).withEmail(String.format("pavel.chupin@gmail.com\n%s", i)).withEmail2(String.format("pavel.chupin@gmail.com\n%s", i))
+                    .withEmail3(String.format("pavel.chupin@gmail.com\n%s", i)).withPhone2(String.format("+79137382899\n%s", i)).withGroup(String.format("test\n%s", i)).withPhoto(photo));
         }
         return persons;
 
