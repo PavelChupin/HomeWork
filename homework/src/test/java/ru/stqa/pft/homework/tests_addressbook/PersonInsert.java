@@ -163,6 +163,8 @@ public class PersonInsert extends TestBase {
         //assertEquals(beforePersonData, afterPersonDataList);
         assertThat(afterPersonData, equalTo(
                 beforePersonData.withAdded(personData.withId(afterPersonData.stream().mapToInt((p) -> p.getId()).max().getAsInt()))));
+
+        verifyPersonListInUI();
     }
 
     @Test(enabled = false)

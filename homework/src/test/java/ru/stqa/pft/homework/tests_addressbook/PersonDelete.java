@@ -76,6 +76,7 @@ public class PersonDelete extends TestBase {
 
         assertThat(afterPersonData, equalTo(beforePersonData.without(deletePerson)));
         //assertEquals(afterPersonData, beforePersonData);
+        verifyPersonListInUI();
     }
 
 }

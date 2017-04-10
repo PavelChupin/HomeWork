@@ -84,6 +84,8 @@ public class GroupModificationHome extends TestBase {
         //Производим проверку по упорядоченному списку
         //assertEquals(before, after);
         assertThat(after, equalTo(before.without(modifiedGroup).withAdded(groupData)));
+
+        verifyGroupListInUI();
     }
 
 

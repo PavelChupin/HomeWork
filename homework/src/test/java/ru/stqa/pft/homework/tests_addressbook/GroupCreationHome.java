@@ -157,7 +157,7 @@ public class GroupCreationHome extends TestBase {
 
 
         assertThat(after, equalTo(before.withAdded(groupData.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
-
+        verifyGroupListInUI();
 /*
         assertThat(after, equalTo(
                 before.withAdded(groupData)));

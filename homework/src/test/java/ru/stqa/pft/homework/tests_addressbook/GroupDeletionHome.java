@@ -70,6 +70,8 @@ public class GroupDeletionHome extends TestBase {
         //before.remove(deleteGroup);
         assertThat(after, equalTo(before.without(deleteGroup)));
         //assertEquals(before, after);
+
+        verifyGroupListInUI();
     }
 
 }

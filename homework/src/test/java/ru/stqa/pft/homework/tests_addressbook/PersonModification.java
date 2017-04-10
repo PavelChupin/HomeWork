@@ -100,6 +100,7 @@ public class PersonModification extends TestBase {
 
         assertThat(afterPersonData, equalTo(beforePersonData.without(modifyPerson).withAdded(personData)));
 
+        verifyPersonListInUI();
     }
 
 
