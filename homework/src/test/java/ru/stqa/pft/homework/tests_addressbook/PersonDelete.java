@@ -31,7 +31,7 @@ public class PersonDelete extends TestBase {
                     .withFirstname("Pavel").withLastname("Chupin").withNickname("PavelChupin")
                     .withAddress("630089, Novosibirsk, B.Bogatkova 185").withHomephone("987564").withMobilephone("+79137382899")
                     .withWorkphone("98756").withEmail("pavel.chupin@gmail.com").withEmail2("pavel.chupin@gmail.com").withEmail3("pavel.chupin@gmail.com")
-                    .withPhone2("66575").withGroup("test").withPhoto(new File("src/test/resources/stru.png")), true);
+                    .withPhone2("66575")/*.withGroup("test")*/.withPhoto(new File("src/test/resources/stru.png")), true);
         }
        /*
         //Установим браузер в котором запускать тест

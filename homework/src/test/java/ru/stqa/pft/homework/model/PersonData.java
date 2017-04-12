@@ -3,10 +3,13 @@ package ru.stqa.pft.homework.model;
 import com.google.gson.annotations.Expose;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
+import org.hibernate.annotations.ManyToAny;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.io.File;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @XStreamAlias("person") // Наименованеи обьектов в файле для вывода в Xml
@@ -72,10 +75,16 @@ public class PersonData {
     @Column(name = "phone2")  //Привязка к столбцу таблици
     @Type(type = "text")//Добавляем описание типа
     private String phone2;
-
+/*
     @Expose //Обозначить поля для вывода в формат json
     @Transient //Исключить поле из начитки из базы
     private String group;
+*/
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "address_in_groups",
+            joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "group_id"))
+    private Set<GroupData> groups = new HashSet<GroupData>();
 
     @Transient //Исключить поле из начитки из базы
     private String allEmail;
@@ -132,6 +141,7 @@ public class PersonData {
         this.firstname = firstname;
         return this;
     }
+
     public PersonData withLastname(String lastname) {
         this.lastname = lastname;
         return this;
@@ -162,9 +172,12 @@ public class PersonData {
         return this;
     }
 
-    public PersonData withGroup(String group) {
-        this.group = group;
-        return this;
+    public Groups getGroups() {
+        return new Groups(groups);
+    }
+
+    public void setGroups(Set<GroupData> groups) {
+        this.groups = groups;
     }
 
     public PersonData withHomephone(String homephone) {
@@ -222,9 +235,6 @@ public class PersonData {
         return email;
     }
 
-    public String getGroup() {
-        return group;
-    }
 
     public String getAllPhones() {
         return allPhones;
@@ -302,4 +312,12 @@ public class PersonData {
         return result;
     }
 
+    public PersonData inGroup(GroupData group) {
+        if (groups == null) {
+            groups = new HashSet<>();
+        }
+
+        groups.add(group);
+        return this;
+    }
 }

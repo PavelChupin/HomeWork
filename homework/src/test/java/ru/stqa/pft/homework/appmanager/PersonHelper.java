@@ -7,9 +7,11 @@ import org.openqa.selenium.support.ui.Quotes;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.homework.model.GroupData;
+import ru.stqa.pft.homework.model.Groups;
 import ru.stqa.pft.homework.model.PersonData;
 import ru.stqa.pft.homework.model.Persons;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,9 +28,17 @@ public class PersonHelper extends HelperBase {
         this.navigationHelper = navigationHelper;
     }
 
+    public void removeOfGroup() {
+        click(By.name("remove"));
+    }
+
     public void savePersonData() {
         //wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
         click(By.xpath("//div[@id='content']/form/input[21]"));
+    }
+
+    public void addToGroupPersonData() {
+        click(By.name("add"));
     }
 
     public void fillPersonForm(PersonData personData, boolean insert) {
@@ -155,14 +165,16 @@ public class PersonHelper extends HelperBase {
             wd.findElement(By.xpath("//div[@id='content']/form/select[5]//option[1]")).click();
         }*/
         if (insert) {
-            //if (personData.getGroup() != null) {
-            //    List<WebElement> options = findElement(By.name("new_group")).findElements(By.xpath(".//option[normalize-space(.) = " + Quotes.escape(personData.getGroup()) + "]"));
-            //    if (options.size() == 0) { /*Если группа с заданным именем не найдена, то добавим в группу по умолчанию*/
-            //        personData.setGroup("[none]");
-            //groupHelper.create(new GroupData(personData.getGroup(),personData.getGroup(),personData.getGroup()));
-            //    }
-            new Select(findElement(By.name("new_group"))).selectByVisibleText(personData.getGroup());
-            //}
+            if (personData.getGroups().size() > 0) {
+                Assert.assertTrue(personData.getGroups().size() == 1);
+                //if (personData.getGroup() != null) {
+                //    List<WebElement> options = findElement(By.name("new_group")).findElements(By.xpath(".//option[normalize-space(.) = " + Quotes.escape(personData.getGroup()) + "]"));
+                //    if (options.size() == 0) { /*Если группа с заданным именем не найдена, то добавим в группу по умолчанию*/
+                //        personData.setGroup("[none]");
+                //groupHelper.create(new GroupData(personData.getGroup(),personData.getGroup(),personData.getGroup()));
+                //    }
+                new Select(findElement(By.name("new_group"))).selectByVisibleText(String.valueOf(personData.getGroups().iterator().next().getName()));
+            }
         } else {
             Assert.assertFalse(isElementPresent(By.name("new_group")));
         }
@@ -318,14 +330,14 @@ public class PersonHelper extends HelperBase {
 
     public void create(PersonData personData, boolean b) {
         navigationHelper.gotoAddNewPage();
-        if (personData.getGroup() != null) { /*если передается наименование группы то проверим ее на существования*/
-            List<WebElement> options = findElement(By.name("new_group")).findElements(By.xpath(".//option[normalize-space(.) = " + Quotes.escape(personData.getGroup()) + "]"));
-            if (options.size() == 0) { /*Если группа с заданным именем не найдена, то добавим такую группу*/
-                //groupHelper.create(new GroupData(personData.getGroup(), personData.getGroup(), personData.getGroup()));
-                groupHelper.create(new GroupData().withName(personData.getGroup()).withHeader(personData.getGroup()).withFooter(personData.getGroup()));
-                navigationHelper.gotoAddNewPage();
-            }
-        }
+        //if (personData.getGroup() != null) { /*если передается наименование группы то проверим ее на существования*/
+        //    List<WebElement> options = findElement(By.name("new_group")).findElements(By.xpath(".//option[normalize-space(.) = " + Quotes.escape(personData.getGroup()) + "]"));
+        //   if (options.size() == 0) { /*Если группа с заданным именем не найдена, то добавим такую группу*/
+        //groupHelper.create(new GroupData(personData.getGroup(), personData.getGroup(), personData.getGroup()));
+        //      groupHelper.create(new GroupData().withName(personData.getGroup()).withHeader(personData.getGroup()).withFooter(personData.getGroup()));
+        //     navigationHelper.gotoAddNewPage();
+        //}
+        //}
         fillPersonForm(personData, b);
         savePersonData();
         //Так как состав контактов изменился, то кеш необходимо обнулить
@@ -392,4 +404,53 @@ public class PersonHelper extends HelperBase {
 
     }
 
+    public void groupSelectedForInsertPerson(GroupData insertGroup) {
+/*        WebElement element = wd.findElement(By.name("to_group"));
+        List<WebElement> elements = element.findElements(By.tagName("option"));
+        for (WebElement elem : elements){
+            String el = elem.getAttribute("value");
+
+            if (Integer.valueOf(el) == chooseGroup.getId()){
+                click();
+                return ;
+            }
+        }
+        */
+        click(By.xpath("//select[@name='to_group']//option[@value='" + insertGroup.getId() + "']"));
+    }
+
+
+    public void deletionPersonOfGroup(PersonData person) {
+        navigationHelper.homePage();
+        //Выбрать в лукапе групп группу из которой будем удалять контакт
+        deletePersonOfGroup(person.getGroups().iterator().next().getId());
+        //Выбрать контакт
+        selectPersonById(person.getId());
+        //Нажмем кнопку удалить
+        removeOfGroup();
+        navigationHelper.homePage();
+    }
+
+    public void deletePersonOfGroup(int id) {
+            click(By.xpath("//select[@name='group']//option[@value='" + id + "']"));
+        }
+
+    public void chooseGroup() {
+        click(By.xpath("//select[@name='group']//option[@value='" + "" + "']"));
+    }
+
+    public void insertPersonToGroup(PersonData insertPersonGroup, GroupData group) {
+        //Добавление контакта в группу
+        //Переход на главую страницу контактов
+        navigationHelper.homePage();
+        //Выбор в лукапе групп значение ALL
+        chooseGroup();
+        //Выбрать контакт
+        selectPersonById(insertPersonGroup.getId());
+        //Выбрать в лукапе группу в которую будем добавлять контакт
+        groupSelectedForInsertPerson(group);
+        //Нажать кнопку добавить
+        addToGroupPersonData();
+        navigationHelper.homePage();
+    }
 }

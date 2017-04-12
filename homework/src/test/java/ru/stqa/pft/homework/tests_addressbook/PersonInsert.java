@@ -6,6 +6,7 @@ import com.thoughtworks.xstream.XStream;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.stqa.pft.homework.model.GroupData;
+import ru.stqa.pft.homework.model.Groups;
 import ru.stqa.pft.homework.model.PersonData;
 import ru.stqa.pft.homework.model.Persons;
 
@@ -98,6 +99,13 @@ public class PersonInsert extends TestBase {
 
     @Test(dataProvider = "validPersonsFromXml")
     public void insertPerson(PersonData personData) {
+        Groups groups = app.db().groups();
+        personData.inGroup(groups.iterator().next());
+        /*if (app.db().groups().size() == 0){
+            app.goTo().groupPage();
+            app.group().create(new GroupData()
+                    .withName("HomeGroup2").withFooter("HomeGroup2").withHeader("HomeGroup2"));
+        }*/
         /*
         //Установим браузер в котором запускать тест
         app.setBrowser(BrowserType.FIREFOX);
@@ -176,7 +184,7 @@ public class PersonInsert extends TestBase {
         app.goTo().homePage();
         Persons beforePersonData = app.persone().all();
         PersonData personData = new PersonData()
-                .withFirstname("Pavel'").withLastname("Chupin'").withNickname("PavelChupin'").withAddress("630089, Novosibirsk, B.Bogatkova 185").withMobilephone("+79137382899").withEmail("pavel.chupin@gmail.com").withGroup("test");
+                .withFirstname("Pavel'").withLastname("Chupin'").withNickname("PavelChupin'").withAddress("630089, Novosibirsk, B.Bogatkova 185").withMobilephone("+79137382899").withEmail("pavel.chupin@gmail.com")/*.withGroup("test")*/;
         app.persone().create(personData, true);
         assertThat(app.persone().count(), equalTo(beforePersonData.size()));
         Persons afterPersonData = app.persone().all();

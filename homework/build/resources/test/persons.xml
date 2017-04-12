@@ -22,8 +22,8 @@
 0</email3>
     <phone2>+79137382899
 0</phone2>
-    <group>test
-0</group>
+  <!--  <group>test
+0</group>-->
     <photo>src\test\resources\stru.png</photo>
   </person>
 </list>

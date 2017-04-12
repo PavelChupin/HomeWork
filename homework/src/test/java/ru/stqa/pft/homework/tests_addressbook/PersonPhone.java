@@ -26,7 +26,7 @@ public class PersonPhone extends TestBase {
         app.goTo().homePage();
         if (app.persone().all().size() == 0) {
             app.persone().create(new PersonData()
-                    .withFirstname("Pavel").withLastname("Chupin").withNickname("PavelChupin").withAddress("630089, Novosibirsk, B.Bogatkova 185").withMobilephone("+79137382899").withEmail("pavel.chupin@gmail.com").withGroup("test"), true);
+                    .withFirstname("Pavel").withLastname("Chupin").withNickname("PavelChupin").withAddress("630089, Novosibirsk, B.Bogatkova 185").withMobilephone("+79137382899").withEmail("pavel.chupin@gmail.com")/*.withGroup("test")*/, true);
         }
     }
 

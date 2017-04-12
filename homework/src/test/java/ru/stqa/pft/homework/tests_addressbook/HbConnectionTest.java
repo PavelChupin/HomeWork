@@ -66,11 +66,13 @@ public class HbConnectionTest {
         session.beginTransaction();
         //Запрос к базе. Извлекаем из базы только не удаленные контакты deprecated = '0000-00-00'
         List<PersonData> result = session.createQuery( "from PersonData where deprecated = '0000-00-00'" ).list();
-        for (PersonData person : result) {
-            System.out.println(person);
-        }
+
         session.getTransaction().commit();
         //Закроем соединение
         session.close();
+        for (PersonData person : result) {
+            System.out.println(person);
+            System.out.println(person.getGroups());
+        }
     }
 }

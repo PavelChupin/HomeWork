@@ -5,10 +5,9 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
 import org.hibernate.annotations.Type;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @XStreamAlias("group") // Наименованеи обьектов в файле для вывода в Xml
 @Entity //Привязка к базе данных
@@ -35,8 +34,19 @@ public class GroupData {
     @Type(type = "text")//Добавляем описание типа для полей с неявными типами например тут в базе поле типа text
     private String footer;
 
+    @ManyToMany(mappedBy = "groups")
+    private Set<PersonData> persons = new HashSet<PersonData>();
+
     public String getName() {
         return name;
+    }
+
+    public Persons getPersons() {
+        return new Persons(persons);
+    }
+
+    public void setPersons(Set<PersonData> persons) {
+        this.persons = persons;
     }
 
     public String getHeader() {
