@@ -57,4 +57,13 @@ public class ApplicationManager {
         wd.quit();
     }
 
+    //Инициализация помошника HttpSession
+    public HttpSession newSession(){
+        //На вход помошнику при создании передаем ссылку на ApplicationManager
+        return new HttpSession(this);
+    }
+
+    public String getProperty(String key) {
+        return properties.getProperty(key);
+    }
 }
