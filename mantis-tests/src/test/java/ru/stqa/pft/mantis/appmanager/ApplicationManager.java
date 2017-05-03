@@ -17,9 +17,10 @@ import java.util.concurrent.TimeUnit;
  */
 public class ApplicationManager {
     private final Properties properties;
-    WebDriver wd;
+    private WebDriver wd;
 
     private String browser;
+    private RegistrationHelper registrationHelper;
 
 
     public ApplicationManager(String browser) {
@@ -34,36 +35,51 @@ public class ApplicationManager {
         String target = System.getProperty("target", "local");
         properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
 
-        if (browser.equals(BrowserType.FIREFOX)) {
-            //Если не находится исполняемый файл браузера то
-            //FirefoxBinary bin = new FirefoxBinary(new File("c:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe"));
-            //wd = new FirefoxDriver(bin, new FirefoxProfile());
-            wd = new FirefoxDriver();
-        } else if (browser.equals(BrowserType.CHROME)) {
-            wd = new ChromeDriver();
-        } else if (browser.equals(BrowserType.IE)) {
-            wd = new InternetExplorerDriver();
-        }
-
-        //wd = new FirefoxDriver();
-        wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-        //wd.get("http://localhost/addressbook/");
-        //Используем свойства из конфигурационного файла
-        wd.get(properties.getProperty("web.baseUrl"));
     }
 
 
     public void stop() {
-        wd.quit();
+        if (wd != null) {
+            wd.quit();
+        }
     }
 
     //Инициализация помошника HttpSession
-    public HttpSession newSession(){
+    public HttpSession newSession() {
         //На вход помошнику при создании передаем ссылку на ApplicationManager
         return new HttpSession(this);
     }
 
     public String getProperty(String key) {
         return properties.getProperty(key);
+    }
+
+
+    public RegistrationHelper registration() {
+        if (registrationHelper == null) {
+            registrationHelper = new RegistrationHelper(this);
+        }
+        return registrationHelper;
+    }
+
+    public WebDriver getDriver() {
+        if (wd == null) {
+            if (browser.equals(BrowserType.FIREFOX)) {
+                //Если не находится исполняемый файл браузера то
+                //FirefoxBinary bin = new FirefoxBinary(new File("c:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe"));
+                //wd = new FirefoxDriver(bin, new FirefoxProfile());
+                wd = new FirefoxDriver();
+            } else if (browser.equals(BrowserType.CHROME)) {
+                wd = new ChromeDriver();
+            } else if (browser.equals(BrowserType.IE)) {
+                wd = new InternetExplorerDriver();
+            }
+            //wd = new FirefoxDriver();
+            wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+            //wd.get("http://localhost/addressbook/");
+            //Используем свойства из конфигурационного файла
+            wd.get(properties.getProperty("web.baseUrl"));
+        }
+        return wd;
     }
 }
