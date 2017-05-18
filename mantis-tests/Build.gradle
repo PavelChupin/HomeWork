@@ -16,7 +16,25 @@ dependencies{
     //Тестовая библиотека hamcrest
     compile 'org.hamcrest:java-hamcrest:2.0.0.0'
     //Конец hamcrest
+    //commons-net для работы ftp протокола
+    compile 'commons-net:commons-net:3.4'
+    //конец
+    //Библиотека для работы с mail, сервер почты
+    compile 'org.subethamail:subethasmtp:3.1.7'
+    //Конец библиотеке работы с mail
 
+    //Библиотека для работы с регулярными выражениями
+    compile 'ru.lanwen.verbalregex:java-verbal-expressions:1.4'
+    //Конец
+
+    //Библиотека для логирования
+    compile 'ch.qos.logback:logback-classic:1.2.2'
+    //Конец логирования
+    //jdbc
+    compile 'mysql:mysql-connector-java:6.0.6'
+    //hibernate допполнительно нужен jdbc
+    compile 'org.hibernate:hibernate-core:5.2.9.Final'
+    //Конец БД
 }
 
 test {

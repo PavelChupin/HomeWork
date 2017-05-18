@@ -21,6 +21,10 @@ public class ApplicationManager {
 
     private String browser;
     private RegistrationHelper registrationHelper;
+    private FtpHelper ftp;
+    private MailHelper mailHelper;
+    private ReplasePasswordHelper replasePasswordHelper;
+    private DbHelper dbHelper;
 
 
     public ApplicationManager(String browser) {
@@ -50,6 +54,12 @@ public class ApplicationManager {
         return new HttpSession(this);
     }
 
+    //Инициализация помошника HttpSession
+    public FtpHelper ftp() {
+        if (ftp == null) {ftp = new FtpHelper(this);}
+        return ftp;
+    }
+
     public String getProperty(String key) {
         return properties.getProperty(key);
     }
@@ -62,6 +72,12 @@ public class ApplicationManager {
         return registrationHelper;
     }
 
+    public ReplasePasswordHelper replasePassword() {
+        if (replasePasswordHelper == null) {
+            replasePasswordHelper = new ReplasePasswordHelper(this);
+        }
+        return replasePasswordHelper;
+    }
     public WebDriver getDriver() {
         if (wd == null) {
             if (browser.equals(BrowserType.FIREFOX)) {
@@ -81,5 +97,20 @@ public class ApplicationManager {
             wd.get(properties.getProperty("web.baseUrl"));
         }
         return wd;
+    }
+
+    public MailHelper mail(){
+        if (mailHelper == null){
+            mailHelper = new MailHelper(this);
+        }
+        return mailHelper;
+    }
+
+    public DbHelper db(String typeConnection) {
+        if (dbHelper == null){
+            //dbHelper = new DbHelper(this);
+            dbHelper = new DbHelper(this,typeConnection);
+        }
+        return dbHelper;
     }
 }
