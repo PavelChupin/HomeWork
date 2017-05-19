@@ -23,7 +23,7 @@ public class ApplicationManager {
     private RegistrationHelper registrationHelper;
     private FtpHelper ftp;
     private MailHelper mailHelper;
-    private ReplasePasswordHelper replasePasswordHelper;
+   // private ReplasePasswordHelper replasePasswordHelper;
     private DbHelper dbHelper;
 
 
@@ -71,13 +71,14 @@ public class ApplicationManager {
         }
         return registrationHelper;
     }
-
+/*
     public ReplasePasswordHelper replasePassword() {
         if (replasePasswordHelper == null) {
             replasePasswordHelper = new ReplasePasswordHelper(this);
         }
         return replasePasswordHelper;
     }
+    */
     public WebDriver getDriver() {
         if (wd == null) {
             if (browser.equals(BrowserType.FIREFOX)) {

@@ -15,13 +15,53 @@ import javax.persistence.Table;
 @Table(name = "mantis_user_table") //Привязываем класс к конкретной таблице в базе
 public class User {
     @Column(name = "id")  //Привязка к столбцу таблици
-    private int id;
+    //private int id;
+    private int id = Integer.MAX_VALUE;
 
     @Column(name = "username")  //Привязка к столбцу таблици
     private String username;
 
     @Column(name = "email")  //Привязка к столбцу таблици
     private String email;
+
+
+    @Column(name = "password")  //Привязка к столбцу таблици
+    private String password;
+
+    public User withId(int id) {
+        this.id = id;
+        return this;
+    }
+
+    public User withUsername(String username) {
+        this.username = username;
+        return this;
+    }
+
+    public User withEmail(String email) {
+        this.email = email;
+        return this;
+    }
+
+    public User withPassword(String password) {
+        this.password = password;
+        return this;
+    }
+    public int getId() {
+        return id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
 
     @Override
     public String toString() {
@@ -51,33 +91,5 @@ public class User {
         result = 31 * result + (email != null ? email.hashCode() : 0);
         return result;
     }
-
-    public User withId(int id) {
-        this.id = id;
-        return this;
-    }
-
-    public User withUsername(String username) {
-        this.username = username;
-        return this;
-    }
-
-    public User withEmail(String email) {
-        this.email = email;
-        return this;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
 }
 

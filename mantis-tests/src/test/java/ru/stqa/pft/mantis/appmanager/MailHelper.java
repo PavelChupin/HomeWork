@@ -45,6 +45,10 @@ public class MailHelper {
         throw new Error("No mail :(");
     }
 
+    public void deletionMessagesToMail(){
+        wiser.getMessages().clear();
+    }
+
     public static MailMessage toModelMail(WiserMessage m){
         try{
             MimeMessage mm = m.getMimeMessage();

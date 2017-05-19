@@ -1,8 +1,11 @@
 package ru.stqa.pft.mantis.appmanager;
 
 import org.openqa.selenium.*;
+import ru.lanwen.verbalregex.VerbalExpression;
+import ru.stqa.pft.mantis.model.MailMessage;
 
 import java.io.File;
+import java.util.List;
 
 /**
  * Created by Summoner on 27.02.2017.
@@ -56,6 +59,14 @@ public class HelperBase {
             return false;
         }
         //return false;
+    }
+
+    //Метод выделения из письма ссылки
+    protected String findConfirmationLink(List<MailMessage> mailMessages, String email) {
+        MailMessage mailMessage = mailMessages.stream().filter((m) -> m.to.equals(email)).findFirst().get();
+        System.out.println(mailMessage);
+        VerbalExpression regex = VerbalExpression.regex().find("http://").nonSpace().oneOrMore().build();
+        return regex.getText(mailMessage.text);
     }
 /*
     protected WebElement findElement(By element) {

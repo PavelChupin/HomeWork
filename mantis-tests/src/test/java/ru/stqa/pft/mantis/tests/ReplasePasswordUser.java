@@ -17,9 +17,18 @@ import static org.testng.Assert.assertTrue;
  */
 public class ReplasePasswordUser extends TestBase {
     @BeforeMethod
-    public void startMailServer(){
+    public void startMailServer() throws IOException, MessagingException {
         //Запуск почтового сервера
         app.mail().start();
+        //Добавим пользователя если в базе нет ни одного
+        if (app.db("JDBC").usersJDBC().size() == 0) {
+            User user = new User().withUsername("user").withEmail("user@localhost.localdomain").withPassword("passworduser");
+            app.registration().registrationUser(user);
+        }
+
+        //Очистим почту, чтобы ждать только одно письмо с подтверждением изменения пароля
+        app.mail().deletionMessagesToMail();
+
     }
 
     @Test
@@ -28,30 +37,19 @@ public class ReplasePasswordUser extends TestBase {
         String newPassword = "password";
         //Получим из базы список пользователей используем JDBC, Hibernate почемуто не пожет установить коннект
         List<User> users = app.db("JDBC").usersJDBC();
-
-        System.out.println(users);
+        //System.out.println(users);
         //Найдем пользователя у которого будем изменять пароль
         User replaseUser = users.iterator().next();
-
         //System.out.println(users);
-        app.replasePassword().start(app.getProperty("web.adminLogin"),app.getProperty("web.adminPassword"));
-        app.replasePassword().goToManageUsersPage();
-        app.replasePassword().selectUser(replaseUser.getId());
-        app.replasePassword().clickButtonResetPassword();
-
-        //При смене пароля письмо приходит только одно
-        List<MailMessage> mailMessages = app.mail().waitForMail(1,10000);
-
-        //String confirmationLink = findConfirmationLink(mailMessages, replaseUser.getEmail());
-        //System.out.println(confirmationLink);
-        //Проходим по присланной на почту ссылке
-        app.replasePassword().finishReplasePassword(findConfirmationLink(mailMessages, replaseUser.getEmail()),newPassword);
-        assertTrue(app.newSession().login(replaseUser.getUsername(),newPassword));
+        app.registration().replasePassword(replaseUser, newPassword);
+        assertTrue(app.newSession().login(replaseUser.getUsername(), newPassword));
     }
 
 
+
+
     @AfterMethod(alwaysRun = true)
-    public void stopMailServer(){
+    public void stopMailServer() {
         //Остановка почтового сервера
         app.mail().stop();
     }

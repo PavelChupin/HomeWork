@@ -75,31 +75,6 @@ public class DbHelper {
             return null;
         }
     }
-/*
-    public Groups groups(){
-        //Чтение данных из базы
-        Session session = sessionFactory.openSession();
-        session.beginTransaction();
-        //Запрос к базе
-        List<GroupData> result = session.createQuery( "from GroupData" ).list();
-        session.getTransaction().commit();
-        //Закроем соединение
-        session.close();
-        return new Groups(result);
-    }
-*/
-/*
-    public Persons persons(){
-        //Чтение данных из базы
-        Session session = sessionFactory.openSession();
-        session.beginTransaction();
-        //Запрос к базе. Извлекаем из базы только не удаленные контакты deprecated = '0000-00-00'
-        List<PersonData> result = session.createQuery( "from PersonData where deprecated = '0000-00-00'" ).list();
-        session.getTransaction().commit();
-        //Закроем соединение
-        session.close();
-        return new Persons(result);
-    }
-    */
+
 }
 
