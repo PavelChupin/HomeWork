@@ -3,9 +3,11 @@ package ru.stqa.pft.mantis.tests;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import ru.stqa.pft.mantis.model.MailMessage;
 import ru.stqa.pft.mantis.model.User;
 
 import javax.mail.MessagingException;
+import java.awt.*;
 import java.io.IOException;
 
 import static org.testng.Assert.assertTrue;
@@ -14,7 +16,7 @@ import static org.testng.Assert.assertTrue;
  * Created by Summoner on 03.05.2017.
  */
 public class RegistrationTests extends TestBase {
-    @BeforeMethod
+    //@BeforeMethod
     public void startMailServer() {
         //Запуск почтового сервера
         app.mail().start();
@@ -34,7 +36,8 @@ public class RegistrationTests extends TestBase {
     }
 
 
-    @AfterMethod(alwaysRun = true)
+
+    //@AfterMethod(alwaysRun = true)
     public void stopMailServer() {
 
         //Остановка почтового сервера
