@@ -16,7 +16,7 @@ import static org.testng.Assert.assertTrue;
  * Created by Summoner on 03.05.2017.
  */
 public class RegistrationTests extends TestBase {
-    //@BeforeMethod
+    @BeforeMethod
     public void startMailServer() {
         //Запуск почтового сервера
         app.mail().start();
@@ -37,7 +37,7 @@ public class RegistrationTests extends TestBase {
 
 
 
-    //@AfterMethod(alwaysRun = true)
+    @AfterMethod(alwaysRun = true)
     public void stopMailServer() {
 
         //Остановка почтового сервера

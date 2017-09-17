@@ -50,13 +50,14 @@ public class RegistrationHelper extends HelperBase {
 
     public void registrationUser(User user) throws IOException, MessagingException {
         wd.get(app.getProperty("web.baseUrl") + "/signup_page.php"); //Переход на страницу регистрации
-        app.james().createUser(user.getUsername(), user.getEmail());
+
+        //app.james().createUser(user.getUsername(), user.getEmail());
         startRegistration(user.getUsername(), user.getEmail());
 
 
-        List<MailMessage> mailMessages = app.james().waitForMail(user.getUsername(), user.getEmail(),60000);
+        //List<MailMessage> mailMessages = app.james().waitForMail(user.getUsername(), user.getEmail(),60000);
 
-        //List<MailMessage> mailMessages = app.mail().waitForMail(2, 10000);
+        List<MailMessage> mailMessages = app.mail().waitForMail(2, 10000);
 
         //String confirmationLink = findConfirmationLink(mailMessages, user.getEmail());
         finish(findConfirmationLink(mailMessages, user.getEmail()), user.getPassword());
